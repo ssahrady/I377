@@ -21,4 +21,9 @@
         <url-pattern>*.html</url-pattern>
     </servlet-mapping>
 
+       <listener>
+        <listener-class>ee.project.FirstLaunch</listener-class>
+    </listener>
+
+
 </web-app>
