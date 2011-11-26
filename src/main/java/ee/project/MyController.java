@@ -20,7 +20,7 @@ public class MyController {
     @RequestMapping("/hello")
     public ModelAndView helloWorld() {
 
-        String message = "Hello World, Spring 3.0!";
+        String message = "HelloWorld, Spring 3.0!";
 
         //int a = getMyDAOImpl().makeObjekti_liik();
 
