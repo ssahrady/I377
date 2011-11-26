@@ -1,5 +1,6 @@
 package ee.project.dao;
 
+import ee.project.data.Objekti_liik;
 import ee.project.data.Testtable;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.DetachedCriteria;
@@ -11,6 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -20,38 +22,22 @@ import java.util.List;
  * Time: 6:30 PM
  * To change this template use File | Settings | File Templates.
  */
-public class MainDAOImpl  implements MainDAO {
-
-
-    private HibernateTemplate hibernateTemplate;
-
-
-    public void setSessionFactory(SessionFactory sessionFactory)
-
-    {
-
-        this.hibernateTemplate = new HibernateTemplate(sessionFactory);
-
-    }
-
+public class MainDAOImpl extends HibernateDaoSupport implements MainDAO {
 
 
     @Transactional
-    public int testing(){
+    public int makeObjekti_liik(Objekti_liik objekti_liik){
 
-
-//        DetachedCriteria dc = DetachedCriteria.forClass(Testtable.class);
-//        dc.add(Restrictions.eq("id", 5));
-//
-//        List res = hibernateTemplate.findByCriteria(dc);
-//        hibernateTemplate.flush();
-        Testtable testtable = new Testtable();
-        testtable.setVal("oujea");
-
-        hibernateTemplate.save(testtable);
-        hibernateTemplate.flush();
-
-
+        //Objekti_liik objekti_liik = new Objekti_liik();
+//        objekti_liik.setAvaja("Tambet Tool");
+//        objekti_liik.setAvatud(new Date());
+//        objekti_liik.setMuutja("Malle Lammas");
+//        objekti_liik.setMuudetud(new Date());
+//        objekti_liik.setSuletud(new Date());
+//        objekti_liik.setSulgeja("President Karu");
+//        objekti_liik.setNimetus("Pall");
+        objekti_liik.setObjekt_liik_id(6);
+        getHibernateTemplate().save(objekti_liik);
 
         return 1;
 

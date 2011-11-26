@@ -1,5 +1,7 @@
 package ee.project.dao;
 
+import ee.project.data.Objekti_liik;
+
 /**
  * Created by IntelliJ IDEA.
  * User: root
@@ -9,5 +11,5 @@ package ee.project.dao;
  */
 public interface MainDAO {
 
-    public int testing();
+    public int makeObjekti_liik(Objekti_liik objekti_liik);
 }
