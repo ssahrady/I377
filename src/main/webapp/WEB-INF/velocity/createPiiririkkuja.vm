@@ -3,32 +3,32 @@
             <form action="/piiririkkuja.html" method="POST">
                 <div style="padding: 7px;">
                     <div class="form_title"><label for="isikukood">Isikukood</label></div>
-                    <div class="left"><input class="text_field" name ="isikukood" id ="isikukood"></div>
+                    <div class="left"><input type="text" name ="isikukood" id ="isikukood"></div>
                     <div class="clear"></div>
                 </div>
 
                 <div style="padding: 7px;">
                     <div class="form_title"><label for="eesnimi">Eesnimi</label></div>
-                    <div class="left"><input class="text_field" name ="eesnimi" id ="eesnimi"></div>
+                    <div class="left"><input type="text" name ="eesnimi" id ="eesnimi"></div>
                     <div class="clear"></div>
                 </div>
 
                 <div style="padding: 7px;">
                     <div class="form_title"><label for="perek_nimi">Perekonnanimi</label></div>
-                    <div class="left"><input class="text_field" name ="perek_nimi" id ="perek_nimi"></div>
+                    <div class="left"><input type="text" name ="perek_nimi" id ="perek_nimi"></div>
                     <div class="clear"></div>
                 </div>
 
                 <div style="padding: 7px;">
                     <div class="form_title"><label for="synniaeg">Sünniaeg</label></div>
-                    <div class="left"><input class="text_field" name ="synniaeg" id ="synniaeg"></div>
+                    <div class="left"><input type="text" name ="synniaeg" id ="synniaeg"></div>
                     <div class="clear"></div>
                 </div>
 
                 <div style="padding: 7px;">
                     <div class="form_title"><label for="sugu">Sugu</label></div>
                     <div class="left">
-                        <select class="text_field" name ="sugu" id ="sugu">
+                        <select class="form_item" name ="sugu" id ="sugu">
                             <option name="m">Mees</option>
                             <option name="n">Naine</option>
                         </select>
@@ -38,7 +38,7 @@
 
                 <div style="padding: 7px;">
                     <div class="form_title"><label for="komm">Kommentaar</label></div>
-                    <div class="left"><textarea style="width: 180px; height: 80px;" name ="kommentaar" id ="komm"></textarea></div>
+                    <div class="left"><textarea class="form_item" style="height: 80px;" name ="kommentaar" id ="komm"></textarea></div>
                     <div class="clear"></div>
                 </div>
 
@@ -50,11 +50,10 @@
                 <input name ="suletud" type="hidden" value="19/11/2011">
                 <input name ="sulgeja" type="hidden" value="Ants Sulgurlihas">
                 <input name ="nimetus" type="hidden" value="Nimeta Baar">
-                <input type="submit" value="Submit" />
             </form>
         </div>
         <div style="float:left; padding: 10px;">
-            <div>
+            <div class="kodakondsused">
                 Kodakondsused
                 <table class="piiririikuja1">
                     <tr>
@@ -62,8 +61,8 @@
                         <th class="right">Isikukood</th>
                     </tr>
                     <tr>
-                        <td class="middlerow_left">EST</td>
-                        <td class="middlerow_right">
+                        <td class="left">EST</td>
+                        <td class="right">
                             <div class="left">123456789</div>
                             <div class="right">
                                 <form>
@@ -75,9 +74,9 @@
                         </td>
                     </tr>
                     <tr>
-                        <td class="middlerow_left">RUS</td>
-                        <td class="middlerow_right">
-                            <div class="left">123456789</div>
+                        <td class="left">RUS</td>
+                        <td class="right">
+                            <div class="left">987654321</div>
                             <div class="right">
                                 <form>
                                     <input type="submit" name="action" value="Muuda">
@@ -88,10 +87,17 @@
                         </td>
                     </tr>
                 </table>
+                <div class="right" style="margin: 4px;">
+                    <form>
+                        <input type="submit" name="action" value="Lisa">
+                    </form>
+                </div>
+                <div class="clear"></div>
             </div>
-            <div class="right" style="margin: 4px;">
+            <div class="bottom">
                 <form>
-                    <input type="submit" name="action" value="Lisa">
+                    <input type="submit" name="action" value="Salvesta">
+                    <input type="submit" name="action" value="Loobu">
                 </form>
             </div>
             <div class="clear"></div>
