@@ -1,16 +1,17 @@
 package ee.project;
 
 import ee.project.dao.MainDAO;
-import ee.project.data.Objekt;
-import ee.project.data.Objekti_liik;
-import ee.project.data.Piiririkkuja;
+import ee.project.data.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+
+import java.util.Date;
 
 @Controller
 public class MyController {
@@ -20,6 +21,34 @@ public class MyController {
 
     @RequestMapping(value = "/index")
     public String index (){
+
+//        Riik riik = new Riik();
+//        riik.setANSI_kood("EE");
+//        riik.setISO_kood("EST");
+//        riik.setAvaja("asd");
+//        riik.setAvatud(new Date());
+//        riik.setMuudetud(new Date());
+//        riik.setMuutja("adsds");
+//        riik.setSulgeja("asd");
+//        riik.setSuletud(new Date());
+//
+//        myDAOImpl.saveRiik(riik);
+//
+//        Kodakondsus kodakondsus = new Kodakondsus();
+//        kodakondsus.setAlates(new Date());
+//        kodakondsus.setKuni(new Date());
+//        kodakondsus.setIsikukood("38911180247");
+//        kodakondsus.setPiiririkkuja_ID(1);
+//        kodakondsus.setRiik_ID(riik.getRiik_ID());
+//        kodakondsus.setAvaja("jarko");
+//        kodakondsus.setAvatud(new Date());
+//        kodakondsus.setMuudetud(new Date());
+//        kodakondsus.setMuutja("asd");
+//        kodakondsus.setSuletud(new Date());
+//        kodakondsus.setSulgeja("jarks");
+//        myDAOImpl.saveKodakondsus(kodakondsus);
+
+
         return "index";
     }
 
@@ -64,15 +93,30 @@ public class MyController {
     public ModelAndView createPiiririkkuja() {
 
         String message = "Hello World, Spring 3.0!";
+        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
         String now = "Tere";
         return new ModelAndView("createPiiririkkuja", "now", now);
     }
     @RequestMapping(value = "/piiririkkuja", method = RequestMethod.POST)
-    public void savePiiririkkuja(@ModelAttribute("piiririkkuja")Piiririkkuja piiririkkuja){
+    public String savePiiririkkuja(@ModelAttribute("piiririkkuja")Piiririkkuja piiririkkuja){
 
         int a = getMyDAOImpl().savePiiririkkuja(piiririkkuja);
+        Kodakondsus kodakondsus = new Kodakondsus();
+        kodakondsus.setAlates(new Date());
+        kodakondsus.setKuni(new Date());
+        kodakondsus.setIsikukood("38911180247");
+        kodakondsus.setPiiririkkuja_ID(piiririkkuja.getPiiririkkuja_ID());
+        kodakondsus.setRiik_ID(1);
+        kodakondsus.setAvaja("jarko");
+        kodakondsus.setAvatud(new Date());
+        kodakondsus.setMuudetud(new Date());
+        kodakondsus.setMuutja("asd");
+        kodakondsus.setSuletud(new Date());
+        kodakondsus.setSulgeja("jarks");
+        myDAOImpl.saveKodakondsus(kodakondsus);
 
+        return "redirect:/piiririkkuja.html";
     }
 
     public MainDAO getMyDAOImpl() {

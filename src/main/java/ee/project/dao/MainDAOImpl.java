@@ -1,9 +1,6 @@
 package ee.project.dao;
 
-import ee.project.data.Objekt;
-import ee.project.data.Objekti_liik;
-import ee.project.data.Piiririkkuja;
-import ee.project.data.Testtable;
+import ee.project.data.*;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.DetachedCriteria;
 import org.hibernate.criterion.Restrictions;
@@ -51,6 +48,17 @@ public class MainDAOImpl extends HibernateDaoSupport implements MainDAO {
         getHibernateTemplate().save(piiririkkuja);
 
         return 1;
+    }
+    @Transactional
+    public void saveRiik(Riik riik){
+
+        getHibernateTemplate().save(riik);
+
+    }
+
+    public void saveKodakondsus(Kodakondsus kodakondsus){
+
+        getHibernateTemplate().save(kodakondsus);
     }
 
 }

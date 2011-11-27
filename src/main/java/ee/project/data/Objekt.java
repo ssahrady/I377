@@ -13,7 +13,7 @@ public class Objekt extends OpenableCloseable{
     private int objekt_liik_id;
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name = "OBJEKT_ID", nullable = false)
     public int getObjekt_ID() {
         return objekt_ID;

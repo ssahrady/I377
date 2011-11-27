@@ -4,12 +4,28 @@
        xmlns:p="http://www.springframework.org/schema/p"
        xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
        xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:security="http://www.springframework.org/schema/security"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
 http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
 http://www.springframework.org/schema/context
 http://www.springframework.org/schema/context/spring-context-3.0.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd
 http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd
+http://www.springframework.org/schema/security
+http://www.springframework.org/schema/security/spring-security-3.0.3.xsd
 ">
+
+    <security:http auto-config="true">
+         <security:intercept-url pattern="/**" access="ROLE_USER" />
+    </security:http>
+
+      <security:authentication-manager>
+    <security:authentication-provider>
+      <security:user-service>
+        <security:user name="jimi" password="jimispassword" authorities="ROLE_USER, ROLE_ADMIN" />
+        <security:user name="bob" password="bobspassword" authorities="ROLE_USER" />
+      </security:user-service>
+    </security:authentication-provider>
+  </security:authentication-manager>
 
     <context:component-scan
             base-package="ee.project"/>
@@ -60,6 +76,8 @@ http://www.springframework.org/schema/mvc http://www.springframework.org/schema/
                 <value>ee.project.data.Objekti_liik</value>
                 <value>ee.project.data.Objekt</value>
                 <value>ee.project.data.Piiririkkuja</value>
+                <value>ee.project.data.Riik</value>
+                <value>ee.project.data.Kodakondsus</value>
             </list>
 
         </property>
@@ -84,7 +102,5 @@ http://www.springframework.org/schema/mvc http://www.springframework.org/schema/
     <bean id="myDAO" class="ee.project.dao.MainDAOImpl">
     <property name="sessionFactory" ref="mySessionFactory" />
     </bean>
-
-
 
 </beans>

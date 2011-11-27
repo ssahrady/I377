@@ -31,7 +31,7 @@ public class Objekti_liik extends OpenableCloseable{
     }
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name = "OBJEKT_LIIK_ID")
     public int getObjekt_liik_id() {
         return objekt_liik_id;

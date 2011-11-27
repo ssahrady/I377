@@ -17,7 +17,7 @@ public class Piiririkkuja extends OpenableCloseable{
 
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name = "PIIRIRIKKUJA_ID")
     public int getPiiririkkuja_ID() {
         return piiririkkuja_ID;
