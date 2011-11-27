@@ -18,6 +18,10 @@ public class MyController {
     @Autowired
     private MainDAO myDAOImpl;
 
+    @RequestMapping(value = "/index")
+    public String index (){
+        return "index";
+    }
 
     @RequestMapping(value = "/objekti_liik", method = RequestMethod.GET)
     public String helloWorld(ModelMap modelMap) {
