@@ -42,7 +42,7 @@
                     <div class="clear"></div>
                 </div>
 
-                <input name ="objekt_id" type="hidden">
+                <input name ="objekt_ID" type="hidden">
                 <input name ="avaja" type="hidden">
                 <input name ="avatud" type="hidden">
                 <input name ="muutja" type="hidden">
@@ -54,12 +54,47 @@
             </form>
         </div>
         <div style="float:left; padding: 10px;">
-            Kodakondsused
-            <table class="piiririikuja1">
-                <tr>
-                    <th class="left">Riik</th>
-                    <th class="right">Isikukood</th>
-                </tr>
-            </table>
+            <div>
+                Kodakondsused
+                <table class="piiririikuja1">
+                    <tr>
+                        <th class="left">Riik</th>
+                        <th class="right">Isikukood</th>
+                    </tr>
+                    <tr>
+                        <td class="middlerow_left">EST</td>
+                        <td class="middlerow_right">
+                            <div class="left">123456789</div>
+                            <div class="right">
+                                <form>
+                                    <input type="submit" name="action" value="Muuda">
+                                    <input type="submit" name="action" value="Kustuta">
+                                </form>
+                            </div>
+                            <div class="clear"></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="middlerow_left">RUS</td>
+                        <td class="middlerow_right">
+                            <div class="left">123456789</div>
+                            <div class="right">
+                                <form>
+                                    <input type="submit" name="action" value="Muuda">
+                                    <input type="submit" name="action" value="Kustuta">
+                                </form>
+                            </div>
+                            <div class="clear"></div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="right" style="margin: 4px;">
+                <form>
+                    <input type="submit" name="action" value="Lisa">
+                </form>
+            </div>
+            <div class="clear"></div>
         </div>
+        <div class="clear"></div>
 #htmlfooter()
