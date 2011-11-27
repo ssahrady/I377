@@ -18,8 +18,16 @@ div.form_title{
     float:left;
     width: 120px;
 }
-input.text_field, select.text_field{
+input[type="text"], .form_item{
     width: 180px;
+    border: 1px solid #000;
+    font-family: "Comic Sans MS";
+}
+input[type="submit"]{
+    background-color: #CCCCCC;
+    border: 1px solid #000;
+    margin: 0px;
+    font-family: "Comic Sans MS";
 }
 table.piiririikuja1{
     border-collapse: collapse;
@@ -41,12 +49,20 @@ th.right{
     width: 220px;
     text-align: left;
 }
-td.middlerow_left{
+td.left{
     border-left:  1px solid #000;
     border-bottom: 1px solid #000;
 }
-td.middlerow_right{
+td.right{
     border-left:  1px solid #000;
     border-bottom: 1px solid #000;
     border-right: 1px solid #000;
+}
+div.bottom{
+    position: relative;
+    bottom: 0px;
+    float: right;
+}
+div.kodakondsused{
+    min-height: 239px;
 }
