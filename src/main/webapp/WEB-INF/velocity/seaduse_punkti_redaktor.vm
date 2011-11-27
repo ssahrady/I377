@@ -1,44 +1,49 @@
 #htmlheader()
         <div style="float:left;">
-            <form action="/piiririkkuja.html" method="POST" id="userdata">
+            <form action="/seaduse_punkti_redaktor.html" method="POST" id="userdata">
                 <div style="padding: 7px;">
-                    <div class="form_title"><label for="isikukood">Isikukood</label></div>
-                    <div class="left"><input type="text" name ="isikukood" id ="isikukood"></div>
+                    <div class="form_title"><label for="paragrahv">Paragrahv</label></div>
+                    <div class="left"><input type="text" name ="paragrahv" id ="paragrahv"></div>
                     <div class="clear"></div>
                 </div>
 
                 <div style="padding: 7px;">
-                    <div class="form_title"><label for="eesnimi">Eesnimi</label></div>
-                    <div class="left"><input type="text" name ="eesnimi" id ="eesnimi"></div>
+                    <div class="form_title"><label for="pais">Päis</label></div>
+                    <div class="left"><input type="text" name ="pais" id ="pais"></div>
                     <div class="clear"></div>
                 </div>
 
                 <div style="padding: 7px;">
-                    <div class="form_title"><label for="perek_nimi">Perekonnanimi</label></div>
-                    <div class="left"><input type="text" name ="perek_nimi" id ="perek_nimi"></div>
-                    <div class="clear"></div>
-                </div>
-
-                <div style="padding: 7px;">
-                    <div class="form_title"><label for="synniaeg">Sünniaeg</label></div>
-                    <div class="left"><input type="text" name ="synniaeg" id ="synniaeg"></div>
-                    <div class="clear"></div>
-                </div>
-
-                <div style="padding: 7px;">
-                    <div class="form_title"><label for="sugu">Sugu</label></div>
-                    <div class="left">
-                        <select class="form_item" name ="sugu" id ="sugu">
-                            <option name="m">Mees</option>
-                            <option name="n">Naine</option>
-                        </select>
-                    </div>
+                    <div class="form_title"><label for="tekst">Tekst</label></div>
+                    <div class="left"><textarea class="form_item" style="height: 80px;" name ="tekst" id ="tekst"></textarea></div>
                     <div class="clear"></div>
                 </div>
 
                 <div style="padding: 7px;">
                     <div class="form_title"><label for="komm">Kommentaar</label></div>
                     <div class="left"><textarea class="form_item" style="height: 80px;" name ="kommentaar" id ="komm"></textarea></div>
+                    <div class="clear"></div>
+                </div>
+
+                <div style="padding: 7px;">
+                    <div class="form_title"><label for="from">Kehtiv alates</label></div>
+                    <div class="left"><input type="text" name ="from" id ="from"></div>
+                    <div class="clear"></div>
+                </div>
+
+                <div style="padding: 7px;">
+                    <div class="form_title"><label for="to">Kehtiv kuni</label></div>
+                    <div class="left"><input type="text" name ="to" id ="to"></div>
+                    <div class="clear"></div>
+                </div>
+
+                <div style="padding: 7px;">
+                    <div class="form_title"><label for="top">Ülem punkt</label></div>
+                    <div class="left">
+                        <select class="form_item" name ="top" id ="top">
+                            <option name="m">Ebaseaduslikud toimingud</option>
+                        </select>
+                    </div>
                     <div class="clear"></div>
                 </div>
 
@@ -53,17 +58,17 @@
             </form>
         </div>
         <div style="float:left; padding: 10px;">
-            <div class="kodakondsused">
-                Kodakondsused
+            <div class="alampunktid">
+                Alampunktid
                 <table class="piiririikuja1">
                     <tr>
-                        <th class="left">Riik</th>
-                        <th class="right">Isikukood</th>
+                        <th class="left">§</th>
+                        <th class="right">Päis</th>
                     </tr>
                     <tr>
-                        <td class="left">EST</td>
+                        <td class="left">8</td>
                         <td class="right">
-                            <div class="left">123456789</div>
+                            <div class="left">Sigadus 8.1.2</div>
                             <div class="right">
                                 <form>
                                     <input type="submit" name="action" value="Muuda">
@@ -74,9 +79,9 @@
                         </td>
                     </tr>
                     <tr>
-                        <td class="left">RUS</td>
+                        <td class="left">8</td>
                         <td class="right">
-                            <div class="left">987654321</div>
+                            <div class="left">Sigadus 8.1.3</div>
                             <div class="right">
                                 <form>
                                     <input type="submit" name="action" value="Muuda">
@@ -89,8 +94,8 @@
                 </table>
                 <div class="right" style="margin: 4px;">
                     <form>
-                        <input type="button" onclick="document.forms['userdata'].submit();" value="Lisa">
-                    </form>
+                    <input type="button" onclick="document.forms['userdata'].submit();" value="Lisa">
+                        </form>
                 </div>
                 <div class="clear"></div>
             </div>

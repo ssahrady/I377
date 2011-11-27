@@ -60,9 +60,11 @@ td.right{
 }
 div.bottom{
     position: relative;
-    bottom: 0px;
     float: right;
 }
 div.kodakondsused{
     min-height: 239px;
+}
+div.alampunktid{
+    min-height: 337px;
 }
