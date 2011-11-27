@@ -23,7 +23,7 @@ input[type="text"], .form_item{
     border: 1px solid #000;
     font-family: "Comic Sans MS";
 }
-input[type="submit"]{
+input[type="submit"], input[type="button"]{
     background-color: #CCCCCC;
     border: 1px solid #000;
     margin: 0px;
