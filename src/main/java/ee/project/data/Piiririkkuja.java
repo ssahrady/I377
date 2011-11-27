@@ -5,17 +5,10 @@ import java.util.Date;
 
 @Entity
 @Table(name = "PIIRIRIKKUJA")
-public class Piiririkkuja {
+public class Piiririkkuja extends OpenableCloseable{
 
     private int piiririkkuja_ID;
-    private String avaja;
-    private Date avatud;
-    private String muutja;
-    private Date muudetud;
-    private String sulgeja;
-    private Date suletud;
     private String isikukood;
-    private String kommentaar;
     private String eesnimi;
     private String perek_nimi;
     private String sugu;
@@ -34,60 +27,6 @@ public class Piiririkkuja {
         this.piiririkkuja_ID = piiririkkuja_ID;
     }
 
-    @Column(name = "AVAJA", nullable = false)
-    public String getAvaja() {
-        return avaja;
-    }
-
-    public void setAvaja(String avaja) {
-        this.avaja = avaja;
-    }
-
-    @Column(name = "AVATUD", nullable = false)
-    public Date getAvatud() {
-        return avatud;
-    }
-
-    public void setAvatud(Date avatud) {
-        this.avatud = avatud;
-    }
-
-    @Column(name = "MUUTJA",nullable = false)
-    public String getMuutja() {
-        return muutja;
-    }
-
-    public void setMuutja(String muutja) {
-        this.muutja = muutja;
-    }
-
-    @Column(name = "MUUDETUD", nullable = false)
-    public Date getMuudetud() {
-        return muudetud;
-    }
-
-    public void setMuudetud(Date muudetud) {
-        this.muudetud = muudetud;
-    }
-
-    @Column(name = "SULGEJA")
-    public String getSulgeja() {
-        return sulgeja;
-    }
-
-    public void setSulgeja(String sulgeja) {
-        this.sulgeja = sulgeja;
-    }
-
-    @Column(name = "SULETUD", nullable = false)
-    public Date getSuletud() {
-        return suletud;
-    }
-
-    public void setSuletud(Date suletud) {
-        this.suletud = suletud;
-    }
-
     @Column(name = "ISIKUKOOD")
     public String getIsikukood() {
         return isikukood;
@@ -95,15 +34,6 @@ public class Piiririkkuja {
 
     public void setIsikukood(String isikukood) {
         this.isikukood = isikukood;
-    }
-
-    @Column(name = "KOMMENTAAR")
-    public String getKommentaar() {
-        return kommentaar;
-    }
-
-    public void setKommentaar(String kommentaar) {
-        this.kommentaar = kommentaar;
     }
 
     @Column(name = "EESNIMI")

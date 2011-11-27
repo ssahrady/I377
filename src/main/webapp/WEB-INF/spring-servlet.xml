@@ -11,6 +11,9 @@ http://www.springframework.org/schema/context/spring-context-3.0.xsd http://www.
     <context:component-scan
             base-package="ee.project"/>
 
+    <bean class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping" />
+    <bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter" />
+
 <bean id="velocityConfig" class="org.springframework.web.servlet.view.velocity.VelocityConfigurer">
   <property name="resourceLoaderPath" value="/WEB-INF/velocity/"/>
 </bean>
@@ -40,6 +43,8 @@ http://www.springframework.org/schema/context/spring-context-3.0.xsd http://www.
             <list>
                 <value>ee.project.data.Testtable</value>
                 <value>ee.project.data.Objekti_liik</value>
+                <value>ee.project.data.Objekt</value>
+                <value>ee.project.data.Piiririkkuja</value>
             </list>
 
         </property>

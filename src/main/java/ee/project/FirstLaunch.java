@@ -32,6 +32,7 @@ public class FirstLaunch implements ServletContextListener {
 //            PreparedStatement statement = c.prepareStatement(Piir.SQL);
 //            statement.executeUpdate();
 //            c.commit();
+
 //
 //        } catch(Exception e){
 //

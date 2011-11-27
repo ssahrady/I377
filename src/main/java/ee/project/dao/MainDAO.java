@@ -1,6 +1,8 @@
 package ee.project.dao;
 
+import ee.project.data.Objekt;
 import ee.project.data.Objekti_liik;
+import ee.project.data.Piiririkkuja;
 
 /**
  * Created by IntelliJ IDEA.
@@ -11,5 +13,7 @@ import ee.project.data.Objekti_liik;
  */
 public interface MainDAO {
 
-    public int makeObjekti_liik(Objekti_liik objekti_liik);
+    public int saveObjekti_liik(Objekti_liik objekti_liik);
+    public int saveObjekt(Objekt objekt);
+    public int savePiiririkkuja(Piiririkkuja piiririkkuja);
 }

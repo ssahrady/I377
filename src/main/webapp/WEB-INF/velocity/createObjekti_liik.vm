@@ -1,0 +1,14 @@
+<p>Greetings, it is now ${now}
+
+    Tee objekti liik:
+    <form action="/objekti_liik.html" method="POST">
+
+    <label for="avaja">Avaja: </label> <input name ="avaja" id ="avaja">
+    <label for="avatud">Avatud: </label><input name ="avatud" id ="avatud">
+    <label for="muutja">Muutja: </label><input name ="muutja" id ="muutja">
+    <label for="muudetud">Muudetud: </label><input name ="muudetud" id ="muudetud">
+    <label for="suletud">Suletud: </label><input name ="suletud" id ="suletud">
+    <label for="sulgeja">Sulgeja: </label><input name ="sulgeja" id ="sulgeja">
+    <label for="nimetus">Nimetus: </label><input name ="nimetus" id ="nimetus">
+    <input type="submit" value="Submit" />
+    </form>

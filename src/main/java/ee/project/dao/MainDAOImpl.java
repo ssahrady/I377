@@ -1,6 +1,8 @@
 package ee.project.dao;
 
+import ee.project.data.Objekt;
 import ee.project.data.Objekti_liik;
+import ee.project.data.Piiririkkuja;
 import ee.project.data.Testtable;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.DetachedCriteria;
@@ -26,21 +28,29 @@ public class MainDAOImpl extends HibernateDaoSupport implements MainDAO {
 
 
     @Transactional
-    public int makeObjekti_liik(Objekti_liik objekti_liik){
+    public int saveObjekti_liik(Objekti_liik objekti_liik){
 
-        //Objekti_liik objekti_liik = new Objekti_liik();
-//        objekti_liik.setAvaja("Tambet Tool");
-//        objekti_liik.setAvatud(new Date());
-//        objekti_liik.setMuutja("Malle Lammas");
-//        objekti_liik.setMuudetud(new Date());
-//        objekti_liik.setSuletud(new Date());
-//        objekti_liik.setSulgeja("President Karu");
-//        objekti_liik.setNimetus("Pall");
-        objekti_liik.setObjekt_liik_id(6);
+        //objekti_liik.setObjekt_liik_id(6);
         getHibernateTemplate().save(objekti_liik);
 
         return 1;
 
+    }
+        @Transactional
+    public int saveObjekt(Objekt objekt){
+
+        //objekt.setObjekt_ID(1);
+        getHibernateTemplate().save(objekt);
+
+        return 1;
+
+    }
+
+    @Transactional
+    public int savePiiririkkuja(Piiririkkuja piiririkkuja){
+        getHibernateTemplate().save(piiririkkuja);
+
+        return 1;
     }
 
 }
