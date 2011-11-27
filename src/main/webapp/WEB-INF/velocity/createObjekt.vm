@@ -10,3 +10,5 @@ Tee objekti liik:
     <label for="nimetus">Nimetus: </label><input name ="nimetus" id ="nimetus">
     <input type="submit" value="Submit" />
     </form>
+
+

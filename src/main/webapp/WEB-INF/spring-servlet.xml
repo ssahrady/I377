@@ -23,12 +23,18 @@ http://www.springframework.org/schema/mvc http://www.springframework.org/schema/
 
 <bean id="velocityConfig" class="org.springframework.web.servlet.view.velocity.VelocityConfigurer">
   <property name="resourceLoaderPath" value="/WEB-INF/velocity/"/>
+    <property name="velocityProperties">
+        <props>
+            <prop key="velocimacro.library">/base_macro.vm</prop>
+        </props>
+    </property>
 </bean>
 
 <bean id="viewResolver" class="org.springframework.web.servlet.view.velocity.VelocityViewResolver">
   <property name="cache" value="true"/>
   <property name="prefix" value=""/>
   <property name="suffix" value=".vm"/>
+
 
   <!-- if you want to use the Spring Velocity macros, set this property to true -->
   <property name="exposeSpringMacroHelpers" value="true"/>
