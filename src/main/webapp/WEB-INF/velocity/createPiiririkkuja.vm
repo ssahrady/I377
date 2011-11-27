@@ -1,20 +1,64 @@
-<p>Greetings, it is now ${now}
-
-    Tee objekti liik:
+<link rel="stylesheet" href="res/stiil.css" />
+<div style="float:left;">
     <form action="/piiririkkuja.html" method="POST">
+        <div style="padding: 7px;">
+            <div class="form_title"><label for="isikukood">Isikukood</label></div>
+            <div class="left"><input class="text_field" name ="isikukood" id ="isikukood"></div>
+            <div class="clear"></div>
+        </div>
 
-    <label for="isikukood">Isikukood: </label> <input name ="isikukood" id ="isikukood">
-    <label for="eesnimi">Eesnimi: </label> <input name ="eesnimi" id ="eesnimi">
-    <label for="perek_nimi">Perekonnanimi: </label> <input name ="perek_nimi" id ="perek_nimi">
-    <label for="sugu">Sugu: </label> <input name ="sugu" id ="sugu">
-    <label for="synniaeg">Synniaeg: </label> <input name ="synniaeg" id ="synniaeg">
-    <label for="objekt_id">Objekt_id: </label> <input name ="objekt_id" id ="objekt_id">
-    <label for="avaja">Avaja: </label> <input name ="avaja" id ="avaja">
-    <label for="avatud">Avatud: </label><input name ="avatud" id ="avatud">
-    <label for="muutja">Muutja: </label><input name ="muutja" id ="muutja">
-    <label for="muudetud">Muudetud: </label><input name ="muudetud" id ="muudetud">
-    <label for="suletud">Suletud: </label><input name ="suletud" id ="suletud">
-    <label for="sulgeja">Sulgeja: </label><input name ="sulgeja" id ="sulgeja">
-    <label for="nimetus">Nimetus: </label><input name ="nimetus" id ="nimetus">
-    <input type="submit" value="Submit" />
+        <div style="padding: 7px;">
+            <div class="form_title"><label for="eesnimi">Eesnimi</label></div>
+            <div class="left"><input class="text_field" name ="eesnimi" id ="eesnimi"></div>
+            <div class="clear"></div>
+        </div>
+
+        <div style="padding: 7px;">
+            <div class="form_title"><label for="perek_nimi">Perekonnanimi</label></div>
+            <div class="left"><input class="text_field" name ="perek_nimi" id ="perek_nimi"></div>
+            <div class="clear"></div>
+        </div>
+
+        <div style="padding: 7px;">
+            <div class="form_title"><label for="synniaeg">Sünniaeg</label></div>
+            <div class="left"><input class="text_field" name ="synniaeg" id ="synniaeg"></div>
+            <div class="clear"></div>
+        </div>
+
+        <div style="padding: 7px;">
+            <div class="form_title"><label for="sugu">Sugu</label></div>
+            <div class="left">
+                <select class="text_field" name ="sugu" id ="sugu">
+                    <option name="m">Mees</option>
+                    <option name="n">Naine</option>
+                </select>
+            </div>
+            <div class="clear"></div>
+        </div>
+
+        <div style="padding: 7px;">
+            <div class="form_title"><label for="komm">Kommentaar</label></div>
+            <div class="left"><textarea style="width: 180px; height: 80px;" name ="kommentaar" id ="komm"></textarea></div>
+            <div class="clear"></div>
+        </div>
+
+        <input name ="objekt_id" type="hidden">
+        <input name ="avaja" type="hidden">
+        <input name ="avatud" type="hidden">
+        <input name ="muutja" type="hidden">
+        <input name ="muudetud" type="hidden">
+        <input name ="suletud" type="hidden">
+        <input name ="sulgeja" type="hidden">
+        <input name ="nimetus" type="hidden">
+        <input type="submit" value="Submit" />
     </form>
+</div>
+<div style="float:left; padding: 10px;">
+    Kodakondsused
+    <table class="piiririikuja1">
+        <tr>
+            <th class="left">Riik</th>
+            <th class="right">Isikukood</th>
+        </tr>
+    </table>
+</div>
