@@ -18,7 +18,7 @@ div.form_title{
     float:left;
     width: 120px;
 }
-input[type="text"], .form_item{
+input[type="text"], .form_itm{
     width: 180px;
     border: 1px solid #000;
     font-family: "Comic Sans MS";
@@ -29,9 +29,12 @@ input[type="submit"], input[type="button"]{
     margin: 0px;
     font-family: "Comic Sans MS";
 }
-table.piiririikuja1{
+table.tabel{
     border-collapse: collapse;
     border-spacing: 0px;
+}
+div.form_item{
+    padding: 7px;
 }
 th.left{
     background-color: #CCCCCC;
@@ -67,4 +70,7 @@ div.kodakondsused{
 }
 div.alampunktid{
     min-height: 337px;
+}
+div.punktid{
+    min-height: 203px;
 }

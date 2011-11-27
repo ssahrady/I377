@@ -1,21 +1,15 @@
 #htmlheader()
         <div style="float:left;">
-            <form action="/seaduse_punkti_redaktor.html" method="POST" id="userdata">
+            <form action="/seaduse_redaktor.html" method="POST" id="userdata">
                 <div class="form_item">
-                    <div class="form_title"><label for="paragrahv">Paragrahv</label></div>
-                    <div class="left"><input type="text" name ="paragrahv" id ="paragrahv"></div>
+                    <div class="form_title"><label for="kood">Kood</label></div>
+                    <div class="left"><input type="text" name ="kood" id ="kood"></div>
                     <div class="clear"></div>
                 </div>
 
                 <div class="form_item">
-                    <div class="form_title"><label for="pais">Päis</label></div>
-                    <div class="left"><input type="text" name ="pais" id ="pais"></div>
-                    <div class="clear"></div>
-                </div>
-
-                <div class="form_item">
-                    <div class="form_title"><label for="tekst">Tekst</label></div>
-                    <div class="left"><textarea class="form_itm" style="height: 80px;" name ="tekst" id ="tekst"></textarea></div>
+                    <div class="form_title"><label for="nimetus">Nimetus</label></div>
+                    <div class="left"><input type="text" name ="nimetus" id ="nimetus"></div>
                     <div class="clear"></div>
                 </div>
 
@@ -37,16 +31,6 @@
                     <div class="clear"></div>
                 </div>
 
-                <div class="form_item">
-                    <div class="form_title"><label for="top">Ülem punkt</label></div>
-                    <div class="left">
-                        <select class="form_itm" name ="top" id ="top">
-                            <option name="m">Ebaseaduslikud toimingud</option>
-                        </select>
-                    </div>
-                    <div class="clear"></div>
-                </div>
-
                 <input name ="objekt_ID" type="hidden" value="10">
                 <input name ="avaja" type="hidden" value="Jarko Kasemaa">
                 <input name ="avatud" type="hidden" value="19/11/2011">
@@ -58,8 +42,8 @@
             </form>
         </div>
         <div style="float:left; padding: 10px;">
-            <div class="alampunktid">
-                Alampunktid
+            <div class="punktid">
+                Punktid
                 <table class="tabel">
                     <tr>
                         <th class="left">§</th>
@@ -68,7 +52,7 @@
                     <tr>
                         <td class="left">8</td>
                         <td class="right">
-                            <div class="left">Sigadus 8.1.2</div>
+                            <div class="left">Sigadus 1</div>
                             <div class="right">
                                 <form>
                                     <input type="submit" name="action" value="Muuda">
@@ -81,7 +65,7 @@
                     <tr>
                         <td class="left">8</td>
                         <td class="right">
-                            <div class="left">Sigadus 8.1.3</div>
+                            <div class="left">Sigadus 2</div>
                             <div class="right">
                                 <form>
                                     <input type="submit" name="action" value="Muuda">
