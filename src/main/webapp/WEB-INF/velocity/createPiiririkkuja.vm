@@ -1,64 +1,65 @@
-<link rel="stylesheet" href="res/stiil.css" />
-<div style="float:left;">
-    <form action="/piiririkkuja.html" method="POST">
-        <div style="padding: 7px;">
-            <div class="form_title"><label for="isikukood">Isikukood</label></div>
-            <div class="left"><input class="text_field" name ="isikukood" id ="isikukood"></div>
-            <div class="clear"></div>
-        </div>
+#htmlheader()
+        <div style="float:left;">
+            <form action="/piiririkkuja.html" method="POST">
+                <div style="padding: 7px;">
+                    <div class="form_title"><label for="isikukood">Isikukood</label></div>
+                    <div class="left"><input class="text_field" name ="isikukood" id ="isikukood"></div>
+                    <div class="clear"></div>
+                </div>
 
-        <div style="padding: 7px;">
-            <div class="form_title"><label for="eesnimi">Eesnimi</label></div>
-            <div class="left"><input class="text_field" name ="eesnimi" id ="eesnimi"></div>
-            <div class="clear"></div>
-        </div>
+                <div style="padding: 7px;">
+                    <div class="form_title"><label for="eesnimi">Eesnimi</label></div>
+                    <div class="left"><input class="text_field" name ="eesnimi" id ="eesnimi"></div>
+                    <div class="clear"></div>
+                </div>
 
-        <div style="padding: 7px;">
-            <div class="form_title"><label for="perek_nimi">Perekonnanimi</label></div>
-            <div class="left"><input class="text_field" name ="perek_nimi" id ="perek_nimi"></div>
-            <div class="clear"></div>
-        </div>
+                <div style="padding: 7px;">
+                    <div class="form_title"><label for="perek_nimi">Perekonnanimi</label></div>
+                    <div class="left"><input class="text_field" name ="perek_nimi" id ="perek_nimi"></div>
+                    <div class="clear"></div>
+                </div>
 
-        <div style="padding: 7px;">
-            <div class="form_title"><label for="synniaeg">Sünniaeg</label></div>
-            <div class="left"><input class="text_field" name ="synniaeg" id ="synniaeg"></div>
-            <div class="clear"></div>
-        </div>
+                <div style="padding: 7px;">
+                    <div class="form_title"><label for="synniaeg">Sünniaeg</label></div>
+                    <div class="left"><input class="text_field" name ="synniaeg" id ="synniaeg"></div>
+                    <div class="clear"></div>
+                </div>
 
-        <div style="padding: 7px;">
-            <div class="form_title"><label for="sugu">Sugu</label></div>
-            <div class="left">
-                <select class="text_field" name ="sugu" id ="sugu">
-                    <option name="m">Mees</option>
-                    <option name="n">Naine</option>
-                </select>
-            </div>
-            <div class="clear"></div>
-        </div>
+                <div style="padding: 7px;">
+                    <div class="form_title"><label for="sugu">Sugu</label></div>
+                    <div class="left">
+                        <select class="text_field" name ="sugu" id ="sugu">
+                            <option name="m">Mees</option>
+                            <option name="n">Naine</option>
+                        </select>
+                    </div>
+                    <div class="clear"></div>
+                </div>
 
-        <div style="padding: 7px;">
-            <div class="form_title"><label for="komm">Kommentaar</label></div>
-            <div class="left"><textarea style="width: 180px; height: 80px;" name ="kommentaar" id ="komm"></textarea></div>
-            <div class="clear"></div>
-        </div>
+                <div style="padding: 7px;">
+                    <div class="form_title"><label for="komm">Kommentaar</label></div>
+                    <div class="left"><textarea style="width: 180px; height: 80px;" name ="kommentaar" id ="komm"></textarea></div>
+                    <div class="clear"></div>
+                </div>
 
-        <input name ="objekt_id" type="hidden">
-        <input name ="avaja" type="hidden">
-        <input name ="avatud" type="hidden">
-        <input name ="muutja" type="hidden">
-        <input name ="muudetud" type="hidden">
-        <input name ="suletud" type="hidden">
-        <input name ="sulgeja" type="hidden">
-        <input name ="nimetus" type="hidden">
-        <input type="submit" value="Submit" />
-    </form>
-</div>
-<div style="float:left; padding: 10px;">
-    Kodakondsused
-    <table class="piiririikuja1">
-        <tr>
-            <th class="left">Riik</th>
-            <th class="right">Isikukood</th>
-        </tr>
-    </table>
-</div>
+                <input name ="objekt_id" type="hidden">
+                <input name ="avaja" type="hidden">
+                <input name ="avatud" type="hidden">
+                <input name ="muutja" type="hidden">
+                <input name ="muudetud" type="hidden">
+                <input name ="suletud" type="hidden">
+                <input name ="sulgeja" type="hidden">
+                <input name ="nimetus" type="hidden">
+                <input type="submit" value="Submit" />
+            </form>
+        </div>
+        <div style="float:left; padding: 10px;">
+            Kodakondsused
+            <table class="piiririikuja1">
+                <tr>
+                    <th class="left">Riik</th>
+                    <th class="right">Isikukood</th>
+                </tr>
+            </table>
+        </div>
+#htmlfooter()
