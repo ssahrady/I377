@@ -42,16 +42,6 @@
                     <div class="clear"></div>
                 </div>
 
-<<<<<<< HEAD
-                <input name ="objekt_ID" type="hidden">
-                <input name ="avaja" type="hidden">
-                <input name ="avatud" type="hidden">
-                <input name ="muutja" type="hidden">
-                <input name ="muudetud" type="hidden">
-                <input name ="suletud" type="hidden">
-                <input name ="sulgeja" type="hidden">
-                <input name ="nimetus" type="hidden">
-=======
                 <input name ="objekt_ID" type="hidden" value="0">
                 <input name ="avaja" type="hidden" value="Jarko Kasemaa">
                 <input name ="avatud" type="hidden" value="19/11/2011">
@@ -60,7 +50,6 @@
                 <input name ="suletud" type="hidden" value="19/11/2011">
                 <input name ="sulgeja" type="hidden" value="Ants Sulgurlihas">
                 <input name ="nimetus" type="hidden" value="Nimeta Baar">
->>>>>>> ccf5bcbaf5246f1851595e91fa8f49b87e6b17a7
                 <input type="submit" value="Submit" />
             </form>
         </div>
