@@ -22,7 +22,7 @@ public class MyController {
     @RequestMapping(value = "/objekti_liik", method = RequestMethod.GET)
     public String helloWorld(ModelMap modelMap) {
 
-        String message = "Hello World, Spring 3.0!";
+        String message = "HelloyWaaorld, Spring 3.0!";
 
         String now = "Tere";
         modelMap.addAttribute("now", now);
