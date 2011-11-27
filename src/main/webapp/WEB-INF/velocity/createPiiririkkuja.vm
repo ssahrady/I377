@@ -60,6 +60,23 @@
                         <th class="left">Riik</th>
                         <th class="right">Isikukood</th>
                     </tr>
+                    #foreach($k in $kodakondsus)
+                    <tr>
+                        <td class="left">EST</td>
+                        <td class="right">
+                            <div class="left">$k.isikukood</div>
+                            <div class="right">
+                                <form>
+                                    <input type="submit" name="action" value="Muuda">
+                                    <input type="submit" name="action" value="Kustuta">
+                                </form>
+                            </div>
+                            <div class="clear"></div>
+                        </td>
+                    </tr>
+                    <tr>
+
+                    #end
                     <tr>
                         <td class="left">EST</td>
                         <td class="right">
