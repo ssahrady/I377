@@ -1,6 +1,6 @@
 #htmlheader()
         <div style="float:left;">
-            <form action="/piiririkkuja.html" method="POST">
+            <form action="/piiririkkuja.html" method="POST" id="userdata">
                 <div style="padding: 7px;">
                     <div class="form_title"><label for="isikukood">Isikukood</label></div>
                     <div class="left"><input type="text" name ="isikukood" id ="isikukood"></div>
@@ -89,8 +89,8 @@
                 </table>
                 <div class="right" style="margin: 4px;">
                     <form>
-                        <input type="submit" name="action" value="Lisa">
-                    </form>
+                    <input type="button" onclick="document.forms['userdata'].submit();" value="Lisa">
+                        </form>
                 </div>
                 <div class="clear"></div>
             </div>
