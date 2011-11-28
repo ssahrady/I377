@@ -46,7 +46,7 @@ public class MainDAOImpl extends HibernateDaoSupport implements MainDAO {
 
     @Transactional
     public int savePiiririkkuja(Piiririkkuja piiririkkuja){
-        getHibernateTemplate().persist(piiririkkuja);
+        getHibernateTemplate().saveOrUpdate(piiririkkuja);
 
         return 1;
     }
@@ -69,6 +69,14 @@ public class MainDAOImpl extends HibernateDaoSupport implements MainDAO {
 
         return kodakondsusList;
 
+    }
+
+    public Piiririkkuja getPiiririkkujaById(int id){
+        DetachedCriteria criteria = DetachedCriteria.forClass(Piiririkkuja.class);
+        criteria.add(Restrictions.eq("piiririkkuja_ID", id));
+        List<Piiririkkuja> piiririkkujad = getHibernateTemplate().findByCriteria(criteria);
+
+        return piiririkkujad.iterator().next();
     }
 
 }

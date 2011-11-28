@@ -37,6 +37,7 @@ http://www.springframework.org/schema/security/spring-security-3.0.3.xsd
 
     <bean id="velocityConfig" class="org.springframework.web.servlet.view.velocity.VelocityConfigurer">
         <property name="resourceLoaderPath" value="/WEB-INF/velocity/"/>
+
         <property name="velocityProperties">
             <props>
                 <prop key="velocimacro.library">/base_macro.vm</prop>

@@ -7,6 +7,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -66,17 +67,17 @@ public class MyController {
     }
 
 
-    @RequestMapping(value = "/seaduse_punkti_redaktor")
+    @RequestMapping(value = "/seaduse_punkti_redaktor", method = RequestMethod.GET)
     public String seadusePunktiRedaktor(ModelMap modelMap) {
         return "seaduse_punkti_redaktor";
     }
 
-    @RequestMapping(value = "/seaduse_redaktor")
+    @RequestMapping(value = "/seaduse_redaktor", method = RequestMethod.GET)
     public String seaduseRedaktor(ModelMap modelMap) {
         return "seaduse_redaktor";
     }
 
-    @RequestMapping(value = "/seaduse_ajalugu")
+    @RequestMapping(value = "/seaduse_ajalugu", method = RequestMethod.GET)
     public String seaduseAjalugu(ModelMap modelMap) {
         return "seaduse_ajalugu";
     }
@@ -116,6 +117,19 @@ public class MyController {
         List<Kodakondsus> kodakondsusList = myDAOImpl.getAllKodakondsus();
 
         modelMap.addAttribute("kodakondsus", kodakondsusList) ;
+        return "createPiiririkkuja";
+    }
+    @RequestMapping(value = "/piiririkkuja/{id}", method = RequestMethod.GET)
+    public String modifyPiiririkkuja(ModelMap modelMap, @PathVariable int id) {
+
+        String message = "Hello World, Spring 3.0!";
+        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+
+        List<Kodakondsus> kodakondsusList = myDAOImpl.getAllKodakondsus();
+        Piiririkkuja piiririkkuja = myDAOImpl.getPiiririkkujaById(id);
+
+        modelMap.addAttribute("kodakondsus", kodakondsusList);
+        modelMap.addAttribute("piiririkkuja", piiririkkuja);
         return "createPiiririkkuja";
     }
     @RequestMapping(value = "/piiririkkuja", method = RequestMethod.POST)

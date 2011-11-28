@@ -44,7 +44,7 @@ public class MyEntityInterceptor extends EmptyInterceptor {
                 }
 
             }
-            if (((OpenableCloseable) entity).getAvaja() == null && ((OpenableCloseable) entity).getAvatud() == null) {
+
                 //TODO: SAVE loogika
                 Authentication auth = SecurityContextHolder.getContext().getAuthentication();
                 state[muudetudIndex] = new Date();
@@ -53,14 +53,7 @@ public class MyEntityInterceptor extends EmptyInterceptor {
                 state[avajaIndex] = auth.getName();
                 state[suletudIndex] = getFakeDate();
                 state[sulgejaIndex] = "NA";
-            } else {
-                //TODO : UPDATE loogika
-                Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-                state[muudetudIndex] = new Date();
-                state[muutjaIndex] = auth.getName();
-                state[suletudIndex] = getFakeDate();
-                state[sulgejaIndex] = "NA";
-            }
+
         }
         System.out.println("onSave");
         return true;
@@ -68,6 +61,37 @@ public class MyEntityInterceptor extends EmptyInterceptor {
 
     public boolean onFlushDirty(java.lang.Object entity, java.io.Serializable id, java.lang.Object[] currentState, java.lang.Object[] previousState, java.lang.String[] propertyNames, org.hibernate.type.Type[] types)
             throws CallbackException {
+
+        if (entity instanceof OpenableCloseable) {
+            int muutjaIndex = -1;
+            int muudetudIndex = -1;
+            int suletudIndex = -1;
+            int sulgejaIndex = -1;
+
+            for (int i = 0; i < propertyNames.length; i++) {
+                String s = propertyNames[i];
+                if (s.equals("muutja")) {
+                    muutjaIndex = i;
+                }
+                if (s.equals("muudetud")) {
+                    muudetudIndex = i;
+                }
+                if (s.equals("suletud")) {
+                    suletudIndex = i;
+                }
+                if (s.equals("sulgeja")) {
+                    sulgejaIndex = i;
+                }
+
+            }
+                //TODO : UPDATE loogika
+                Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+                currentState[muudetudIndex] = new Date();
+                currentState[muutjaIndex] = auth.getName();
+                currentState[suletudIndex] = getFakeDate();
+                currentState[sulgejaIndex] = "NA";
+
+        }
 
         System.out.println("onFlushDirty");
 

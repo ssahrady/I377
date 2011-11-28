@@ -19,4 +19,5 @@ public interface MainDAO {
     public void saveRiik(Riik riik);
     public void saveKodakondsus(Kodakondsus kodakondsus);
     public List<Kodakondsus> getAllKodakondsus();
+    public Piiririkkuja getPiiririkkujaById(int id);
 }
