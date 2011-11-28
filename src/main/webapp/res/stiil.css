@@ -18,7 +18,7 @@ div.form_title{
     float:left;
     width: 120px;
 }
-input[type="text"], .form_item{
+input[type="text"], .form_itm{
     width: 180px;
     border: 1px solid #000;
     font-family: "Comic Sans MS";
@@ -29,9 +29,12 @@ input[type="submit"], input[type="button"]{
     margin: 0px;
     font-family: "Comic Sans MS";
 }
-table.piiririikuja1{
+table{
     border-collapse: collapse;
     border-spacing: 0px;
+}
+div.form_item{
+    padding: 7px;
 }
 th.left{
     background-color: #CCCCCC;
@@ -60,9 +63,48 @@ td.right{
 }
 div.bottom{
     position: relative;
-    bottom: 0px;
     float: right;
 }
 div.kodakondsused{
     min-height: 239px;
+}
+div.alampunktid{
+    min-height: 337px;
+}
+div.punktid{
+    min-height: 203px;
+}
+div.ajaloo_filter{
+    float: left;
+    margin: 5px;
+}
+
+th.left_ajalugu{
+    background-color: #CCCCCC;
+    border-left: 1px solid #000;
+    border-top: 1px solid #000;
+    border-bottom: 1px solid #000;
+    padding: 3px;
+    text-align: left;
+}
+th.right_ajalugu{
+    background-color: #CCCCCC;
+    border: 1px solid #000;
+    padding: 3px;
+    width: 70px;
+    text-align: left;
+}
+td.mid_ajalugu{
+    border-left: 1px solid #000;
+    border-bottom: 1px solid #000;
+    padding: 3px;
+    width: 70px;
+    text-align: center;
+}
+td.right_ajalugu{
+    border-left: 1px solid #000;
+    border-right: 1px solid #000;
+    border-bottom: 1px solid #000;
+    padding: 3px;
+    text-align: center;
 }

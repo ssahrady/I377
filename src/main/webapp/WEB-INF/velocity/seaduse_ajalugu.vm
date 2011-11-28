@@ -1,0 +1,49 @@
+#htmlheader()
+<div>
+    <form>
+        <div class="ajaloo_filter">
+            <div>Alates</div>
+            <div><input type="text" name="from" style="width: 100px;" /></div>
+        </div>
+        <div class="ajaloo_filter">
+            <div>Kuni</div>
+            <div><input type="text" name="to" style="width: 100px;" /></div>
+        </div>
+        <div class="ajaloo_filter">
+            <div>Seadus</div>
+            <div>
+                <select name="seadus" class="form_itm">
+                    <option>Relvaseadus</option>
+                </select>
+            </div>
+        </div>
+        <div class="ajaloo_filter">
+            <div>&nbsp;</div>
+            <div><input type="submit" value="Värskenda" /></div>
+        </div>
+        <div class="clear"></div>
+    </form>
+</div>
+<div style="margin: 5px;">
+    <table style="width: 499px">
+        <tr>
+            <th class="left_ajalugu">Punkt</th>
+            <th class="left_ajalugu">Alates</th>
+            <th class="left_ajalugu">Kuni</th>
+            <th class="right_ajalugu"></th>
+        </tr>
+        <tr>
+            <td class="left">Sigadus 8.1.2</td>
+            <td class="mid_ajalugu">23.03.2002</td>
+            <td class="mid_ajalugu">18.06.2004</td>
+            <td class="right_ajalugu"><form><input type="submit" value="Vaata"></form></td>
+        </tr>
+        <tr>
+            <td class="left">Sigadus 8.1.2</td>
+            <td class="mid_ajalugu">19.06.2004</td>
+            <td class="mid_ajalugu">26.02.2006</td>
+            <td class="right_ajalugu"><form><input type="submit" value="Vaata"></form></td>
+        </tr>
+    </table>
+</div>
+#htmlfooter()

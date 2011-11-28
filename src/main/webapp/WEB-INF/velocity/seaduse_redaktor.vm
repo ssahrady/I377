@@ -1,0 +1,95 @@
+#htmlheader()
+        <div style="float:left;">
+            <form action="/seaduse_redaktor.html" method="POST" id="userdata">
+                <div class="form_item">
+                    <div class="form_title"><label for="kood">Kood</label></div>
+                    <div class="left"><input type="text" name ="kood" id ="kood"></div>
+                    <div class="clear"></div>
+                </div>
+
+                <div class="form_item">
+                    <div class="form_title"><label for="nimetus">Nimetus</label></div>
+                    <div class="left"><input type="text" name ="nimetus" id ="nimetus"></div>
+                    <div class="clear"></div>
+                </div>
+
+                <div class="form_item">
+                    <div class="form_title"><label for="komm">Kommentaar</label></div>
+                    <div class="left"><textarea class="form_itm" style="height: 80px;" name ="kommentaar" id ="komm"></textarea></div>
+                    <div class="clear"></div>
+                </div>
+
+                <div class="form_item">
+                    <div class="form_title"><label for="from">Kehtiv alates</label></div>
+                    <div class="left"><input type="text" name ="from" id ="from"></div>
+                    <div class="clear"></div>
+                </div>
+
+                <div class="form_item">
+                    <div class="form_title"><label for="to">Kehtiv kuni</label></div>
+                    <div class="left"><input type="text" name ="to" id ="to"></div>
+                    <div class="clear"></div>
+                </div>
+
+                <input name ="objekt_ID" type="hidden" value="10">
+                <input name ="avaja" type="hidden" value="Jarko Kasemaa">
+                <input name ="avatud" type="hidden" value="19/11/2011">
+                <input name ="muutja" type="hidden" value="Marko Jasemaa">
+                <input name ="muudetud" type="hidden" value="19/11/2011">
+                <input name ="suletud" type="hidden" value="19/11/2011">
+                <input name ="sulgeja" type="hidden" value="Ants Sulgurlihas">
+                <input name ="nimetus" type="hidden" value="Nimeta Baar">
+            </form>
+        </div>
+        <div style="float:left; padding: 10px;">
+            <div class="punktid">
+                Punktid
+                <table>
+                    <tr>
+                        <th class="left">§</th>
+                        <th class="right">Päis</th>
+                    </tr>
+                    <tr>
+                        <td class="left">8</td>
+                        <td class="right">
+                            <div class="left">Sigadus 1</div>
+                            <div class="right">
+                                <form>
+                                    <input type="submit" name="action" value="Muuda">
+                                    <input type="submit" name="action" value="Kustuta">
+                                </form>
+                            </div>
+                            <div class="clear"></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="left">8</td>
+                        <td class="right">
+                            <div class="left">Sigadus 2</div>
+                            <div class="right">
+                                <form>
+                                    <input type="submit" name="action" value="Muuda">
+                                    <input type="submit" name="action" value="Kustuta">
+                                </form>
+                            </div>
+                            <div class="clear"></div>
+                        </td>
+                    </tr>
+                </table>
+                <div class="right" style="margin: 4px;">
+                    <form>
+                    <input type="button" onclick="document.forms['userdata'].submit();" value="Lisa">
+                        </form>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="bottom">
+                <form>
+                    <input type="submit" name="action" value="Salvesta">
+                    <input type="submit" name="action" value="Loobu">
+                </form>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="clear"></div>
+#htmlfooter()
