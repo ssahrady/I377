@@ -60,7 +60,7 @@
         <div style="float:left; padding: 10px;">
             <div class="alampunktid">
                 Alampunktid
-                <table class="tabel">
+                <table>
                     <tr>
                         <th class="left">§</th>
                         <th class="right">Päis</th>

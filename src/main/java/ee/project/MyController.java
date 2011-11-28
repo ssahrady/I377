@@ -74,6 +74,11 @@ public class MyController {
         return "seaduse_redaktor";
     }
 
+    @RequestMapping(value = "/seaduse_ajalugu")
+    public String seaduseAjalugu(ModelMap modelMap) {
+        return "seaduse_ajalugu";
+    }
+
     @RequestMapping(value = "/objekti_liik", method = RequestMethod.POST)
     public ModelAndView saveObjekti_liik(@ModelAttribute("objekti_liik")Objekti_liik objekti_liik){
 

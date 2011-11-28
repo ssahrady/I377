@@ -55,7 +55,7 @@
         <div style="float:left; padding: 10px;">
             <div class="kodakondsused">
                 Kodakondsused
-                <table class="tabel">
+                <table>
                     <tr>
                         <th class="left">Riik</th>
                         <th class="right">Isikukood</th>

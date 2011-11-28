@@ -44,7 +44,7 @@
         <div style="float:left; padding: 10px;">
             <div class="punktid">
                 Punktid
-                <table class="tabel">
+                <table>
                     <tr>
                         <th class="left">§</th>
                         <th class="right">Päis</th>
