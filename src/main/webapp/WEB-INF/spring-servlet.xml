@@ -21,7 +21,7 @@ http://www.springframework.org/schema/security/spring-security-3.0.3.xsd
       <security:authentication-manager>
     <security:authentication-provider>
       <security:user-service>
-        <security:user name="jimi" password="jimispassword" authorities="ROLE_USER, ROLE_ADMIN" />
+        <security:user name="jimi" password="j" authorities="ROLE_USER, ROLE_ADMIN" />
         <security:user name="bob" password="bobspassword" authorities="ROLE_USER" />
       </security:user-service>
     </security:authentication-provider>
@@ -84,10 +84,8 @@ http://www.springframework.org/schema/security/spring-security-3.0.3.xsd
         <property name="hibernateProperties">
             <props>
                 <prop key="hibernate.dialect">org.hibernate.dialect.HSQLDialect</prop>
-
                 <prop key="hibernate.show_sql">true</prop>
-
-                <prop key="hibernate.hbm2ddl.auto">create</prop>
+                <!--<prop key="hibernate.hbm2ddl.auto">validate</prop>-->
             </props>
         </property>
         <property name="packagesToScan" value="ee.project.dao" />

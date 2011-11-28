@@ -2,6 +2,8 @@ package ee.project.dao;
 
 import ee.project.data.*;
 
+import java.util.List;
+
 /**
  * Created by IntelliJ IDEA.
  * User: root
@@ -16,4 +18,5 @@ public interface MainDAO {
     public int savePiiririkkuja(Piiririkkuja piiririkkuja);
     public void saveRiik(Riik riik);
     public void saveKodakondsus(Kodakondsus kodakondsus);
+    public List<Kodakondsus> getAllKodakondsus();
 }

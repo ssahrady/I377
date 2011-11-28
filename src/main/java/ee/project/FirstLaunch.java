@@ -16,9 +16,9 @@ public class FirstLaunch implements ServletContextListener {
 
     @Override
     public void contextInitialized(ServletContextEvent arg0) {
-//        System.out.println("ServletContextListener started");
-//
-//
+        System.out.println("ServletContextListener started");
+
+
 //         try {
 //            Class.forName("org.hsqldb.jdbcDriver");
 //        } catch (ClassNotFoundException e) {

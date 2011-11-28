@@ -1586,6 +1586,8 @@ public class Piir {
             "CREATE INDEX XIF70PIIRIVALVURI_SEADUS_INTSI ON PIIRIVALVURI_SEADUS_INTSIDENDI\n" +
             "(\n" +
             "       seaduse_punkt_ID\n" +
-            ");";
+            ");" +
+            "CREATE SEQUENCE PIIRIRIKKUJA_SEQ AS INTEGER START WITH 1 INCREMENT BY 1;" +
+            "CREATE SEQUENCE hibernate_sequence AS INTEGER START WITH 1 INCREMENT BY 1;";
 
 }

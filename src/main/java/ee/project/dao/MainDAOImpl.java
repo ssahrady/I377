@@ -61,4 +61,13 @@ public class MainDAOImpl extends HibernateDaoSupport implements MainDAO {
         getHibernateTemplate().save(kodakondsus);
     }
 
+    public List<Kodakondsus> getAllKodakondsus(){
+
+        DetachedCriteria criteria = DetachedCriteria.forClass(Kodakondsus.class);
+        List<Kodakondsus> kodakondsusList = getHibernateTemplate().findByCriteria(criteria);
+
+        return kodakondsusList;
+
+    }
+
 }
