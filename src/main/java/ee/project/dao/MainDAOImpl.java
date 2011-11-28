@@ -6,6 +6,7 @@ import org.hibernate.criterion.DetachedCriteria;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.orm.hibernate3.HibernateTemplate;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
+import org.springframework.orm.jpa.support.JpaDaoSupport;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.sql.Connection;
@@ -45,7 +46,7 @@ public class MainDAOImpl extends HibernateDaoSupport implements MainDAO {
 
     @Transactional
     public int savePiiririkkuja(Piiririkkuja piiririkkuja){
-        getHibernateTemplate().save(piiririkkuja);
+        getHibernateTemplate().persist(piiririkkuja);
 
         return 1;
     }

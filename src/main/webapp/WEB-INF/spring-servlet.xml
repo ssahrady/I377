@@ -15,58 +15,55 @@ http://www.springframework.org/schema/security/spring-security-3.0.3.xsd
 ">
 
     <security:http auto-config="true">
-         <security:intercept-url pattern="/**" access="ROLE_USER" />
+        <security:intercept-url pattern="/**" access="ROLE_USER"/>
     </security:http>
 
-      <security:authentication-manager>
-    <security:authentication-provider>
-      <security:user-service>
-        <security:user name="jimi" password="j" authorities="ROLE_USER, ROLE_ADMIN" />
-        <security:user name="bob" password="bobspassword" authorities="ROLE_USER" />
-      </security:user-service>
-    </security:authentication-provider>
-  </security:authentication-manager>
+    <security:authentication-manager>
+        <security:authentication-provider>
+            <security:user-service>
+                <security:user name="jimi" password="j" authorities="ROLE_USER, ROLE_ADMIN"/>
+                <security:user name="bob" password="b" authorities="ROLE_USER"/>
+            </security:user-service>
+        </security:authentication-provider>
+    </security:authentication-manager>
 
     <context:component-scan
             base-package="ee.project"/>
 
-    <bean class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping" />
-    <bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter" />
-    <mvc:resources mapping="/res/**" location="/res/" />
+    <bean class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping"/>
+    <bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter"/>
+    <mvc:resources mapping="/res/**" location="/res/"/>
 
 
+    <bean id="velocityConfig" class="org.springframework.web.servlet.view.velocity.VelocityConfigurer">
+        <property name="resourceLoaderPath" value="/WEB-INF/velocity/"/>
+        <property name="velocityProperties">
+            <props>
+                <prop key="velocimacro.library">/base_macro.vm</prop>
+                <prop key="input.encoding">UTF-8</prop>
+                <prop key="output.encoding">UTF-8</prop>
+            </props>
+        </property>
+    </bean>
+
+    <bean id="viewResolver" class="org.springframework.web.servlet.view.velocity.VelocityViewResolver">
+        <property name="cache" value="true"/>
+        <property name="prefix" value=""/>
+        <property name="suffix" value=".vm"/>
 
 
-<bean id="velocityConfig" class="org.springframework.web.servlet.view.velocity.VelocityConfigurer">
-  <property name="resourceLoaderPath" value="/WEB-INF/velocity/"/>
-    <property name="velocityProperties">
-        <props>
-            <prop key="velocimacro.library">/base_macro.vm</prop>
-            <prop key="input.encoding">UTF-8</prop>
-            <prop key="output.encoding">UTF-8</prop>
-        </props>
-    </property>
-</bean>
+        <!-- if you want to use the Spring Velocity macros, set this property to true -->
+        <property name="exposeSpringMacroHelpers" value="true"/>
 
-<bean id="viewResolver" class="org.springframework.web.servlet.view.velocity.VelocityViewResolver">
-  <property name="cache" value="true"/>
-  <property name="prefix" value=""/>
-  <property name="suffix" value=".vm"/>
+    </bean>
 
-
-  <!-- if you want to use the Spring Velocity macros, set this property to true -->
-  <property name="exposeSpringMacroHelpers" value="true"/>
-
-</bean>
-
-        <bean id="dataSource"
-             class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+    <bean id="dataSource"
+          class="org.springframework.jdbc.datasource.DriverManagerDataSource">
         <property name="driverClassName" value="org.hsqldb.jdbcDriver"/>
         <property name="url" value="jdbc:hsqldb:file:/home/taivo/testdb;shutdown=true"/>
         <property name="username" value="sa"/>
         <property name="password" value=""/>
     </bean>
-
 
     <bean id="mySessionFactory" class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
         <property name="dataSource" ref="dataSource"/>
@@ -81,6 +78,7 @@ http://www.springframework.org/schema/security/spring-security-3.0.3.xsd
             </list>
 
         </property>
+        <property name="entityInterceptor" ref="entityInterceptor"/>
         <property name="hibernateProperties">
             <props>
                 <prop key="hibernate.dialect">org.hibernate.dialect.HSQLDialect</prop>
@@ -88,17 +86,21 @@ http://www.springframework.org/schema/security/spring-security-3.0.3.xsd
                 <!--<prop key="hibernate.hbm2ddl.auto">validate</prop>-->
             </props>
         </property>
-        <property name="packagesToScan" value="ee.project.dao" />
+        <property name="packagesToScan" value="ee.project.dao"/>
     </bean>
 
-    <tx:annotation-driven />
+    <bean id="entityInterceptor" class="ee.project.MyEntityInterceptor"/>
+
+    <tx:annotation-driven/>
 
     <bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
-        <property name="sessionFactory"><ref local="mySessionFactory"/></property>
+        <property name="sessionFactory">
+            <ref local="mySessionFactory"/>
+        </property>
     </bean>
 
     <bean id="myDAO" class="ee.project.dao.MainDAOImpl">
-    <property name="sessionFactory" ref="mySessionFactory" />
+        <property name="sessionFactory" ref="mySessionFactory"/>
     </bean>
 
 </beans>

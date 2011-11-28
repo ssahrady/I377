@@ -1,8 +1,12 @@
 package ee.project.data;
 
 
-import javax.persistence.Column;
-import javax.persistence.MappedSuperclass;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+
+import javax.persistence.*;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 @MappedSuperclass
@@ -16,7 +20,7 @@ public class OpenableCloseable {
     private Date suletud;
     private String kommentaar;
 
-@Column(name = "AVAJA", nullable = false)
+    @Column(name = "AVAJA", nullable = false)
     public String getAvaja() {
         return avaja;
     }

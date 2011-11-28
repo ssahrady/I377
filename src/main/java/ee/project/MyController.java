@@ -24,31 +24,31 @@ public class MyController {
     @RequestMapping(value = "/index")
     public String index (){
 
-        Riik riik = new Riik();
-        riik.setANSI_kood("EE");
-        riik.setISO_kood("EST");
-        riik.setAvaja("asd");
-        riik.setAvatud(new Date());
-        riik.setMuudetud(new Date());
-        riik.setMuutja("adsds");
-        riik.setSulgeja("asd");
-        riik.setSuletud(new Date());
-
-        myDAOImpl.saveRiik(riik);
-
-        Kodakondsus kodakondsus = new Kodakondsus();
-        kodakondsus.setAlates(new Date());
-        kodakondsus.setKuni(new Date());
-        kodakondsus.setIsikukood("38911180247");
-        kodakondsus.setPiiririkkuja_ID(100);
-        kodakondsus.setRiik_ID(riik.getRiik_ID());
-        kodakondsus.setAvaja("jarko");
-        kodakondsus.setAvatud(new Date());
-        kodakondsus.setMuudetud(new Date());
-        kodakondsus.setMuutja("asd");
-        kodakondsus.setSuletud(new Date());
-        kodakondsus.setSulgeja("jarks");
-        myDAOImpl.saveKodakondsus(kodakondsus);
+//        Riik riik = new Riik();
+//        riik.setANSI_kood("EE");
+//        riik.setISO_kood("EST");
+//        riik.setAvaja("asd");
+//        riik.setAvatud(new Date());
+//        riik.setMuudetud(new Date());
+//        riik.setMuutja("adsds");
+//        riik.setSulgeja("asd");
+//        riik.setSuletud(new Date());
+//
+//        myDAOImpl.saveRiik(riik);
+//
+//        Kodakondsus kodakondsus = new Kodakondsus();
+//        kodakondsus.setAlates(new Date());
+//        kodakondsus.setKuni(new Date());
+//        kodakondsus.setIsikukood("38911180247");
+//        kodakondsus.setPiiririkkuja_ID(100);
+//        kodakondsus.setRiik_ID(riik.getRiik_ID());
+//        kodakondsus.setAvaja("jarko");
+//        kodakondsus.setAvatud(new Date());
+//        kodakondsus.setMuudetud(new Date());
+//        kodakondsus.setMuutja("asd");
+//        kodakondsus.setSuletud(new Date());
+//        kodakondsus.setSulgeja("jarks");
+//        myDAOImpl.saveKodakondsus(kodakondsus);
 
 
         return "index";
@@ -131,12 +131,12 @@ public class MyController {
         kodakondsus.setKuni(new Date());
         kodakondsus.setIsikukood(piiririkkuja.getIsikukood());
         kodakondsus.setPiiririkkuja_ID(piiririkkuja.getPiiririkkuja_ID());
-        kodakondsus.setRiik_ID(1);
+        kodakondsus.setRiik_ID(40);
         kodakondsus.setAvaja(user);
-        kodakondsus.setAvatud(new Date());
-        kodakondsus.setMuudetud(new Date());
+//        kodakondsus.setAvatud(new Date());
+//        kodakondsus.setMuudetud(new Date());
         kodakondsus.setMuutja(user);
-        kodakondsus.setSuletud(new Date());
+//        kodakondsus.setSuletud(new Date());
         kodakondsus.setSulgeja("jarks");
         myDAOImpl.saveKodakondsus(kodakondsus);
 
