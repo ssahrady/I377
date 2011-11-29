@@ -3,19 +3,19 @@
             <form action="/piiririkkuja.html" method="POST" id="userdata">
                 <div class="form_item">
                     <div class="form_title">Isikukood</div>
-                    <div class="left"><input type="text" name ="isikukood" id ="isikukood" value="$!piiririkkuja.isikukood"></div>
+                    <div class="left"><input type="text" name ="isikukood" value="$!piiririkkuja.isikukood"></div>
                     <div class="clear"></div>
                 </div>
 
                 <div class="form_item">
                     <div class="form_title">Eesnimi</div>
-                    <div class="left"><input type="text" name ="eesnimi" id ="eesnimi" value="$!piiririkkuja.eesnimi"></div>
+                    <div class="left"><input type="text" name ="eesnimi" value="$!piiririkkuja.eesnimi"></div>
                     <div class="clear"></div>
                 </div>
 
                 <div class="form_item">
                     <div class="form_title">Perekonnanimi</div>
-                    <div class="left"><input type="text" name ="perek_nimi" id ="perek_nimi" value="$!piiririkkuja.perek_nimi"></div>
+                    <div class="left"><input type="text" name ="perek_nimi" value="$!piiririkkuja.perek_nimi"></div>
                     <div class="clear"></div>
                 </div>
 
@@ -28,7 +28,7 @@
                 <div class="form_item">
                     <div class="form_title">Sugu</div>
                     <div class="left">
-                        <select class="form_itm" name ="sugu" id ="sugu">
+                        <select class="form_itm" name ="sugu">
                             <option name="m">Mees</option>
                             <option name="n">Naine</option>
                         </select>
@@ -38,7 +38,7 @@
 
                 <div class="form_item">
                     <div class="form_title">Kommentaar</div>
-                    <div class="left"><textarea class="form_itm" style="height: 80px;" name ="kommentaar" id ="komm">$!piiririkkuja.kommentaar</textarea></div>
+                    <div class="left"><textarea class="form_itm" style="height: 80px;" name ="kommentaar">$!piiririkkuja.kommentaar</textarea></div>
                     <div class="clear"></div>
                 </div>
 
