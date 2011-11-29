@@ -2,45 +2,45 @@
         <div style="float:left;">
             <form action="/seaduse_punkti_redaktor.html" method="POST" id="userdata">
                 <div class="form_item">
-                    <div class="form_title"><label for="paragrahv">Paragrahv</label></div>
-                    <div class="left"><input type="text" name ="paragrahv" id ="paragrahv"></div>
+                    <div class="form_title">Paragrahv</div>
+                    <div class="left"><input type="text" name ="paragrahv"></div>
                     <div class="clear"></div>
                 </div>
 
                 <div class="form_item">
-                    <div class="form_title"><label for="pais">Päis</label></div>
-                    <div class="left"><input type="text" name ="pais" id ="pais"></div>
+                    <div class="form_title">Päis</div>
+                    <div class="left"><input type="text" name ="pais"></div>
                     <div class="clear"></div>
                 </div>
 
                 <div class="form_item">
-                    <div class="form_title"><label for="tekst">Tekst</label></div>
-                    <div class="left"><textarea class="form_itm" style="height: 80px;" name ="tekst" id ="tekst"></textarea></div>
+                    <div class="form_title">Tekst</div>
+                    <div class="left"><textarea class="form_itm" style="height: 80px;" name ="tekst"></textarea></div>
                     <div class="clear"></div>
                 </div>
 
                 <div class="form_item">
-                    <div class="form_title"><label for="komm">Kommentaar</label></div>
-                    <div class="left"><textarea class="form_itm" style="height: 80px;" name ="kommentaar" id ="komm"></textarea></div>
+                    <div class="form_title">Kommentaar</div>
+                    <div class="left"><textarea class="form_itm" style="height: 80px;" name ="kommentaar"></textarea></div>
                     <div class="clear"></div>
                 </div>
 
                 <div class="form_item">
-                    <div class="form_title"><label for="from">Kehtiv alates</label></div>
-                    <div class="left"><input type="text" name ="from" id ="from"></div>
+                    <div class="form_title">Kehtiv alates</div>
+                    <div class="left"><input type="text" name ="from" class="popupDatepicker"></div>
                     <div class="clear"></div>
                 </div>
 
                 <div class="form_item">
-                    <div class="form_title"><label for="to">Kehtiv kuni</label></div>
-                    <div class="left"><input type="text" name ="to" id ="to"></div>
+                    <div class="form_title">Kehtiv kuni</div>
+                    <div class="left"><input type="text" name ="to" class="popupDatepicker"></div>
                     <div class="clear"></div>
                 </div>
 
                 <div class="form_item">
-                    <div class="form_title"><label for="top">Ülem punkt</label></div>
+                    <div class="form_title">Ülem punkt</div>
                     <div class="left">
-                        <select class="form_itm" name ="top" id ="top">
+                        <select class="form_itm" name ="top">
                             <option name="m">Ebaseaduslikud toimingud</option>
                         </select>
                     </div>
