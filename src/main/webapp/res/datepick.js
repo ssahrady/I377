@@ -60,37 +60,37 @@ function Datepicker() {
 	};
 	this.regional = {
 		'': { // US/English
-			monthNames: ['January', 'February', 'March', 'April', 'May', 'June',
-			'July', 'August', 'September', 'October', 'November', 'December'],
-			monthNamesShort: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-			dayNames: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
-			dayNamesShort: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
-			dayNamesMin: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
+			monthNames: ['Jaanuar', 'Veebruar', 'Märts', 'Aprill', 'Mai', 'Juuni',
+			'Juuli', 'August', 'September', 'Oktoiber', 'November', 'Detsember'],
+			monthNamesShort: ['Jaan', 'Veeb', 'Mär', 'Apr', 'Mai', 'Juun', 'Juul', 'Aug', 'Sept', 'Okt', 'Nov', 'Dets'],
+			dayNames: ['Pühapäev', 'Esmaspäev', 'Teisipäev', 'Kolmapäev', 'Neljapäev', 'Reede', 'Laupäev'],
+			dayNamesShort: ['Püh', 'Esm', 'Tei', 'Kol', 'Nel', 'Ree', 'Lau'],
+			dayNamesMin: ['Pü', 'Es', 'Te', 'Ko', 'Ne', 'Re', 'La'],
 			dateFormat: 'mm/dd/yyyy', // See options on formatDate
-			firstDay: 0, // The first day of the week, Sun = 0, Mon = 1, ...
+			firstDay: 1, // The first day of the week, Sun = 0, Mon = 1, ...
 			renderer: this.defaultRenderer, // The rendering templates
-			prevText: '&lt;Prev', // Text for the previous month command
+			prevText: '&lt;Eelm', // Text for the previous month command
 			prevStatus: 'Show the previous month', // Status text for the previous month command
 			prevJumpText: '&lt;&lt;', // Text for the previous year command
-			prevJumpStatus: 'Show the previous year', // Status text for the previous year command
-			nextText: 'Next&gt;', // Text for the next month command
-			nextStatus: 'Show the next month', // Status text for the next month command
+			prevJumpStatus: 'Näita eelmist aastat', // Status text for the previous year command
+			nextText: 'Järg&gt;', // Text for the next month command
+			nextStatus: 'Näita järgmist kuud', // Status text for the next month command
 			nextJumpText: '&gt;&gt;', // Text for the next year command
-			nextJumpStatus: 'Show the next year', // Status text for the next year command
-			currentText: 'Current', // Text for the current month command
-			currentStatus: 'Show the current month', // Status text for the current month command
-			todayText: 'Today', // Text for the today's month command
-			todayStatus: 'Show today\'s month', // Status text for the today's month command
-			clearText: 'Clear', // Text for the clear command
-			clearStatus: 'Clear all the dates', // Status text for the clear command
-			closeText: 'Close', // Text for the close command
-			closeStatus: 'Close the datepicker', // Status text for the close command
-			yearStatus: 'Change the year', // Status text for year selection
-			monthStatus: 'Change the month', // Status text for month selection
-			weekText: 'Wk', // Text for week of the year column header
-			weekStatus: 'Week of the year', // Status text for week of the year column header
-			dayStatus: 'Select DD, M d, yyyy', // Status text for selectable days
-			defaultStatus: 'Select a date', // Status text shown by default
+			nextJumpStatus: 'Näita järgmist aastat', // Status text for the next year command
+			currentText: 'Hetke', // Text for the current month command
+			currentStatus: 'Näita tänast kuud', // Status text for the current month command
+			todayText: 'Täna', // Text for the today's month command
+			todayStatus: 'Näita tänast kuud', // Status text for the today's month command
+			clearText: 'Tühjenda', // Text for the clear command
+			clearStatus: 'Tähjenda kõik kuupäevad', // Status text for the clear command
+			closeText: 'Sulge', // Text for the close command
+			closeStatus: 'Sulge datepicker', // Status text for the close command
+			yearStatus: 'Muuda aastat', // Status text for year selection
+			monthStatus: 'Muuda kuud', // Status text for month selection
+			weekText: 'Nd', // Text for week of the year column header
+			weekStatus: 'Nädal aastas', // Status text for week of the year column header
+			dayStatus: 'Vali DD, M d, yyyy', // Status text for selectable days
+			defaultStatus: 'Vali kuupäev', // Status text shown by default
 			isRTL: false // True if language is right-to-left
 		}};
 	$.extend(this._defaults, this.regional['']);
