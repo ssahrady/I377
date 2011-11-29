@@ -15,14 +15,14 @@ import java.util.Date;
 public class ValueHelper {
 
     public static String convertDateString(String in) {
-        return in;
-//        if(in == null){
-//            return null;
-//        }
-//        String inDate = in.substring(0,10);
-//        inDate = inDate.replace("-","/");
-//
-//        return inDate;
+
+        if(in == null  || "".equals(in) ){
+            return "";
+        }
+        String inDate = in.substring(0,10);
+        inDate = inDate.replace("-","/");
+
+        return inDate;
     }
 
 }

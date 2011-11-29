@@ -21,7 +21,7 @@
 
                 <div class="form_item">
                     <div class="form_title">Sünniaeg</div>
-                    <div class="left"><input type="text" name ="synniaeg" id ="popupDatepicker" value="$!piiririkkuja.synniaeg"></div>
+                    <div class="left"><input type="text" name ="synniaeg" id ="popupDatepicker" value='$valueHelper.convertDateString("$!piiririkkuja.synniaeg")'></div>
                     <div class="clear"></div>
                 </div>
 
@@ -46,7 +46,7 @@
                 <input name ="nimetus" type="hidden" value="Nimeta Baar">
                 <input name="piiririkkuja_ID" type="hidden" value="$!piiririkkuja.piiririkkuja_ID">
                 <input name="avaja" type="hidden" value="$!piiririkkuja.avaja">
-                <input name="avatud" type="hidden" value='$valueHelper.convertDateString("$!piiririkkuja.avatud")'>
+                <input name="avatud" type="hidden" value=$valueHelper.convertDateString("$!piiririkkuja.avatud")>
             </form>
         </div>
         <div style="float:left; padding: 10px;">
