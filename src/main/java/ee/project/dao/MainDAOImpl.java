@@ -79,4 +79,8 @@ public class MainDAOImpl extends HibernateDaoSupport implements MainDAO {
         return piiririkkujad.iterator().next();
     }
 
+    public void saveSeadus(Seadus seadus){
+        getHibernateTemplate().save(seadus);
+    }
+
 }

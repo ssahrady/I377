@@ -20,4 +20,5 @@ public interface MainDAO {
     public void saveKodakondsus(Kodakondsus kodakondsus);
     public List<Kodakondsus> getAllKodakondsus();
     public Piiririkkuja getPiiririkkujaById(int id);
+    public void saveSeadus(Seadus seadus);
 }

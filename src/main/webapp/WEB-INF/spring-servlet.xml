@@ -87,6 +87,7 @@ http://www.springframework.org/schema/security/spring-security-3.0.3.xsd
                 <value>ee.project.data.Piiririkkuja</value>
                 <value>ee.project.data.Riik</value>
                 <value>ee.project.data.Kodakondsus</value>
+                <value>ee.project.data.Seadus</value>
             </list>
 
         </property>

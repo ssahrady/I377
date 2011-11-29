@@ -21,23 +21,17 @@
 
                 <div class="form_item">
                     <div class="form_title"><label for="from">Kehtiv alates</label></div>
-                    <div class="left"><input type="text" name ="from" id ="from"></div>
+                    <div class="left"><input type="text" name ="kehtiv_alates" id ="from"></div>
                     <div class="clear"></div>
                 </div>
 
                 <div class="form_item">
                     <div class="form_title"><label for="to">Kehtiv kuni</label></div>
-                    <div class="left"><input type="text" name ="to" id ="to"></div>
+                    <div class="left"><input type="text" name ="kehtiv_kuni" id ="to"></div>
                     <div class="clear"></div>
                 </div>
 
                 <input name ="objekt_ID" type="hidden" value="10">
-                <input name ="avaja" type="hidden" value="Jarko Kasemaa">
-                <input name ="avatud" type="hidden" value="19/11/2011">
-                <input name ="muutja" type="hidden" value="Marko Jasemaa">
-                <input name ="muudetud" type="hidden" value="19/11/2011">
-                <input name ="suletud" type="hidden" value="19/11/2011">
-                <input name ="sulgeja" type="hidden" value="Ants Sulgurlihas">
                 <input name ="nimetus" type="hidden" value="Nimeta Baar">
             </form>
         </div>

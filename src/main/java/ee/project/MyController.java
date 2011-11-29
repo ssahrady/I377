@@ -159,6 +159,14 @@ public class MyController {
         return "redirect:/piiririkkuja.html";
     }
 
+    @RequestMapping(value = "/seaduse_redaktor", method = RequestMethod.POST)
+    public String saveSeadus(@ModelAttribute("seadus")Seadus seadus){
+
+
+        myDAOImpl.saveSeadus(seadus);
+      return "redirect:/seaduse_redaktor.html";
+    }
+
     public MainDAO getMyDAOImpl() {
         return myDAOImpl;
     }
