@@ -63,12 +63,10 @@
                         <td class="right">
                             <div class="left">$k.isikukood</div>
                             <div class="right">
-                                <form>
-##                                    <input type="submit" name="action" value="Muuda">
-                                      #set($href = "/piiririkkuja/"+$k.piiririkkuja_ID+".html")
-                                      <a href=$href>Muuda</a>
-                                      <input type="submit" name="action" value="Kustuta">
-                                </form>
+                                #set($href = "/piiririkkuja/"+$k.piiririkkuja_ID+".html")
+                                <div class="left link"><a href=$href>Muuda</a></div>
+                                <div class="left link"><a href=$href>Kustuta</a></div>
+                                <div class="clear"></div>
                             </div>
                             <div class="clear"></div>
                         </td>
@@ -85,10 +83,9 @@
                 <div class="clear"></div>
             </div>
             <div class="bottom">
-                <form>
-                    <input type="submit" name="action" value="Salvesta">
-                    <input type="submit" name="action" value="Loobu">
-                </form>
+                <div class="left link"><a href=$href>Salvesta</a></div>
+                <div class="left link"><a href="../piiririkkuja.html">Loobu</a></div>
+                <div class="clear"></div>
             </div>
             <div class="clear"></div>
         </div>
