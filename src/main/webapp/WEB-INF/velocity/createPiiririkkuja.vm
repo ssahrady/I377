@@ -37,7 +37,7 @@
                 </div>
 
                 <div class="form_item">
-                    <div class="form_title"Kommentaar</div>
+                    <div class="form_title">Kommentaar</div>
                     <div class="left"><textarea class="form_itm" style="height: 80px;" name ="kommentaar" id ="komm">$!piiririkkuja.kommentaar</textarea></div>
                     <div class="clear"></div>
                 </div>
