@@ -3,11 +3,11 @@
     <form>
         <div class="ajaloo_filter">
             <div>Alates</div>
-            <div><input type="text" name="from" style="width: 100px;" /></div>
+            <div><input type="text" class="popupDatepicker" name="from" style="width: 100px;" /></div>
         </div>
         <div class="ajaloo_filter">
             <div>Kuni</div>
-            <div><input type="text" name="to" style="width: 100px;" /></div>
+            <div><input type="text" class="popupDatepicker" name="to" style="width: 100px;" /></div>
         </div>
         <div class="ajaloo_filter">
             <div>Seadus</div>

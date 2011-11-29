@@ -12,6 +12,9 @@
             $(function() {
                 $('#popupDatepicker').datepick();
             });
+            $(function() {
+                $('.popupDatepicker').datepick();
+            });
         </script>
     </head>
     <body>
