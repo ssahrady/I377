@@ -51,7 +51,18 @@ http://www.springframework.org/schema/security/spring-security-3.0.3.xsd
         <property name="cache" value="true"/>
         <property name="prefix" value=""/>
         <property name="suffix" value=".vm"/>
-
+        <!--<property name="attributes">-->
+        <!--<props>-->
+            <!--<prop key="converter">ee.project.ValueHelper</prop>-->
+        <!--</props>-->
+         <!--</property>-->
+          <property name="attributesMap">
+           <map>
+             <entry key="valueHelper">
+               <bean class="ee.project.ValueHelper"/>
+             </entry>
+           </map>
+         </property>
 
         <!-- if you want to use the Spring Velocity macros, set this property to true -->
         <property name="exposeSpringMacroHelpers" value="true"/>

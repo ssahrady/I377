@@ -120,7 +120,7 @@ public class MyController {
         return "createPiiririkkuja";
     }
     @RequestMapping(value = "/piiririkkuja/{id}", method = RequestMethod.GET)
-    public String modifyPiiririkkuja(ModelMap modelMap, @PathVariable int id) {
+    public String viewPiiririkkuja(ModelMap modelMap, @PathVariable int id) {
 
         String message = "Hello World, Spring 3.0!";
         Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
@@ -132,12 +132,20 @@ public class MyController {
         modelMap.addAttribute("piiririkkuja", piiririkkuja);
         return "createPiiririkkuja";
     }
+    @RequestMapping(value = "/piiririkkuja/{id}", method = RequestMethod.POST)
+    public String updatePiiririkkuja(ModelMap modelMap, @ModelAttribute("piiririkkuja")Piiririkkuja piiririkkuja) {
+
+        List<Kodakondsus> kodakondsusList = myDAOImpl.getAllKodakondsus();
+        myDAOImpl.savePiiririkkuja(piiririkkuja);
+        modelMap.addAttribute("kodakondsus", kodakondsusList);
+        modelMap.addAttribute("piiririkkuja", piiririkkuja);
+        return "createPiiririkkuja";
+    }
     @RequestMapping(value = "/piiririkkuja", method = RequestMethod.POST)
     public String savePiiririkkuja(@ModelAttribute("piiririkkuja")Piiririkkuja piiririkkuja,
                                    Principal principal){
-
+        piiririkkuja.setPiiririkkuja_ID(0);
         int a = getMyDAOImpl().savePiiririkkuja(piiririkkuja);
-        //Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         String user = principal.getName();
 
         Kodakondsus kodakondsus = new Kodakondsus();
@@ -146,12 +154,6 @@ public class MyController {
         kodakondsus.setIsikukood(piiririkkuja.getIsikukood());
         kodakondsus.setPiiririkkuja_ID(piiririkkuja.getPiiririkkuja_ID());
         kodakondsus.setRiik_ID(40);
-        kodakondsus.setAvaja(user);
-//        kodakondsus.setAvatud(new Date());
-//        kodakondsus.setMuudetud(new Date());
-        kodakondsus.setMuutja(user);
-//        kodakondsus.setSuletud(new Date());
-        kodakondsus.setSulgeja("jarks");
         myDAOImpl.saveKodakondsus(kodakondsus);
 
         return "redirect:/piiririkkuja.html";
