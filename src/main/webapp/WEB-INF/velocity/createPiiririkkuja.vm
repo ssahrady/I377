@@ -2,33 +2,33 @@
         <div style="float:left;">
             <form action="/piiririkkuja.html" method="POST" id="userdata">
                 <div class="form_item">
-                    <div class="form_title">Isikukood</div>
-                    <div class="left"><input type="text" name ="isikukood" value="$!piiririkkuja.isikukood"></div>
+                    <div class="form_title"><label for="isikukood">Isikukood</label></div>
+                    <div class="left"><input type="text" name ="isikukood" id ="isikukood" value="$!piiririkkuja.isikukood"></div>
                     <div class="clear"></div>
                 </div>
 
                 <div class="form_item">
-                    <div class="form_title">Eesnimi</div>
-                    <div class="left"><input type="text" name ="eesnimi" value="$!piiririkkuja.eesnimi"></div>
+                    <div class="form_title"><label for="eesnimi">Eesnimi</label></div>
+                    <div class="left"><input type="text" name ="eesnimi" id ="eesnimi" value="$!piiririkkuja.eesnimi"></div>
                     <div class="clear"></div>
                 </div>
 
                 <div class="form_item">
-                    <div class="form_title">Perekonnanimi</div>
-                    <div class="left"><input type="text" name ="perek_nimi" value="$!piiririkkuja.perek_nimi"></div>
+                    <div class="form_title"><label for="perek_nimi">Perekonnanimi</label></div>
+                    <div class="left"><input type="text" name ="perek_nimi" id ="perek_nimi" value="$!piiririkkuja.perek_nimi"></div>
                     <div class="clear"></div>
                 </div>
 
                 <div class="form_item">
-                    <div class="form_title">Sünniaeg</div>
-                    <div class="left"><input type="text" name ="synniaeg" id ="popupDatepicker" value='$valueHelper.convertDateString("$!piiririkkuja.synniaeg")'></div>
+                    <div class="form_title"><label for="synniaeg">Sünniaeg</label></div>
+                    <div class="left"><input type="text" name ="synniaeg" id ="synniaeg" value='$valueHelper.convertDateString("$!piiririkkuja.avatud")' ></div>
                     <div class="clear"></div>
                 </div>
 
                 <div class="form_item">
-                    <div class="form_title">Sugu</div>
+                    <div class="form_title"><label for="sugu">Sugu</label></div>
                     <div class="left">
-                        <select class="form_itm" name ="sugu">
+                        <select class="form_itm" name ="sugu" id ="sugu">
                             <option name="m">Mees</option>
                             <option name="n">Naine</option>
                         </select>
@@ -37,8 +37,8 @@
                 </div>
 
                 <div class="form_item">
-                    <div class="form_title">Kommentaar</div>
-                    <div class="left"><textarea class="form_itm" style="height: 80px;" name ="kommentaar">$!piiririkkuja.kommentaar</textarea></div>
+                    <div class="form_title"><label for="komm">Kommentaar</label></div>
+                    <div class="left"><textarea class="form_itm" style="height: 80px;" name ="kommentaar" id ="komm">$!piiririkkuja.kommentaar</textarea></div>
                     <div class="clear"></div>
                 </div>
 
@@ -46,7 +46,7 @@
                 <input name ="nimetus" type="hidden" value="Nimeta Baar">
                 <input name="piiririkkuja_ID" type="hidden" value="$!piiririkkuja.piiririkkuja_ID">
                 <input name="avaja" type="hidden" value="$!piiririkkuja.avaja">
-                <input name="avatud" type="hidden" value=$valueHelper.convertDateString("$!piiririkkuja.avatud")>
+                <input name="avatud" type="hidden" value='$valueHelper.convertDateString("$!piiririkkuja.avatud")'>
             </form>
         </div>
         <div style="float:left; padding: 10px;">
@@ -76,32 +76,6 @@
                     <tr>
 
                     #end
-##                    <tr>
-##                        <td class="left">EST</td>
-##                        <td class="right">
-##                            <div class="left">123456789</div>
-##                            <div class="right">
-##                                <form>
-##                                    <input type="submit" name="action" value="Muuda">
-##                                    <input type="submit" name="action" value="Kustuta">
-##                                </form>
-##                            </div>
-##                            <div class="clear"></div>
-##                        </td>
-##                    </tr>
-##                    <tr>
-##                        <td class="left">RUS</td>
-##                        <td class="right">
-##                            <div class="left">987654321</div>
-##                            <div class="right">
-##                                <form>
-##                                    <input type="submit" name="action" value="Muuda">
-##                                    <input type="submit" name="action" value="Kustuta">
-##                                </form>
-##                            </div>
-##                            <div class="clear"></div>
-##                        </td>
-##                    </tr>
                 </table>
                 <div class="right" style="margin: 4px;">
                     <form>
