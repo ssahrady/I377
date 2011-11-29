@@ -5,7 +5,14 @@
         <meta charset=utf-8>
         <title>Title</title>
         <link rel="stylesheet" href="/res/stiil.css" />
-        <!-- <script src="js.js"></script> -->
+        <link rel="stylesheet" href="/res/datepick.css" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.js"></script>
+        <script src="/res/datepick.js"></script>
+        <script>
+            $(function() {
+                $('#popupDatepicker').datepick();
+            });
+        </script>
     </head>
     <body>
 #end
