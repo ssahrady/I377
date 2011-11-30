@@ -21,8 +21,9 @@ http://www.springframework.org/schema/security/spring-security-3.0.3.xsd
     <security:authentication-manager>
         <security:authentication-provider>
             <security:user-service>
-                <security:user name="jimi" password="j" authorities="ROLE_USER, ROLE_ADMIN"/>
-                <security:user name="bob" password="b" authorities="ROLE_USER"/>
+                <security:user name="admin" password="Aiwei7ya" authorities="ROLE_USER, ROLE_ADMIN"/>
+                <security:user name="valvur" password="valvur" authorities="ROLE_USER"/>
+                <security:user name="ylem" password="ylem" authorities="ROLE_USER"/>
             </security:user-service>
         </security:authentication-provider>
     </security:authentication-manager>
@@ -72,8 +73,8 @@ http://www.springframework.org/schema/security/spring-security-3.0.3.xsd
     <bean id="dataSource"
           class="org.springframework.jdbc.datasource.DriverManagerDataSource">
         <property name="driverClassName" value="org.hsqldb.jdbcDriver"/>
-        <!--<property name="url" value="jdbc:hsqldb:file:/home/taivo/testdb;shutdown=true"/>-->
-        <property name="url" value="jdbc\:hsqldb\:file\:${user.home}/Team13/db;shutdown\=true"/>
+        <property name="url" value="jdbc:hsqldb:file:/home/taivo/testdb;shutdown=true"/>
+        <!--<property name="url" value="jdbc\:hsqldb\:file\:${user.home}/Team13/db;shutdown\=true"/>-->
 
         <property name="username" value="sa"/>
         <property name="password" value=""/>
