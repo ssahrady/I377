@@ -3,19 +3,19 @@
             <form action="/seaduse_redaktor.html" method="POST" id="userdata">
                 <div class="form_item">
                     <div class="form_title">Kood</div>
-                    <div class="left"><input type="text" name ="kood" id ="kood"></div>
+                    <div class="left"><input type="text" name ="kood"></div>
                     <div class="clear"></div>
                 </div>
 
                 <div class="form_item">
                     <div class="form_title">Nimetus</div>
-                    <div class="left"><input type="text" name ="nimetus" id ="nimetus"></div>
+                    <div class="left"><input type="text" name ="nimetus"></div>
                     <div class="clear"></div>
                 </div>
 
                 <div class="form_item">
                     <div class="form_title">Kommentaar</div>
-                    <div class="left"><textarea class="form_itm" style="height: 80px;" name ="kommentaar" id ="komm"></textarea></div>
+                    <div class="left"><textarea class="form_itm" style="height: 80px;" name ="kommentaar"></textarea></div>
                     <div class="clear"></div>
                 </div>
 
@@ -31,7 +31,7 @@
                     <div class="clear"></div>
                 </div>
 
-                <input name ="objekt_ID" type="hidden" value="10">
+                <input name ="objekt_ID" type="hidden" value="160">
                 <input name ="nimetus" type="hidden" value="Nimeta Baar">
             </form>
         </div>
@@ -48,10 +48,9 @@
                         <td class="right">
                             <div class="left">Sigadus 1</div>
                             <div class="right">
-                                <form>
-                                    <input type="submit" name="action" value="Muuda">
-                                    <input type="submit" name="action" value="Kustuta">
-                                </form>
+                                <div class="left link"><a href="../seaduse_redaktor.html">Muuda</a></div>
+                                <div class="left link"><a href="../seaduse_redaktor.html">Kustuta</a></div>
+                                <div class="clear"></div>
                             </div>
                             <div class="clear"></div>
                         </td>
@@ -61,10 +60,9 @@
                         <td class="right">
                             <div class="left">Sigadus 2</div>
                             <div class="right">
-                                <form>
-                                    <input type="submit" name="action" value="Muuda">
-                                    <input type="submit" name="action" value="Kustuta">
-                                </form>
+                                <div class="left link"><a href="../seaduse_redaktor.html">Muuda</a></div>
+                                <div class="left link"><a href="../seaduse_redaktor.html">Kustuta</a></div>
+                                <div class="clear"></div>
                             </div>
                             <div class="clear"></div>
                         </td>
@@ -78,10 +76,9 @@
                 <div class="clear"></div>
             </div>
             <div class="bottom">
-                <form>
-                    <input type="submit" name="action" value="Salvesta">
-                    <input type="submit" name="action" value="Loobu">
-                </form>
+                <div class="left link"><a href="../seaduse_redaktor.html">Salvesta</a></div>
+                <div class="left link"><a href="../seaduse_redaktor.html">Loobu</a></div>
+                <div class="clear"></div>
             </div>
             <div class="clear"></div>
         </div>

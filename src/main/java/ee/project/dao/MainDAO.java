@@ -25,6 +25,8 @@ public interface MainDAO {
     public void saveSeadus(Seadus seadus);
     public void saveSeaduse_punkt(Seaduse_punkt seaduse_punkt);
     public List<Seaduse_punkt> getAllSeaduse_punktid();
-    public Seaduse_punkt getSeaduse_punktById(int id);
+    public List<Seadus> getAllSeaduse_ajalugu();
     public Objekt getFirstObjekt();
+    public Seaduse_punkt getSeaduse_punktById(int id);
+
 }

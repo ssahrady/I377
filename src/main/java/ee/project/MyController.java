@@ -93,6 +93,8 @@ public class MyController {
 
     @RequestMapping(value = "/seaduse_ajalugu", method = RequestMethod.GET)
     public String seaduseAjalugu(ModelMap modelMap) {
+        List<Seadus> seadusList = myDAOImpl.getAllSeaduse_ajalugu();
+        modelMap.addAttribute("seadused", seadusList);
         return "seaduse_ajalugu";
     }
 
