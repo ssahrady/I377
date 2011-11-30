@@ -32,18 +32,14 @@
             <th class="left_ajalugu">Kuni</th>
             <th class="right_ajalugu"></th>
         </tr>
+        #foreach($seadus in $seadused)
         <tr>
-            <td class="left">Sigadus 8.1.2</td>
-            <td class="mid_ajalugu">23.03.2002</td>
-            <td class="mid_ajalugu">18.06.2004</td>
-            <td class="right_ajalugu"><form><input type="submit" value="Vaata"></form></td>
+            <td class="left">$seadus.nimetus</td>
+            <td class="mid_ajalugu">$seadus.kehtiv_alates</td>
+            <td class="mid_ajalugu">$seadus.kehtiv_kuni</td>
+            <td class="right_ajalugu"><div class="link"><a href="../seaduse_ajalugu.html">Vaata</a></div></td>
         </tr>
-        <tr>
-            <td class="left">Sigadus 8.1.2</td>
-            <td class="mid_ajalugu">19.06.2004</td>
-            <td class="mid_ajalugu">26.02.2006</td>
-            <td class="right_ajalugu"><form><input type="submit" value="Vaata"></form></td>
-        </tr>
+        #end
     </table>
 </div>
 #htmlfooter()

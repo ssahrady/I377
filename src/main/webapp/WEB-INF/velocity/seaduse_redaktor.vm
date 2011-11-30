@@ -31,7 +31,7 @@
                     <div class="clear"></div>
                 </div>
 
-                <input name ="objekt_ID" type="hidden" value="10">
+                <input name ="objekt_ID" type="hidden" value="160">
                 <input name ="nimetus" type="hidden" value="Nimeta Baar">
             </form>
         </div>
