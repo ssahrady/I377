@@ -170,6 +170,7 @@ public class MyController {
 
         return "seaduse_punkti_redaktor";
     }
+
     @RequestMapping(value = "/seaduse_punkti_redaktor", method = RequestMethod.POST)
     public String saveSeadusePunktiRedaktor(@ModelAttribute("seaduse_punkt")Seaduse_punkt seaduse_punkt) {
         myDAOImpl.saveSeaduse_punkt(seaduse_punkt);
