@@ -105,5 +105,14 @@ public class MainDAOImpl extends HibernateDaoSupport implements MainDAO {
 
         return seaduse_punktList;
     }
+        @Transactional
+    public Seaduse_punkt getSeaduse_punktById(int id){
+
+        DetachedCriteria dc = DetachedCriteria.forClass(Seaduse_punkt.class);
+            dc.add(Restrictions.eq("seaduse_punkt_ID",id));
+        List<Seaduse_punkt> seaduse_punktList = getHibernateTemplate().findByCriteria(dc);
+
+        return seaduse_punktList.iterator().next();
+    }
 
 }

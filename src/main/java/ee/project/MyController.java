@@ -142,7 +142,7 @@ public class MyController {
     public String savePiiririkkuja(@ModelAttribute("piiririkkuja")Piiririkkuja piiririkkuja,
                                    Principal principal){
         piiririkkuja.setPiiririkkuja_ID(0);
-        int a = getMyDAOImpl().savePiiririkkuja(piiririkkuja);
+        getMyDAOImpl().savePiiririkkuja(piiririkkuja);
         String user = principal.getName();
 
         Kodakondsus kodakondsus = new Kodakondsus();
@@ -178,8 +178,10 @@ public class MyController {
     }
 
     @RequestMapping(value = "/seaduse_punkti_redaktor/{id}", method = RequestMethod.GET)
-    public String saveSeadusePunktiRedaktor(@PathVariable("id") int id) {
-        //myDAOImpl.getSeaduse_punktById();
+    public String saveSeadusePunktiRedaktor(ModelMap modelMap, @PathVariable("id") int id) {
+        Seaduse_punkt seaduse_punkt = myDAOImpl.getSeaduse_punktById(id);
+        modelMap.addAttribute("seaduse_punkt", seaduse_punkt);
+        modelMap.addAttribute("seaduse_punktid",myDAOImpl.getAllSeaduse_punktid());
         return "seaduse_punkti_redaktor";
     }
     public MainDAO getMyDAOImpl() {

@@ -3,37 +3,37 @@
             <form action="/seaduse_punkti_redaktor.html" method="POST" id="userdata">
                 <div class="form_item">
                     <div class="form_title">Paragrahv</div>
-                    <div class="left"><input type="text" name ="paragrahv"></div>
+                    <div class="left"><input type="text" name ="paragrahv" value="$!seaduse_punkt.paragrahv"></div>
                     <div class="clear"></div>
                 </div>
 
                 <div class="form_item">
                     <div class="form_title">Päis</div>
-                    <div class="left"><input type="text" name ="pais"></div>
+                    <div class="left"><input type="text" name ="pais" value="$!seaduse_punkt.pais"></div>
                     <div class="clear"></div>
                 </div>
 
                 <div class="form_item">
                     <div class="form_title">Tekst</div>
-                    <div class="left"><textarea class="form_itm" style="height: 80px;" name ="tekst"></textarea></div>
+                    <div class="left"><textarea class="form_itm" style="height: 80px;" name ="tekst">$!seaduse_punkt.tekst</textarea></div>
                     <div class="clear"></div>
                 </div>
 
                 <div class="form_item">
                     <div class="form_title">Kommentaar</div>
-                    <div class="left"><textarea class="form_itm" style="height: 80px;" name ="kommentaar"></textarea></div>
+                    <div class="left"><textarea class="form_itm" style="height: 80px;" name ="kommentaar">$!seaduse_punkt.kommentaar</textarea></div>
                     <div class="clear"></div>
                 </div>
 
                 <div class="form_item">
                     <div class="form_title">Kehtiv alates</div>
-                    <div class="left"><input type="text" name ="kehtiv_alates" class="popupDatepicker"></div>
+                    <div class="left"><input type="text" name ="kehtiv_alates" class="popupDatepicker" value="$!seaduse_punkt.kehtiv_alates"></div>
                     <div class="clear"></div>
                 </div>
 
                 <div class="form_item">
                     <div class="form_title">Kehtiv kuni</div>
-                    <div class="left"><input type="text" name ="kehtiv_kuni" class="popupDatepicker"></div>
+                    <div class="left"><input type="text" name ="kehtiv_kuni" class="popupDatepicker" value="$!seaduse_punkt.kehtiv_kuni"></div>
                     <div class="clear"></div>
                 </div>
 
@@ -93,8 +93,8 @@
                             <div class="right">
                                 <form>
 ##                                    <input type="submit" name="action" value="Muuda">
-                                    #set($href ="seaduse_punkti_redaktor/"+ $punkt.seaduse_punkt_id+".html")
-                                    <a href="="
+                                    #set($href ="/seaduse_punkti_redaktor/"+ $punkt.seaduse_punkt_ID+".html")
+                                    <a href="$href">Muuda</a>
                                   <input type="submit" name="action" value="Kustuta">
                                 </form>
                             </div>
@@ -112,7 +112,7 @@
                 <div class="clear"></div>
             </div>
             <div class="bottom">
-                <div class="left link"><a href="">Salvesta</a></div>
+                <div class="left link"><a onclick="document.forms['userdata'].submit();">Salvesta</a></div>
                 <div class="left link"><a href="../seaduse_punkti_redaktor.html">Loobu</a></div>
                 <div class="clear"></div>
             </div>
