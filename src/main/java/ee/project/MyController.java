@@ -22,35 +22,53 @@ public class MyController {
     @Autowired
     private MainDAO myDAOImpl;
 
+
+
+    public void provideDemoData() {
+
+        //Objekti_liik
+        Objekti_liik objekti_liik = new Objekti_liik();
+        objekti_liik.setKood("Kood 123");
+        objekti_liik.setNimetus("Objekti liik 1");
+        myDAOImpl.saveObjekti_liik(objekti_liik);
+        //Objekt
+        Objekt objekt = new Objekt();
+        objekt.setNimetus("Objekt 123");
+        objekt.setObjekt_liik_id(objekti_liik.getObjekt_liik_id());
+        myDAOImpl.saveObjekt(objekt);
+        //Piiririkkuja
+        Piiririkkuja piiririkkuja = new Piiririkkuja();
+        piiririkkuja.setEesnimi("Nikolai");
+        piiririkkuja.setPerek_nimi("Pahamees");
+        piiririkkuja.setIsikukood("38911180247");
+        piiririkkuja.setSugu("M");
+        piiririkkuja.setSynniaeg(new Date());
+        piiririkkuja.setObjekt_ID(objekt.getObjekt_ID());
+        myDAOImpl.savePiiririkkuja(piiririkkuja);
+        //Riik
+        Riik riik = new Riik();
+        riik.setANSI_kood("EE");
+        riik.setISO_kood("EST");
+        myDAOImpl.saveRiik(riik);
+        //Kodakondsus
+        Kodakondsus kodakondsus = new Kodakondsus();
+        kodakondsus.setAlates(new Date());
+        kodakondsus.setKuni(new Date());
+        kodakondsus.setIsikukood("38911180247");
+        kodakondsus.setPiiririkkuja_ID(piiririkkuja.getPiiririkkuja_ID());
+        kodakondsus.setRiik_ID(riik.getRiik_ID());
+        myDAOImpl.saveKodakondsus(kodakondsus);
+
+    }
+
+
     @RequestMapping(value = "/index")
     public String index (){
 
-//        Riik riik = new Riik();
-//        riik.setANSI_kood("EE");
-//        riik.setISO_kood("EST");
-//        riik.setAvaja("asd");
-//        riik.setAvatud(new Date());
-//        riik.setMuudetud(new Date());
-//        riik.setMuutja("adsds");
-//        riik.setSulgeja("asd");
-//        riik.setSuletud(new Date());
-//
-//        myDAOImpl.saveRiik(riik);
-//
-//        Kodakondsus kodakondsus = new Kodakondsus();
-//        kodakondsus.setAlates(new Date());
-//        kodakondsus.setKuni(new Date());
-//        kodakondsus.setIsikukood("38911180247");
-//        kodakondsus.setPiiririkkuja_ID(100);
-//        kodakondsus.setRiik_ID(riik.getRiik_ID());
-//        kodakondsus.setAvaja("jarko");
-//        kodakondsus.setAvatud(new Date());
-//        kodakondsus.setMuudetud(new Date());
-//        kodakondsus.setMuutja("asd");
-//        kodakondsus.setSuletud(new Date());
-//        kodakondsus.setSulgeja("jarks");
-//        myDAOImpl.saveKodakondsus(kodakondsus);
-
+        int count = getMyDAOImpl().getObjektiLiikCount();
+        if(count == 0){
+          provideDemoData();
+        }
 
         return "index";
     }
@@ -62,7 +80,6 @@ public class MyController {
 
         String now = "Tere";
         modelMap.addAttribute("now", now);
-//        return new ModelAndView("createObjekti_liik", "now", now);
         return "createObjekti_liik";
     }
 
@@ -82,7 +99,6 @@ public class MyController {
     @RequestMapping(value = "/objekti_liik", method = RequestMethod.POST)
     public ModelAndView saveObjekti_liik(@ModelAttribute("objekti_liik")Objekti_liik objekti_liik){
 
-
         objekti_liik.getAvaja();
         getMyDAOImpl().saveObjekti_liik(objekti_liik);
         String now = "Tere";
@@ -92,9 +108,6 @@ public class MyController {
 
     @RequestMapping(value = "/objekt", method = RequestMethod.GET)
     public ModelAndView createObjekt() {
-
-        String message = "Hello World, Spring 3.0!";
-
         String now = "Tere";
         return new ModelAndView("createObjekt", "now", now);
     }
@@ -108,9 +121,6 @@ public class MyController {
     @RequestMapping(value = "/piiririkkuja", method = RequestMethod.GET)
     public String createPiiririkkuja(ModelMap modelMap) {
 
-        String message = "Hello World, Spring 3.0!";
-        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-
         List<Kodakondsus> kodakondsusList = myDAOImpl.getAllKodakondsus();
 
         modelMap.addAttribute("kodakondsus", kodakondsusList) ;
@@ -118,9 +128,6 @@ public class MyController {
     }
     @RequestMapping(value = "/piiririkkuja/{id}", method = RequestMethod.GET)
     public String viewPiiririkkuja(ModelMap modelMap, @PathVariable int id) {
-
-        String message = "Hello World, Spring 3.0!";
-        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
         List<Kodakondsus> kodakondsusList = myDAOImpl.getAllKodakondsus();
         Piiririkkuja piiririkkuja = myDAOImpl.getPiiririkkujaById(id);
@@ -142,15 +149,17 @@ public class MyController {
     public String savePiiririkkuja(@ModelAttribute("piiririkkuja")Piiririkkuja piiririkkuja,
                                    Principal principal){
         piiririkkuja.setPiiririkkuja_ID(0);
+        //TODO avoid possible nullpointer
+        piiririkkuja.setObjekt_ID(myDAOImpl.getFirstObjekt().getObjekt_ID());
         getMyDAOImpl().savePiiririkkuja(piiririkkuja);
-        String user = principal.getName();
+        int riikID = myDAOImpl.getAllRiik().iterator().next().getRiik_ID();
 
         Kodakondsus kodakondsus = new Kodakondsus();
         kodakondsus.setAlates(new Date());
         kodakondsus.setKuni(new Date());
         kodakondsus.setIsikukood(piiririkkuja.getIsikukood());
         kodakondsus.setPiiririkkuja_ID(piiririkkuja.getPiiririkkuja_ID());
-        kodakondsus.setRiik_ID(40);
+        kodakondsus.setRiik_ID(riikID);
         myDAOImpl.saveKodakondsus(kodakondsus);
 
         return "redirect:/piiririkkuja.html";

@@ -19,38 +19,38 @@ public class FirstLaunch implements ServletContextListener {
         System.out.println("ServletContextListener started");
 
 
-//         try {
-//            Class.forName("org.hsqldb.jdbcDriver");
-//        } catch (ClassNotFoundException e) {
-//            e.printStackTrace();
-//        }
-//
-//        Connection c = null;
-//
-//        try{
-//        c = DriverManager.getConnection(
-//                 "jdbc:hsqldb:file:/home/taivo/testdb;", "SA", "");
-//
-//            c.setAutoCommit(true);
-//            PreparedStatement statement = c.prepareStatement(Piir.SQL);
-//
-//            statement.executeUpdate();
-//           // c.commit();
-//
-//
-//
-//        } catch(Exception e){
-//
-//            System.out.print("err");
-//        } finally {
-//
-//            try {
-//                c.close();
-//            } catch (SQLException e) {
-//                e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
-//            }
-//
-//        }
+         try {
+            Class.forName("org.hsqldb.jdbcDriver");
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        Connection c = null;
+
+        try{
+        c = DriverManager.getConnection(
+                 "jdbc:hsqldb:file:/home/taivo/testdb;", "SA", "");
+
+            c.setAutoCommit(false);
+            PreparedStatement statement = c.prepareStatement(Piir.SQL);
+
+            statement.executeUpdate();
+            c.commit();
+
+
+
+        } catch(Exception e){
+
+            System.out.print("err");
+        } finally {
+
+            try {
+                c.close();
+            } catch (SQLException e) {
+                e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+            }
+
+        }
 }
 
 

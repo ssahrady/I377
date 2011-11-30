@@ -13,6 +13,8 @@ import java.util.List;
  */
 public interface MainDAO {
 
+    public List<Riik> getAllRiik();
+    public int getObjektiLiikCount();
     public int saveObjekti_liik(Objekti_liik objekti_liik);
     public int saveObjekt(Objekt objekt);
     public int savePiiririkkuja(Piiririkkuja piiririkkuja);
@@ -24,4 +26,5 @@ public interface MainDAO {
     public void saveSeaduse_punkt(Seaduse_punkt seaduse_punkt);
     public List<Seaduse_punkt> getAllSeaduse_punktid();
     public Seaduse_punkt getSeaduse_punktById(int id);
+    public Objekt getFirstObjekt();
 }

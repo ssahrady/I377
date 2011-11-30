@@ -52,7 +52,7 @@ public class MyEntityInterceptor extends EmptyInterceptor {
                 state[avatudIndex] = new Date();
                 state[avajaIndex] = auth.getName();
                 state[suletudIndex] = getFakeDate();
-                state[sulgejaIndex] = "NA";
+                state[sulgejaIndex] = "N/A";
 
         }
         //TODO: MASSIVOS HACKOS!!
@@ -91,12 +91,17 @@ public class MyEntityInterceptor extends EmptyInterceptor {
                 }
 
             }
+            Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+            currentState[muudetudIndex] = new Date();
+            currentState[muutjaIndex] = auth.getName();
+            if(!currentState[sulgejaIndex].equals("N/A")){
+              currentState[suletudIndex] = new Date();
+              currentState[sulgejaIndex] = auth.getName();
+            }
 
-                Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-                currentState[muudetudIndex] = new Date();
-                currentState[muutjaIndex] = auth.getName();
+
                 currentState[suletudIndex] = getFakeDate();
-                currentState[sulgejaIndex] = "NA";
+                currentState[sulgejaIndex] = "N/A";
 
         }
 

@@ -25,10 +25,24 @@ import java.util.List;
 public class MainDAOImpl extends HibernateDaoSupport implements MainDAO {
 
 
+    public List<Riik> getAllRiik(){
+
+        List<Riik> riikList = getHibernateTemplate().findByCriteria(DetachedCriteria.forClass(Riik.class));
+
+        return riikList;
+    }
+
+
+    @Transactional
+    public int getObjektiLiikCount(){
+
+        DetachedCriteria dc = DetachedCriteria.forClass(Objekti_liik.class);
+        List<Objekti_liik> objekti_liikList = getHibernateTemplate().findByCriteria(dc);
+      return objekti_liikList.size();
+    }
+
     @Transactional
     public int saveObjekti_liik(Objekti_liik objekti_liik){
-
-        //objekti_liik.setObjekt_liik_id(6);
         getHibernateTemplate().save(objekti_liik);
 
         return 1;
@@ -37,7 +51,6 @@ public class MainDAOImpl extends HibernateDaoSupport implements MainDAO {
         @Transactional
     public int saveObjekt(Objekt objekt){
 
-        //objekt.setObjekt_ID(1);
         getHibernateTemplate().save(objekt);
 
         return 1;
@@ -98,7 +111,7 @@ public class MainDAOImpl extends HibernateDaoSupport implements MainDAO {
 
     }
     @Transactional
-    public List<Seaduse_punkt> getAllSeaduse_punktid(){
+    public List<Seaduse_punkt> getAllSeaduse_punktid() {
 
         DetachedCriteria dc = DetachedCriteria.forClass(Seaduse_punkt.class);
         List<Seaduse_punkt> seaduse_punktList = getHibernateTemplate().findByCriteria(dc);
@@ -113,6 +126,15 @@ public class MainDAOImpl extends HibernateDaoSupport implements MainDAO {
         List<Seaduse_punkt> seaduse_punktList = getHibernateTemplate().findByCriteria(dc);
 
         return seaduse_punktList.iterator().next();
+    }
+    @Transactional
+    public Objekt getFirstObjekt(){
+      List<Objekt> objektList = getHibernateTemplate().findByCriteria(DetachedCriteria.forClass(Objekt.class));
+      if(objektList.size() >0){
+          return objektList.iterator().next();
+      } else {
+          return null;
+      }
     }
 
 }
