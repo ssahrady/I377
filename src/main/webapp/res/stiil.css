@@ -108,3 +108,14 @@ td.right_ajalugu{
     padding: 3px;
     text-align: center;
 }
+a, a:hover, a:visited{
+    color: #000;
+}
+div.link{
+    border: 1px solid #000;
+    background-color: #CCCCCC;
+    height: 20px;
+    margin: 1px;
+    padding-left: 8px;
+    padding-right: 8px;
+}
