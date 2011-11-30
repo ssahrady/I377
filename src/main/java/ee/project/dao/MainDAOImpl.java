@@ -56,12 +56,12 @@ public class MainDAOImpl extends HibernateDaoSupport implements MainDAO {
         getHibernateTemplate().save(riik);
 
     }
-
+    @Transactional
     public void saveKodakondsus(Kodakondsus kodakondsus){
 
         getHibernateTemplate().save(kodakondsus);
     }
-
+    @Transactional
     public List<Kodakondsus> getAllKodakondsus(){
 
         DetachedCriteria criteria = DetachedCriteria.forClass(Kodakondsus.class);
@@ -70,7 +70,7 @@ public class MainDAOImpl extends HibernateDaoSupport implements MainDAO {
         return kodakondsusList;
 
     }
-
+    @Transactional
     public Piiririkkuja getPiiririkkujaById(int id){
         DetachedCriteria criteria = DetachedCriteria.forClass(Piiririkkuja.class);
         criteria.add(Restrictions.eq("piiririkkuja_ID", id));
@@ -78,9 +78,32 @@ public class MainDAOImpl extends HibernateDaoSupport implements MainDAO {
 
         return piiririkkujad.iterator().next();
     }
-
+    @Transactional
     public void saveSeadus(Seadus seadus){
         getHibernateTemplate().save(seadus);
+    }
+    @Transactional
+    private Seadus getSeadusById(int id){
+        DetachedCriteria dc = DetachedCriteria.forClass(Seadus.class);
+        dc.add(Restrictions.eq("seaduse_ID", id));
+
+        List<Seadus> seadusList = getHibernateTemplate().findByCriteria(dc);
+
+       return seadusList.iterator().next();
+    }
+    @Transactional
+    public void saveSeaduse_punkt(Seaduse_punkt seaduse_punkt){
+        seaduse_punkt.setYlemus_seaduse_punkt_id(230);
+        getHibernateTemplate().save(seaduse_punkt);
+
+    }
+    @Transactional
+    public List<Seaduse_punkt> getAllSeaduse_punktid(){
+
+        DetachedCriteria dc = DetachedCriteria.forClass(Seaduse_punkt.class);
+        List<Seaduse_punkt> seaduse_punktList = getHibernateTemplate().findByCriteria(dc);
+
+        return seaduse_punktList;
     }
 
 }

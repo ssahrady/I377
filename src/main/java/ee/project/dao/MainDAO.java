@@ -21,4 +21,6 @@ public interface MainDAO {
     public List<Kodakondsus> getAllKodakondsus();
     public Piiririkkuja getPiiririkkujaById(int id);
     public void saveSeadus(Seadus seadus);
+    public void saveSeaduse_punkt(Seaduse_punkt seaduse_punkt);
+    public List<Seaduse_punkt> getAllSeaduse_punktid();
 }

@@ -67,10 +67,7 @@ public class MyController {
     }
 
 
-    @RequestMapping(value = "/seaduse_punkti_redaktor", method = RequestMethod.GET)
-    public String seadusePunktiRedaktor(ModelMap modelMap) {
-        return "seaduse_punkti_redaktor";
-    }
+
 
     @RequestMapping(value = "/seaduse_redaktor", method = RequestMethod.GET)
     public String seaduseRedaktor(ModelMap modelMap) {
@@ -166,7 +163,24 @@ public class MyController {
         myDAOImpl.saveSeadus(seadus);
       return "redirect:/seaduse_redaktor.html";
     }
+    @RequestMapping(value = "/seaduse_punkti_redaktor", method = RequestMethod.GET)
+    public String seadusePunktiRedaktor(ModelMap modelMap) {
 
+         modelMap.addAttribute("seaduse_punktid",myDAOImpl.getAllSeaduse_punktid());
+
+        return "seaduse_punkti_redaktor";
+    }
+    @RequestMapping(value = "/seaduse_punkti_redaktor", method = RequestMethod.POST)
+    public String saveSeadusePunktiRedaktor(@ModelAttribute("seaduse_punkt")Seaduse_punkt seaduse_punkt) {
+        myDAOImpl.saveSeaduse_punkt(seaduse_punkt);
+        return "seaduse_punkti_redaktor";
+    }
+
+    @RequestMapping(value = "/seaduse_punkti_redaktor/{id}", method = RequestMethod.GET)
+    public String saveSeadusePunktiRedaktor(@PathVariable("id") int id) {
+        //myDAOImpl.getSeaduse_punktById();
+        return "seaduse_punkti_redaktor";
+    }
     public MainDAO getMyDAOImpl() {
         return myDAOImpl;
     }

@@ -27,13 +27,13 @@
 
                 <div class="form_item">
                     <div class="form_title">Kehtiv alates</div>
-                    <div class="left"><input type="text" name ="from" class="popupDatepicker"></div>
+                    <div class="left"><input type="text" name ="kehtiv_alates" class="popupDatepicker"></div>
                     <div class="clear"></div>
                 </div>
 
                 <div class="form_item">
                     <div class="form_title">Kehtiv kuni</div>
-                    <div class="left"><input type="text" name ="to" class="popupDatepicker"></div>
+                    <div class="left"><input type="text" name ="kehtiv_kuni" class="popupDatepicker"></div>
                     <div class="clear"></div>
                 </div>
 
@@ -47,14 +47,8 @@
                     <div class="clear"></div>
                 </div>
 
-                <input name ="objekt_ID" type="hidden" value="10">
-                <input name ="avaja" type="hidden" value="Jarko Kasemaa">
-                <input name ="avatud" type="hidden" value="19/11/2011">
-                <input name ="muutja" type="hidden" value="Marko Jasemaa">
-                <input name ="muudetud" type="hidden" value="19/11/2011">
-                <input name ="suletud" type="hidden" value="19/11/2011">
-                <input name ="sulgeja" type="hidden" value="Ants Sulgurlihas">
-                <input name ="nimetus" type="hidden" value="Nimeta Baar">
+                <input name ="seaduse_ID" type="hidden" value="160">
+
             </form>
         </div>
         <div style="float:left; padding: 10px;">
@@ -91,6 +85,24 @@
                             <div class="clear"></div>
                         </td>
                     </tr>
+                    #foreach($punkt in $seaduse_punktid)
+                    <tr>
+                        <td class="left">$punkt.paragrahv</td>
+                        <td class="right">
+                            <div class="left">$punkt.pais</div>
+                            <div class="right">
+                                <form>
+##                                    <input type="submit" name="action" value="Muuda">
+                                    #set($href ="seaduse_punkti_redaktor/"+ $punkt.seaduse_punkt_id+".html")
+                                    <a href="="
+                                  <input type="submit" name="action" value="Kustuta">
+                                </form>
+                            </div>
+                            <div class="clear"></div>
+                        </td>
+                    </tr>
+                    #end
+
                 </table>
                 <div class="right" style="margin: 4px;">
                     <form>

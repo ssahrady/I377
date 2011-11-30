@@ -45,7 +45,7 @@ public class MyEntityInterceptor extends EmptyInterceptor {
 
             }
 
-                //TODO: SAVE loogika
+
                 Authentication auth = SecurityContextHolder.getContext().getAuthentication();
                 state[muudetudIndex] = new Date();
                 state[muutjaIndex] = auth.getName();
@@ -55,6 +55,13 @@ public class MyEntityInterceptor extends EmptyInterceptor {
                 state[sulgejaIndex] = "NA";
 
         }
+        //TODO: MASSIVOS HACKOS!!
+        if(propertyNames.length ==14 && propertyNames[13].equals("ylemus_seaduse_punkt_id")){
+
+              state[13] = id;
+
+        }
+
         System.out.println("onSave");
         return true;
     }
@@ -84,7 +91,7 @@ public class MyEntityInterceptor extends EmptyInterceptor {
                 }
 
             }
-                //TODO : UPDATE loogika
+
                 Authentication auth = SecurityContextHolder.getContext().getAuthentication();
                 currentState[muudetudIndex] = new Date();
                 currentState[muutjaIndex] = auth.getName();
