@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletResponse;
 import java.security.Principal;
 import java.util.Date;
 import java.util.List;
@@ -60,6 +61,9 @@ public class MyController {
         myDAOImpl.saveKodakondsus(kodakondsus);
 
     }
+//    private providePseudoSeadus(){
+//
+//    }
 
 
     @RequestMapping(value = "/index")
@@ -183,9 +187,15 @@ public class MyController {
     }
 
     @RequestMapping(value = "/seaduse_punkti_redaktor", method = RequestMethod.POST)
-    public String saveSeadusePunktiRedaktor(@ModelAttribute("seaduse_punkt")Seaduse_punkt seaduse_punkt) {
+    public String saveSeadusePunktiRedaktor(@ModelAttribute("seaduse_punkt")Seaduse_punkt seaduse_punkt, HttpServletResponse response) {
+
+        List<Seadus> seadusList = myDAOImpl.getAllSeaduse_ajalugu();
+        if(seadusList.size() == 0){
+
+        }
+        seaduse_punkt.setSeaduse_ID(seadusList.iterator().next().getSeaduse_ID());
         myDAOImpl.saveSeaduse_punkt(seaduse_punkt);
-        return "seaduse_punkti_redaktor";
+        return "redirect:/seaduse_punkti_redaktor.html";
     }
 
     @RequestMapping(value = "/seaduse_punkti_redaktor/{id}", method = RequestMethod.GET)

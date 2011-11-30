@@ -44,9 +44,9 @@
 
                 <input name ="objekt_ID" type="hidden" value="20">
                 <input name ="nimetus" type="hidden" value="Nimeta Baar">
-                <input name="piiririkkuja_ID" type="hidden" value="$!piiririkkuja.piiririkkuja_ID">
+                <input name="piiririkkuja_ID" type="hidden" #if($!piiririkkuja.piiririkkuja_ID)value="$!piiririkkuja.piiririkkuja_ID" #else value="-1" #end >
                 <input name="avaja" type="hidden" value="$!piiririkkuja.avaja">
-                <input name="avatud" type="hidden" value='$valueHelper.convertDateString("$!piiririkkuja.avatud")'>
+                <input name="avatud" type="hidden" #if($!piiririkkuja.avatud) value='$valueHelper.convertDateString("$!piiririkkuja.avatud")' #else value="31/12/9999" #end  >
             </form>
         </div>
         <div style="float:left; padding: 10px;">
