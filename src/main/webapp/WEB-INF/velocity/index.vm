@@ -1,8 +1,8 @@
 #htmlheaderStart()
 #htmlheaderEnd()
-<a href="piiririkkuja.html">Redigeeri piiririkkujaid</a><br/>
-<a href="seaduse_punkti_redaktor.html">Redigeeri seaduse punkte</a><br/>
-<a href="seaduse_redaktor.html">Redigeeri seadusi</a><br/>
-<a href="seaduse_ajalugu.html">Seadusepügalate ajalugu</a>
-
+#navigation()
+<a href="piiririkkuja.html">#lang("edit_border_violators")</a><br/>
+<a href="seaduse_punkti_redaktor.html">#lang("edit_points_of_law")</a><br/>
+<a href="seaduse_redaktor.html">#lang("edit_law")</a><br/>
+<a href="seaduse_ajalugu.html">#lang("view_history")</a>
 #htmlfooter()
