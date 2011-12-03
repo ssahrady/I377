@@ -5,6 +5,12 @@ html{
     font-family: "Comic Sans MS";
     font-size: 12px;
 }
+img{
+    border: 0px;
+}
+div.navigation{
+    border-top: 1px solid #CCC;
+}
 div.clear{
     clear:both;
 }

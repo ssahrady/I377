@@ -1,4 +1,6 @@
-#htmlheader()
+#htmlheaderStart()
+#htmlheaderEnd()
+#navigation(true)
         <div style="float:left;">
             <form action="/seaduse_redaktor.html" method="POST" id="userdata">
                 <div class="form_item">

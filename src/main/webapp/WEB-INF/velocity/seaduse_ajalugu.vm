@@ -1,16 +1,18 @@
-#htmlheader()
+#htmlheaderStart()
+#htmlheaderEnd()
+#navigation(true)
 <div>
     <form>
         <div class="ajaloo_filter">
-            <div>Alates</div>
+            <div>#lang("from")</div>
             <div><input type="text" class="popupDatepicker" name="from" style="width: 100px;" /></div>
         </div>
         <div class="ajaloo_filter">
-            <div>Kuni</div>
+            <div>#lang("to")</div>
             <div><input type="text" class="popupDatepicker" name="to" style="width: 100px;" /></div>
         </div>
         <div class="ajaloo_filter">
-            <div>Seadus</div>
+            <div>#lang("law")</div>
             <div>
                 <select name="seadus" class="form_itm">
                     <option>Relvaseadus</option>
@@ -27,9 +29,9 @@
 <div style="margin: 5px;">
     <table style="width: 499px">
         <tr>
-            <th class="left_ajalugu">Punkt</th>
-            <th class="left_ajalugu">Alates</th>
-            <th class="left_ajalugu">Kuni</th>
+            <th class="left_ajalugu">#lang("item")</th>
+            <th class="left_ajalugu">#lang("from")</th>
+            <th class="left_ajalugu">#lang("to")</th>
             <th class="right_ajalugu"></th>
         </tr>
         #foreach($seadus in $seadused)
@@ -37,7 +39,7 @@
             <td class="left">$seadus.nimetus</td>
             <td class="mid_ajalugu">$seadus.kehtiv_alates</td>
             <td class="mid_ajalugu">$seadus.kehtiv_kuni</td>
-            <td class="right_ajalugu"><div class="link"><a href="../seaduse_ajalugu.html">Vaata</a></div></td>
+            <td class="right_ajalugu"><div class="link"><a href="../seaduse_ajalugu.html">#lang("view")</a></div></td>
         </tr>
         #end
     </table>

@@ -24,7 +24,20 @@
     <body>
 #end
 
+#macro(navigation $notMain)
+    #if($notMain)
+        <div class="left"><a href="index.html">&#171;&nbsp;#lang("main_page")</a></div>
+    #end
+    <div class="right"><a href="index.html?lang=et"><img src="/res/flag_estonia.png" width="24" height="24" alt="Eesti keeles" /></a>&nbsp;<a href="index.html?lang=en"><img src="/res/flag_great_britain.png" width="24" height="24" alt="In english" /></a></div>
+    <div class="clear"></div>
+    <div class="navigation">&nbsp;</div>
+#end
+
 #macro(htmlfooter)
     </body>
 </html>
+#end
+
+#macro(lang $var)
+    $springMacroRequestContext.getMessage($var)
 #end

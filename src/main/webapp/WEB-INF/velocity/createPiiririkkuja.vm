@@ -1,5 +1,4 @@
 #htmlheaderStart()
-
 <script type="text/javascript">
     $(document).ready(function(){
 
@@ -17,8 +16,8 @@
     });
 
 </script>
-
 #htmlheaderEnd()
+#navigation(true)
         <div style="float:left;">
              #if($piiririkkuja.piiririkkuja_ID && $piiririkkuja.piiririkkuja_ID!=0)
                  #set($action = "/piiririkkuja/"+$piiririkkuja.piiririkkuja_ID+".html")
@@ -27,42 +26,42 @@
             #end
             <form action=$action method="POST" id="userdata">
                 <div class="form_item">
-                    <div class="form_title">Isikukood</div>
+                    <div class="form_title">#lang("personal_id")</div>
                     <div class="left"><input type="text" name ="isikukood" value="$!piiririkkuja.isikukood"></div>
                     <div class="clear"></div>
                 </div>
 
                 <div class="form_item">
-                    <div class="form_title">Eesnimi</div>
+                    <div class="form_title">#lang("firstname")</div>
                     <div class="left"><input type="text" name ="eesnimi" value="$!piiririkkuja.eesnimi"></div>
                     <div class="clear"></div>
                 </div>
 
                 <div class="form_item">
-                    <div class="form_title">Perekonnanimi</div>
+                    <div class="form_title">#lang("lastname")</div>
                     <div class="left"><input type="text" name ="perek_nimi" value="$!piiririkkuja.perek_nimi"></div>
                     <div class="clear"></div>
                 </div>
 
                 <div class="form_item">
-                    <div class="form_title">Sünniaeg</div>
+                    <div class="form_title">#lang("date_of_birth")</div>
                     <div class="left"><input type="text" name ="synniaeg" id ="popupDatepicker" value='$valueHelper.convertDateString("$!piiririkkuja.avatud")' ></div>
                     <div class="clear"></div>
                 </div>
 
                 <div class="form_item">
-                    <div class="form_title">Sugu</div>
+                    <div class="form_title">#lang("gender")</div>
                     <div class="left">
                         <select class="form_itm" name ="sugu">
-                            <option name="m" #if($!piiririkkuja.sugu == "Mees") selected="true" #end >Mees</option>
-                            <option name="n" #if($!piiririkkuja.sugu == "Naine") selected="true" #end>Naine</option>
+                            <option name="m" #if($!piiririkkuja.sugu == "Mees") selected="true" #end >#lang("male")</option>
+                            <option name="n" #if($!piiririkkuja.sugu == "Naine") selected="true" #end>#lang("female")</option>
                         </select>
                     </div>
                     <div class="clear"></div>
                 </div>
 
                 <div class="form_item">
-                    <div class="form_title">Kommentaar</div>
+                    <div class="form_title">#lang("comments")</div>
                     <div class="left"><textarea class="form_itm" style="height: 80px;" name ="kommentaar">$!piiririkkuja.kommentaar</textarea></div>
                     <div class="clear"></div>
                 </div>
@@ -76,11 +75,11 @@
         </div>
         <div style="float:left; padding: 10px;">
             <div class="kodakondsused">
-                Kodakondsused
+                #lang("citizenships")
                 <table>
                     <tr>
-                        <th class="left">Riik</th>
-                        <th class="right">Isikukood</th>
+                        <th class="left">#lang("country")</th>
+                        <th class="right">#lang("personal_id")</th>
                     </tr>
                     #foreach($k in $kodakondsus)
                     <tr>
@@ -89,8 +88,8 @@
                             <div class="left">$k.isikukood</div>
                             <div class="right">
                                 #set($href = "/piiririkkuja/"+$k.piiririkkuja_ID.piiririkkuja_ID+".html")
-                                <div class="left link"><a href=$href>Muuda</a></div>
-                                <div class="left link"><a class="delete" rel=$k.piiririkkuja_ID.piiririkkuja_ID href=$href>Kustuta</a></div>
+                                <div class="left link"><a href=$href>#lang("edit")</a></div>
+                                <div class="left link"><a class="delete" rel=$k.piiririkkuja_ID.piiririkkuja_ID href=$href>#lang("delete")</a></div>
                                 <div class="clear"></div>
                             </div>
                             <div class="clear"></div>
@@ -102,14 +101,14 @@
                 </table>
                 <div class="right" style="margin: 4px;">
                     <form>
-                        <input type="button" onclick="document.forms['userdata'].submit();" value="Lisa">
+                        <input type="button" onclick="document.forms['userdata'].submit();" value="#lang("add")">
                     </form>
                 </div>
                 <div class="clear"></div>
             </div>
             <div class="bottom">
-                <div class="left link"><a href="#" onclick="document.forms['userdata'].submit();">Salvesta</a></div>
-                <div class="left link"><a href="../piiririkkuja.html">Loobu</a></div>
+                <div class="left link"><a href="#" onclick="document.forms['userdata'].submit();">#lang("save")</a></div>
+                <div class="left link"><a href="../piiririkkuja.html">#lang("cancel")</a></div>
                 <div class="clear"></div>
             </div>
             <div class="clear"></div>
