@@ -55,8 +55,10 @@ public class MyController {
         kodakondsus.setAlates(new Date());
         kodakondsus.setKuni(new Date());
         kodakondsus.setIsikukood("38911180247");
-        //kodakondsus.setPiiririkkuja_ID(piiririkkuja.getPiiririkkuja_ID());
+        Piiririkkuja piiririkkuja2 = myDAOImpl.getPiiririkkujaById(piiririkkuja.getPiiririkkuja_ID());
+        kodakondsus.setPiiririkkuja_ID(piiririkkuja2);
         kodakondsus.setRiik_ID(riik.getRiik_ID());
+
         myDAOImpl.saveKodakondsus(kodakondsus);
 
     }

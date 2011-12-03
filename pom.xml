@@ -221,7 +221,7 @@
 
     <build>
         <directory>target</directory>
-        <finalName>${project.artifactId}-${project.version}</finalName>
+        <finalName>${artifactId}-${version}</finalName>
         <sourceDirectory>src/main/java</sourceDirectory>
 
         <plugins>
