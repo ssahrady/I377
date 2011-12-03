@@ -14,6 +14,8 @@ http://www.springframework.org/schema/security
 http://www.springframework.org/schema/security/spring-security-3.0.3.xsd
 ">
 
+    <mvc:annotation-driven/>
+
     <security:http auto-config="true">
         <security:intercept-url pattern="/**" access="ROLE_USER"/>
     </security:http>
@@ -24,6 +26,8 @@ http://www.springframework.org/schema/security/spring-security-3.0.3.xsd
                 <security:user name="admin" password="Aiwei7ya" authorities="ROLE_USER, ROLE_ADMIN"/>
                 <security:user name="valvur" password="valvur" authorities="ROLE_USER"/>
                 <security:user name="ylem" password="ylem" authorities="ROLE_USER"/>
+                <security:user name="t" password="t" authorities="ROLE_USER"/>
+
             </security:user-service>
         </security:authentication-provider>
     </security:authentication-manager>
@@ -37,6 +41,7 @@ http://www.springframework.org/schema/security/spring-security-3.0.3.xsd
 
 
     <bean id="velocityConfig" class="org.springframework.web.servlet.view.velocity.VelocityConfigurer">
+
         <property name="resourceLoaderPath" value="/WEB-INF/velocity/"/>
 
         <property name="velocityProperties">
@@ -47,6 +52,23 @@ http://www.springframework.org/schema/security/spring-security-3.0.3.xsd
             </props>
         </property>
     </bean>
+    <bean id="messageSource"
+        class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+      <property name="basenames" value="/WEB-INF/velocity/messages/messages" />
+</bean>
+<!--<bean id="localeChangeInterceptor" class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor">-->
+<!--<property name="paramName"><value>locale</value></property>-->
+<!--</bean>-->
+<bean id="localeResolver" class="org.springframework.web.servlet.i18n.CookieLocaleResolver">
+<property name="defaultLocale" value="et" />
+</bean>
+
+     <mvc:interceptors>
+    <bean id="localeChangeInterceptor"
+        class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor">
+        <property name="paramName" value="lang"/>
+    </bean>
+    </mvc:interceptors>
 
     <bean id="viewResolver" class="org.springframework.web.servlet.view.velocity.VelocityViewResolver">
         <property name="cache" value="true"/>
