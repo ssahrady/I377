@@ -17,8 +17,15 @@
 
 </script>
 #htmlheaderEnd()
+
+
+            #if($seaduse_punkt.seaduse_punkt_ID && $seaduse_punkt.seaduse_punkt_ID !=0)
+                 #set($action = "/seaduse_punkti_redaktor/"+$seaduse_punkt.seaduse_punkt_ID+".html")
+             #else
+                 #set($action = "/seaduse_punkti_redaktor.html")
+            #end
         <div style="float:left;">
-            <form action="/seaduse_punkti_redaktor.html" method="POST" id="userdata">
+            <form action=$action method="POST" id="userdata">
                 <div class="form_item">
                     <div class="form_title">Paragrahv</div>
                     <div class="left"><input type="text" name ="paragrahv" value="$!seaduse_punkt.paragrahv"></div>
@@ -66,6 +73,7 @@
                 </div>
 
                 <input name ="seaduse_ID" type="hidden" value="160">
+                <input name ="seaduse_punkt_ID" type="hidden" value=$!seaduse_punkt.seaduse_punkt_ID>
 
             </form>
         </div>
@@ -105,7 +113,7 @@
                 <div class="clear"></div>
             </div>
             <div class="bottom">
-                <div class="left link"><a onclick="document.forms['userdata'].submit();">Salvesta</a></div>
+                <div class="left link"><a href="#" onclick="document.forms['userdata'].submit();">Salvesta</a></div>
                 <div class="left link"><a href="../seaduse_punkti_redaktor.html">Loobu</a></div>
                 <div class="clear"></div>
             </div>

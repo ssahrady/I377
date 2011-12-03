@@ -111,8 +111,8 @@ public class MainDAOImpl extends HibernateDaoSupport implements MainDAO {
     }
     @Transactional
     public void saveSeaduse_punkt(Seaduse_punkt seaduse_punkt){
-        seaduse_punkt.setYlemus_seaduse_punkt_id(230);
-        getHibernateTemplate().save(seaduse_punkt);
+      //  seaduse_punkt.setYlemus_seaduse_punkt_id(230);
+        getHibernateTemplate().saveOrUpdate(seaduse_punkt);
 
     }
     @Transactional

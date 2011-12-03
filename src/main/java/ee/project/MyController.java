@@ -78,9 +78,6 @@ public class MyController {
 
     @RequestMapping(value = "/objekti_liik", method = RequestMethod.GET)
     public String helloWorld(ModelMap modelMap) {
-
-        String message = "HelloyWaaorld, Spring 3.0!";
-
         String now = "Tere";
         modelMap.addAttribute("now", now);
         return "createObjekti_liik";
@@ -214,6 +211,8 @@ public class MyController {
         myDAOImpl.saveSeadus(seadus);
       return "redirect:/seaduse_redaktor.html";
     }
+
+
     @RequestMapping(value = "/seaduse_punkti_redaktor", method = RequestMethod.GET)
     public String seadusePunktiRedaktor(ModelMap modelMap) {
 
@@ -233,6 +232,29 @@ public class MyController {
         myDAOImpl.saveSeaduse_punkt(seaduse_punkt);
         return "redirect:/seaduse_punkti_redaktor.html";
     }
+    @RequestMapping(value = "/seaduse_punkti_redaktor/{id}", method = RequestMethod.POST)
+    public String updateSeadusePunktiRedaktor(@ModelAttribute("seaduse_punkt")Seaduse_punkt seaduse_punkt) {
+
+        Seaduse_punkt punkt = myDAOImpl.getSeaduse_punktById(seaduse_punkt.getSeaduse_punkt_ID());
+        punkt.setKehtiv_alates(seaduse_punkt.getKehtiv_alates());
+        punkt.setKehtiv_kuni(seaduse_punkt.getKehtiv_kuni());
+        punkt.setPais(seaduse_punkt.getPais());
+        punkt.setParagrahv(seaduse_punkt.getParagrahv());
+
+        punkt.setTekst(seaduse_punkt.getTekst());
+        punkt.setYlemus_seaduse_punkt_id(seaduse_punkt.getYlemus_seaduse_punkt_id());
+
+
+        List<Seadus> seadusList = myDAOImpl.getAllSeaduse_ajalugu();
+        if(seadusList.size() == 0){
+
+        }
+        seaduse_punkt.setSeaduse_ID(seadusList.iterator().next().getSeaduse_ID());
+        myDAOImpl.saveSeaduse_punkt(punkt);
+        return "redirect:/seaduse_punkti_redaktor.html";
+    }
+
+
 
     @RequestMapping(value = "/seaduse_punkti_redaktor/{id}", method = RequestMethod.GET)
     public String saveSeadusePunktiRedaktor(ModelMap modelMap, @PathVariable("id") int id) {
