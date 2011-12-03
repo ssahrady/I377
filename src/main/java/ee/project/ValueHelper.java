@@ -25,4 +25,24 @@ public class ValueHelper {
         return inDate;
     }
 
+    public static Date getFakeDate() {
+
+        int year = 9999;
+        int month = 12;
+        int day = 12;
+        String date = year + "/" + month + "/" + day;
+        java.util.Date utilDate = null;
+
+        try {
+            SimpleDateFormat formatter = new SimpleDateFormat("yyyy/MM/dd");
+            utilDate = formatter.parse(date);
+
+        } catch (ParseException e) {
+
+        }
+
+        return utilDate;
+
+    }
+
 }

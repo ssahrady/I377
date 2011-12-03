@@ -5,12 +5,15 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
 @MappedSuperclass
-public class OpenableCloseable {
+public class OpenableCloseable implements Serializable {
+
+    private static final long serialVersionUID = 1L;
 
     private String avaja;
     private Date avatud;

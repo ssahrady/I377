@@ -51,7 +51,7 @@ public class MyEntityInterceptor extends EmptyInterceptor {
                 state[muutjaIndex] = auth.getName();
                 state[avatudIndex] = new Date();
                 state[avajaIndex] = auth.getName();
-                state[suletudIndex] = getFakeDate();
+                state[suletudIndex] = ValueHelper.getFakeDate();
                 state[sulgejaIndex] = "N/A";
 
         }
@@ -97,11 +97,13 @@ public class MyEntityInterceptor extends EmptyInterceptor {
             if(!currentState[sulgejaIndex].equals("N/A")){
               currentState[suletudIndex] = new Date();
               currentState[sulgejaIndex] = auth.getName();
+            } else {
+                currentState[suletudIndex] = ValueHelper.getFakeDate();
+                currentState[sulgejaIndex] = "N/A";
             }
 
 
-                currentState[suletudIndex] = getFakeDate();
-                currentState[sulgejaIndex] = "N/A";
+
 
         }
 
@@ -125,25 +127,5 @@ public class MyEntityInterceptor extends EmptyInterceptor {
     //called after committed into database
     public void postFlush(Iterator iterator) {
         System.out.println("postFlush");
-    }
-
-    private Date getFakeDate() {
-
-        int year = 9999;
-        int month = 12;
-        int day = 12;
-        String date = year + "/" + month + "/" + day;
-        java.util.Date utilDate = null;
-
-        try {
-            SimpleDateFormat formatter = new SimpleDateFormat("yyyy/MM/dd");
-            utilDate = formatter.parse(date);
-
-        } catch (ParseException e) {
-
-        }
-
-        return utilDate;
-
     }
 }

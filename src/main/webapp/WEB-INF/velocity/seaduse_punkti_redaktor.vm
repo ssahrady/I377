@@ -1,4 +1,22 @@
-#htmlheader()
+#htmlheaderStart()
+<script>
+    $(document).ready(function(){
+
+     $(".delete").click(function(e){
+         e.preventDefault();
+          var rel = $(this).attr("rel");
+         $.ajax({
+             type: 'DELETE',
+             url: "/seaduse_punkti_redaktor/"+rel+".html",
+             success: function() {
+                 window.location.replace("/seaduse_punkti_redaktor.html");
+             }
+         });
+     });
+    });
+
+</script>
+#htmlheaderEnd()
         <div style="float:left;">
             <form action="/seaduse_punkti_redaktor.html" method="POST" id="userdata">
                 <div class="form_item">
@@ -59,32 +77,6 @@
                         <th class="left">§</th>
                         <th class="right">Päis</th>
                     </tr>
-                    <tr>
-                        <td class="left">8</td>
-                        <td class="right">
-                            <div class="left">Sigadus 8.1.2</div>
-                            <div class="right">
-                                <div class="right">
-                                <div class="left link"><a href="">Muuda</a></div>
-                                <div class="left link"><a href="">Kustuta</a></div>
-                                <div class="clear"></div>
-                            </div>
-                            </div>
-                            <div class="clear"></div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="left">8</td>
-                        <td class="right">
-                            <div class="left">Sigadus 8.1.3</div>
-                            <div class="right">
-                                <div class="left link"><a href="">Muuda</a></div>
-                                <div class="left link"><a href="">Kustuta</a></div>
-                                <div class="clear"></div>
-                            </div>
-                            <div class="clear"></div>
-                        </td>
-                    </tr>
                     #foreach($punkt in $seaduse_punktid)
                     <tr>
                         <td class="left">$punkt.paragrahv</td>
@@ -95,7 +87,8 @@
 ##                                    <input type="submit" name="action" value="Muuda">
                                     #set($href ="/seaduse_punkti_redaktor/"+ $punkt.seaduse_punkt_ID+".html")
                                     <a href="$href">Muuda</a>
-                                  <input type="submit" name="action" value="Kustuta">
+                                 ## <input type="submit"  name="action" value="Kustuta">
+                                    <a href="#" class="delete" rel=$punkt.seaduse_punkt_ID>Kustuta</a>
                                 </form>
                             </div>
                             <div class="clear"></div>

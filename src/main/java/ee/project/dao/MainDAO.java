@@ -28,5 +28,7 @@ public interface MainDAO {
     public List<Seadus> getAllSeaduse_ajalugu();
     public Objekt getFirstObjekt();
     public Seaduse_punkt getSeaduse_punktById(int id);
+    public void deletePiiririkkuja(Piiririkkuja piiririkkuja);
+    public void deleteSeadusePunkt(Seaduse_punkt seaduse_punkt);
 
 }

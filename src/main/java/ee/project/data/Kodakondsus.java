@@ -2,14 +2,19 @@ package ee.project.data;
 
 
 import javax.persistence.*;
+import java.io.Serializable;
+import java.util.Collection;
 import java.util.Date;
 
 @Entity
 @Table(name = "KODAKONDSUS")
-public class Kodakondsus extends OpenableCloseable{
+public class Kodakondsus  extends OpenableCloseable implements Serializable {
+
+    private static final long serialVersionUID = 1L;
 
     private int kodakondsus_ID;
-    private int piiririkkuja_ID;
+//    private int piiririkkuja_ID;
+    private Piiririkkuja piiririkkuja_ID;
     private int riik_ID;
     private String isikukood;
     private Date alates;
@@ -26,12 +31,22 @@ public class Kodakondsus extends OpenableCloseable{
         this.kodakondsus_ID = kodakondsus_ID;
     }
 
-    @Column(name = "PIIRIRIKKUJA_ID", nullable = false)
-    public int getPiiririkkuja_ID() {
+//    @Column(name = "PIIRIRIKKUJA_ID", nullable = false)
+//    public int getPiiririkkuja_ID() {
+//        return piiririkkuja_ID;
+//    }
+//
+//    public void setPiiririkkuja_ID(int piiririkkuja_ID) {
+//        this.piiririkkuja_ID = piiririkkuja_ID;
+//    }
+    @ManyToOne(cascade={CascadeType.ALL})
+    @JoinColumn(name="PIIRIRIKKUJA_ID",nullable=false)
+    //@Column(name = "PIIRIRIKKUJA_ID", nullable = false)
+    public Piiririkkuja getPiiririkkuja_ID() {
         return piiririkkuja_ID;
     }
 
-    public void setPiiririkkuja_ID(int piiririkkuja_ID) {
+    public void setPiiririkkuja_ID(Piiririkkuja piiririkkuja_ID) {
         this.piiririkkuja_ID = piiririkkuja_ID;
     }
 

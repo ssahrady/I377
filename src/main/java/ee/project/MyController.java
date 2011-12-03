@@ -6,14 +6,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.security.Principal;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -56,7 +55,7 @@ public class MyController {
         kodakondsus.setAlates(new Date());
         kodakondsus.setKuni(new Date());
         kodakondsus.setIsikukood("38911180247");
-        kodakondsus.setPiiririkkuja_ID(piiririkkuja.getPiiririkkuja_ID());
+        //kodakondsus.setPiiririkkuja_ID(piiririkkuja.getPiiririkkuja_ID());
         kodakondsus.setRiik_ID(riik.getRiik_ID());
         myDAOImpl.saveKodakondsus(kodakondsus);
 
@@ -142,32 +141,69 @@ public class MyController {
         modelMap.addAttribute("piiririkkuja", piiririkkuja);
         return "createPiiririkkuja";
     }
+
+    @RequestMapping(value = "/piiririkkuja/{id}", method = RequestMethod.DELETE)
+    public @ResponseBody
+    String deletePiiririkkuja(@PathVariable("id") int id) {
+
+        Piiririkkuja piiririkkuja = myDAOImpl.getPiiririkkujaById(id);
+        myDAOImpl.deletePiiririkkuja(piiririkkuja);
+
+        return "jee";
+    }
+
+    @RequestMapping(value = "/seaduse_punkti_redaktor/{id}", method = RequestMethod.DELETE)
+    public @ResponseBody
+    String deleteSeaduse_punkt(@PathVariable("id") int id) {
+
+        Seaduse_punkt seaduse_punkt = myDAOImpl.getSeaduse_punktById(id);
+        myDAOImpl.deleteSeadusePunkt(seaduse_punkt);
+
+        return "jee";
+    }
+
     @RequestMapping(value = "/piiririkkuja/{id}", method = RequestMethod.POST)
     public String updatePiiririkkuja(ModelMap modelMap, @ModelAttribute("piiririkkuja")Piiririkkuja piiririkkuja) {
 
         List<Kodakondsus> kodakondsusList = myDAOImpl.getAllKodakondsus();
-        myDAOImpl.savePiiririkkuja(piiririkkuja);
+        Piiririkkuja dbPiiririkkuja = myDAOImpl.getPiiririkkujaById(piiririkkuja.getPiiririkkuja_ID());
+
+        dbPiiririkkuja.setIsikukood(piiririkkuja.getIsikukood());
+        dbPiiririkkuja.setEesnimi(piiririkkuja.getEesnimi());
+        dbPiiririkkuja.setPerek_nimi(piiririkkuja.getPerek_nimi());
+        dbPiiririkkuja.setSynniaeg(piiririkkuja.getSynniaeg());
+        dbPiiririkkuja.setSugu(piiririkkuja.getSugu());
+        dbPiiririkkuja.setKommentaar(piiririkkuja.getKommentaar());
+        myDAOImpl.savePiiririkkuja(dbPiiririkkuja);
         modelMap.addAttribute("kodakondsus", kodakondsusList);
         modelMap.addAttribute("piiririkkuja", piiririkkuja);
-        return "createPiiririkkuja";
+        return "redirect:/piiririkkuja/"+piiririkkuja.getPiiririkkuja_ID()+".html";
     }
     @RequestMapping(value = "/piiririkkuja", method = RequestMethod.POST)
     public String savePiiririkkuja(@ModelAttribute("piiririkkuja")Piiririkkuja piiririkkuja,
-                                   Principal principal){
+                                   HttpServletRequest request){
+
+
         piiririkkuja.setPiiririkkuja_ID(0);
         //TODO avoid possible nullpointer
         piiririkkuja.setObjekt_ID(myDAOImpl.getFirstObjekt().getObjekt_ID());
-        getMyDAOImpl().savePiiririkkuja(piiririkkuja);
+
         int riikID = myDAOImpl.getAllRiik().iterator().next().getRiik_ID();
 
         Kodakondsus kodakondsus = new Kodakondsus();
         kodakondsus.setAlates(new Date());
         kodakondsus.setKuni(new Date());
         kodakondsus.setIsikukood(piiririkkuja.getIsikukood());
-        kodakondsus.setPiiririkkuja_ID(piiririkkuja.getPiiririkkuja_ID());
+        kodakondsus.setPiiririkkuja_ID(piiririkkuja);
         kodakondsus.setRiik_ID(riikID);
-        myDAOImpl.saveKodakondsus(kodakondsus);
+        //myDAOImpl.saveKodakondsus(kodakondsus);
+        //piiririkkuja.getKodakondsus().add(kodakondsus);
 
+        //myDAOImpl.saveKodakondsus(kodakondsus);
+        List <Kodakondsus> kodakondsusList = new ArrayList<Kodakondsus>();
+        kodakondsusList.add(kodakondsus);
+        piiririkkuja.setKodakondsus(kodakondsusList);
+         getMyDAOImpl().savePiiririkkuja(piiririkkuja);
         return "redirect:/piiririkkuja.html";
     }
 

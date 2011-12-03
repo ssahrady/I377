@@ -1,4 +1,5 @@
-#htmlheader()
+#htmlheaderStart()
+#htmlheaderEnd()
 <a href="piiririkkuja.html">Redigeeri piiririkkujaid</a><br/>
 <a href="seaduse_punkti_redaktor.html">Redigeeri seaduse punkte</a><br/>
 <a href="seaduse_redaktor.html">Redigeeri seadusi</a><br/>

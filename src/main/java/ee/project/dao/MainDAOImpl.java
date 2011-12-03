@@ -1,5 +1,7 @@
 package ee.project.dao;
 
+import ee.project.Piir;
+import ee.project.ValueHelper;
 import ee.project.data.*;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.DetachedCriteria;
@@ -7,6 +9,8 @@ import org.hibernate.criterion.Restrictions;
 import org.springframework.orm.hibernate3.HibernateTemplate;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 import org.springframework.orm.jpa.support.JpaDaoSupport;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.sql.Connection;
@@ -78,6 +82,7 @@ public class MainDAOImpl extends HibernateDaoSupport implements MainDAO {
     public List<Kodakondsus> getAllKodakondsus(){
 
         DetachedCriteria criteria = DetachedCriteria.forClass(Kodakondsus.class);
+        criteria.createCriteria("piiririkkuja_ID").add(Restrictions.eq("suletud", ValueHelper.getFakeDate()));
         List<Kodakondsus> kodakondsusList = getHibernateTemplate().findByCriteria(criteria);
 
         return kodakondsusList;
@@ -114,6 +119,7 @@ public class MainDAOImpl extends HibernateDaoSupport implements MainDAO {
     public List<Seaduse_punkt> getAllSeaduse_punktid() {
 
         DetachedCriteria dc = DetachedCriteria.forClass(Seaduse_punkt.class);
+        dc.add(Restrictions.eq("suletud", ValueHelper.getFakeDate()));
         List<Seaduse_punkt> seaduse_punktList = getHibernateTemplate().findByCriteria(dc);
 
         return seaduse_punktList;
@@ -145,5 +151,24 @@ public class MainDAOImpl extends HibernateDaoSupport implements MainDAO {
 
         return seadusList;
     }
+
+    @Transactional
+    public void deletePiiririkkuja(Piiririkkuja piiririkkuja){
+
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        piiririkkuja.setSulgeja(auth.getName());
+        getHibernateTemplate().update(piiririkkuja);
+
+    }
+
+    @Transactional
+     public void deleteSeadusePunkt(Seaduse_punkt seaduse_punkt){
+
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        seaduse_punkt.setSulgeja(auth.getName());
+        getHibernateTemplate().update(seaduse_punkt);
+
+
+     }
 
 }

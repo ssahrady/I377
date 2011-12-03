@@ -1,11 +1,16 @@
 package ee.project.data;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "PIIRIRIKKUJA")
-public class Piiririkkuja extends OpenableCloseable{
+public class Piiririkkuja extends OpenableCloseable implements Serializable {
+
+    private static final long serialVersionUID = 1L;
+
 
     private int piiririkkuja_ID;
     private String isikukood;
@@ -14,6 +19,7 @@ public class Piiririkkuja extends OpenableCloseable{
     private String sugu;
     private Date synniaeg;
     private int objekt_ID;
+    private List<Kodakondsus> kodakondsuses;
 
 
     @Id
@@ -80,5 +86,15 @@ public class Piiririkkuja extends OpenableCloseable{
 
     public void setObjekt_ID(int objekt_ID) {
         this.objekt_ID = objekt_ID;
+    }
+
+    @OneToMany(fetch = FetchType.EAGER, targetEntity = Kodakondsus.class, cascade=CascadeType.ALL)
+    @JoinColumn(name = "PIIRIRIKKUJA_ID", referencedColumnName = "PIIRIRIKKUJA_ID")
+    public List<Kodakondsus> getKodakondsus(){
+     return kodakondsuses;
+    }
+
+    public void setKodakondsus(List<Kodakondsus> kodakondsus){
+      this.kodakondsuses = kodakondsus;
     }
 }
