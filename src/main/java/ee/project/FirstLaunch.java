@@ -29,7 +29,7 @@ public class FirstLaunch implements ServletContextListener {
 
         try{
         c = DriverManager.getConnection(
-                 "jdbc:hsqldb:file:${user.home}/Team17/db;shutdown=true", "SA", "");
+                 "jdbc:hsqldb:file:${user.home}/Team17/db2;", "SA", "");
 
             c.setAutoCommit(false);
             PreparedStatement statement = c.prepareStatement(Piir.SQL);
