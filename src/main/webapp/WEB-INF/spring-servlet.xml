@@ -96,7 +96,7 @@ http://www.springframework.org/schema/security/spring-security-3.0.3.xsd
           class="org.springframework.jdbc.datasource.DriverManagerDataSource">
         <property name="driverClassName" value="org.hsqldb.jdbcDriver"/>
         <!--<property name="url" value="jdbc:hsqldb:file:/home/taivo/db/testdb;shutdown=true"/>-->
-        <property name="url" value="jdbc:hsqldb:file:${user.home}/Team17/db;shutdown=true"/>
+        <property name="url" value="jdbc:hsqldb:file:${user.home}/Team17/db2;shutdown=true"/>
 
         <property name="username" value="sa"/>
         <property name="password" value=""/>
