@@ -23,6 +23,10 @@ public class MyController {
     @Autowired
     private MainDAO myDAOImpl;
 
+    @RequestMapping(value = "/login", method = RequestMethod.GET)
+    public String login(){
+     return "login";
+    }
 
 
     public void provideDemoData() {
@@ -168,7 +172,7 @@ public class MyController {
     }
 
     @RequestMapping(value = "/piiririkkuja/{id}", method = RequestMethod.POST)
-    public String updatePiiririkkuja(ModelMap modelMap, @ModelAttribute("piiririkkuja")Piiririkkuja piiririkkuja) {
+    public String updatePiiririkkuja(ModelMap modelMap, @ModelAttribute("piiririkkuja")Piiririkkuja piiririkkuja, HttpServletRequest request) {
 
         List<Kodakondsus> kodakondsusList = myDAOImpl.getAllKodakondsus();
         Piiririkkuja dbPiiririkkuja = myDAOImpl.getPiiririkkujaById(piiririkkuja.getPiiririkkuja_ID());
