@@ -24,7 +24,7 @@ div.form_title{
     float:left;
     width: 120px;
 }
-input[type="text"], .form_itm{
+input[type="text"], input[type="password"], .form_itm{
     width: 180px;
     border: 1px solid #000;
     font-family: "Comic Sans MS";
@@ -124,4 +124,8 @@ div.link{
     margin: 1px;
     padding-left: 8px;
     padding-right: 8px;
+}
+div.fail{
+    color: #FF0000;
+    font-size: 14px;
 }

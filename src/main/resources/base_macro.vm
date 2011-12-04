@@ -24,13 +24,15 @@
     <body>
 #end
 
-#macro(navigation $notMain $url)
+#macro(navigation $notMain $url $log)
+    #if(!$log)
     <div class="left">
         #if($notMain)
             <a href="$url/index.html">&#171;&nbsp;#lang("main_page")</a> &#124
         #end
         <a href="$url/j_spring_security_logout">#lang("logout")</a>
     </div>
+    #end
     <div class="right"><a href="?lang=et"><img src="$url/res/flag_estonia.png" width="24" height="24" alt="Eesti keeles" /></a>&nbsp;<a href="?lang=en"><img src="$url/res/flag_great_britain.png" width="24" height="24" alt="In english" /></a></div>
     <div class="clear"></div>
     <div class="navigation">&nbsp;</div>
