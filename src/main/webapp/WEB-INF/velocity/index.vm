@@ -1,8 +1,8 @@
-#htmlheaderStart()
+#htmlheaderStart($url)
 #htmlheaderEnd()
-#navigation()
-<a href="piiririkkuja.html">#lang("edit_border_violators")</a><br/>
-<a href="seaduse_punkti_redaktor.html">#lang("edit_points_of_law")</a><br/>
-<a href="seaduse_redaktor.html">#lang("edit_law")</a><br/>
-<a href="seaduse_ajalugu.html">#lang("view_history")</a>
+#navigation(false $url)
+<a href="$url/piiririkkuja.html">#lang("edit_border_violators")</a><br/>
+<a href="$url/seaduse_punkti_redaktor.html">#lang("edit_points_of_law")</a><br/>
+<a href="$url/seaduse_redaktor.html">#lang("edit_law")</a><br/>
+<a href="$url/seaduse_ajalugu.html">#lang("view_history")</a>
 #htmlfooter()
