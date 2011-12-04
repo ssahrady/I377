@@ -20,6 +20,7 @@ http://www.springframework.org/schema/security/spring-security-3.0.3.xsd
         <security:intercept-url pattern="**" access="ROLE_USER"/>
         <security:intercept-url pattern="/login.html" filters="none" />
         <security:intercept-url pattern="/logout.html" filters="none" />
+        <security:intercept-url pattern="/res/**" filters="none" />
 
         <security:form-login login-page="/login.html" always-use-default-target="false" default-target-url="/index.html"
 			authentication-failure-url="/login.html?login=fail" />
