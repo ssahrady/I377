@@ -16,6 +16,9 @@
             <div>
                 <select name="seadus" class="form_itm">
                     <option>Relvaseadus</option>
+                    #foreach($s in $seadused)
+                    <option id="$s.seaduse_ID">$s.nimetus</option>
+                    #end
                 </select>
             </div>
         </div>

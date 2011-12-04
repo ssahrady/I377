@@ -33,8 +33,6 @@
                     <div class="clear"></div>
                 </div>
 
-                <input name ="objekt_ID" type="hidden" value="160">
-                <input name ="nimetus" type="hidden" value="Nimeta Baar">
             </form>
         </div>
         <div style="float:left; padding: 10px;">
@@ -69,6 +67,20 @@
                             <div class="clear"></div>
                         </td>
                     </tr>
+                    #foreach($s in $seadused)
+                     <tr>
+                        <td class="left">8</td>
+                        <td class="right">
+                            <div class="left">Sigadus 2</div>
+                            <div class="right">
+                                <div class="left link"><a href="../seaduse_redaktor.html">Muuda</a></div>
+                                <div class="left link"><a href="../seaduse_redaktor.html">Kustuta</a></div>
+                                <div class="clear"></div>
+                            </div>
+                            <div class="clear"></div>
+                        </td>
+                    </tr>
+                    #end
                 </table>
                 <div class="right" style="margin: 4px;">
                     <form>

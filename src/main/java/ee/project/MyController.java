@@ -90,6 +90,10 @@ public class MyController {
 
     @RequestMapping(value = "/seaduse_redaktor", method = RequestMethod.GET)
     public String seaduseRedaktor(ModelMap modelMap) {
+
+        List<Seadus> seadused = myDAOImpl.getAllSeaduse_ajalugu();
+        modelMap.addAttribute("seadused", seadused);
+
         return "seaduse_redaktor";
     }
 
@@ -209,7 +213,7 @@ public class MyController {
     @RequestMapping(value = "/seaduse_redaktor", method = RequestMethod.POST)
     public String saveSeadus(@ModelAttribute("seadus")Seadus seadus){
 
-
+        //myDAOImpl.getFirstObjekt().getObjekt_ID()
         myDAOImpl.saveSeadus(seadus);
       return "redirect:/seaduse_redaktor.html";
     }

@@ -15,7 +15,7 @@ http://www.springframework.org/schema/security/spring-security-3.0.3.xsd
 ">
 
     <mvc:annotation-driven/>
-
+    <mvc:default-servlet-handler/>
     <security:http auto-config="true">
         <security:intercept-url pattern="**" access="ROLE_USER"/>
     </security:http>

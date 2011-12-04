@@ -221,7 +221,7 @@
 
     <build>
         <directory>target</directory>
-        <finalName>${artifactId}-${version}</finalName>
+        <finalName>Piir-admin</finalName>
         <sourceDirectory>src/main/java</sourceDirectory>
 
         <plugins>
