@@ -1,4 +1,4 @@
-#htmlheaderStart()
+#htmlheaderStart($url)
 <script>
     $(document).ready(function(){
 
@@ -17,53 +17,53 @@
 
 </script>
 #htmlheaderEnd()
-
+#navigation(true $url)
 
             #if($seaduse_punkt.seaduse_punkt_ID && $seaduse_punkt.seaduse_punkt_ID !=0)
-                 #set($action = "/seaduse_punkti_redaktor/"+$seaduse_punkt.seaduse_punkt_ID+".html")
+                 #set($action = $url+"/seaduse_punkti_redaktor/"+$seaduse_punkt.seaduse_punkt_ID+".html")
              #else
-                 #set($action = "/seaduse_punkti_redaktor.html")
+                 #set($action = $url+"/seaduse_punkti_redaktor.html")
             #end
         <div style="float:left;">
             <form action=$action method="POST" id="userdata">
                 <div class="form_item">
-                    <div class="form_title">Paragrahv</div>
+                    <div class="form_title">#lang("paragraph")</div>
                     <div class="left"><input type="text" name ="paragrahv" value="$!seaduse_punkt.paragrahv"></div>
                     <div class="clear"></div>
                 </div>
 
                 <div class="form_item">
-                    <div class="form_title">Päis</div>
+                    <div class="form_title">#lang("header")</div>
                     <div class="left"><input type="text" name ="pais" value="$!seaduse_punkt.pais"></div>
                     <div class="clear"></div>
                 </div>
 
                 <div class="form_item">
-                    <div class="form_title">Tekst</div>
+                    <div class="form_title">#lang("text")</div>
                     <div class="left"><textarea class="form_itm" style="height: 80px;" name ="tekst">$!seaduse_punkt.tekst</textarea></div>
                     <div class="clear"></div>
                 </div>
 
                 <div class="form_item">
-                    <div class="form_title">Kommentaar</div>
+                    <div class="form_title">#lang("comments")</div>
                     <div class="left"><textarea class="form_itm" style="height: 80px;" name ="kommentaar">$!seaduse_punkt.kommentaar</textarea></div>
                     <div class="clear"></div>
                 </div>
 
                 <div class="form_item">
-                    <div class="form_title">Kehtiv alates</div>
+                    <div class="form_title">#lang("valid_from")</div>
                     <div class="left"><input type="text" name ="kehtiv_alates" class="popupDatepicker" value="$!seaduse_punkt.kehtiv_alates"></div>
                     <div class="clear"></div>
                 </div>
 
                 <div class="form_item">
-                    <div class="form_title">Kehtiv kuni</div>
+                    <div class="form_title">#lang("valid_to")</div>
                     <div class="left"><input type="text" name ="kehtiv_kuni" class="popupDatepicker" value="$!seaduse_punkt.kehtiv_kuni"></div>
                     <div class="clear"></div>
                 </div>
 
                 <div class="form_item">
-                    <div class="form_title">Ülem punkt</div>
+                    <div class="form_title">#lang("section")</div>
                     <div class="left">
                         <select class="form_itm" name ="top">
                             <option name="m">Ebaseaduslikud toimingud</option>
@@ -79,11 +79,11 @@
         </div>
         <div style="float:left; padding: 10px;">
             <div class="alampunktid">
-                Alampunktid
+                #lang("subsection")
                 <table>
                     <tr>
                         <th class="left">§</th>
-                        <th class="right">Päis</th>
+                        <th class="right">#lang("header")</th>
                     </tr>
                     #foreach($punkt in $seaduse_punktid)
                     <tr>
@@ -93,10 +93,10 @@
                             <div class="right">
                                 <form>
 ##                                    <input type="submit" name="action" value="Muuda">
-                                    #set($href ="/seaduse_punkti_redaktor/"+ $punkt.seaduse_punkt_ID+".html")
-                                    <a href="$href">Muuda</a>
+                                    #set($href = $url+"/seaduse_punkti_redaktor/"+ $punkt.seaduse_punkt_ID+".html")
+                                    <a href="$href">#lang("edit")</a>
                                  ## <input type="submit"  name="action" value="Kustuta">
-                                    <a href="#" class="delete" rel=$punkt.seaduse_punkt_ID>Kustuta</a>
+                                    <a href="#" class="delete" rel=$punkt.seaduse_punkt_ID>#lang("delete")</a>
                                 </form>
                             </div>
                             <div class="clear"></div>
@@ -107,14 +107,14 @@
                 </table>
                 <div class="right" style="margin: 4px;">
                     <form>
-                    <input type="button" onclick="document.forms['userdata'].submit();" value="Lisa">
+                    <input type="button" onclick="document.forms['userdata'].submit();" value="#lang("add")">
                         </form>
                 </div>
                 <div class="clear"></div>
             </div>
             <div class="bottom">
-                <div class="left link"><a href="#" onclick="document.forms['userdata'].submit();">Salvesta</a></div>
-                <div class="left link"><a href="../seaduse_punkti_redaktor.html">Loobu</a></div>
+                <div class="left link"><a href="#" onclick="document.forms['userdata'].submit();">#lang("save")</a></div>
+                <div class="left link"><a href="$url/../seaduse_punkti_redaktor.html">#lang("cancel")</a></div>
                 <div class="clear"></div>
             </div>
             <div class="clear"></div>
