@@ -1,13 +1,13 @@
-#macro(htmlheaderStart)
+#macro(htmlheaderStart $url)
 <!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset=utf-8>
         <title>Title</title>
-        <link rel="stylesheet" href="res/stiil.css" />
-        <link rel="stylesheet" href="res/datepick.css" />
+        <link rel="stylesheet" href="$url/res/stiil.css" />
+        <link rel="stylesheet" href="$url/res/datepick.css" />
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.js"></script>
-        <script src="res/datepick.js"></script>
+        <script src="$url/res/datepick.js"></script>
         <script>
             $(function() {
                 $('#popupDatepicker').datepick();
@@ -24,11 +24,11 @@
     <body>
 #end
 
-#macro(navigation $notMain)
+#macro(navigation $notMain $url)
     #if($notMain)
-        <div class="left"><a href="index.html">&#171;&nbsp;#lang("main_page")</a></div>
+        <div class="left"><a href="$url/index.html">&#171;&nbsp;#lang("main_page")</a></div>
     #end
-    <div class="right"><a href="index.html?lang=et"><img src="res/flag_estonia.png" width="24" height="24" alt="Eesti keeles" /></a>&nbsp;<a href="index.html?lang=en"><img src="res/flag_great_britain.png" width="24" height="24" alt="In english" /></a></div>
+    <div class="right"><a href="?lang=et"><img src="$url/res/flag_estonia.png" width="24" height="24" alt="Eesti keeles" /></a>&nbsp;<a href="?lang=en"><img src="$url/res/flag_great_britain.png" width="24" height="24" alt="In english" /></a></div>
     <div class="clear"></div>
     <div class="navigation">&nbsp;</div>
 #end

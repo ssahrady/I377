@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.HttpRequestHandler;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -68,8 +69,8 @@ public class MyController {
 
 
     @RequestMapping(value = "/index")
-    public String index (){
-
+    public String index (HttpServletRequest req, ModelMap modelMap){
+        modelMap.addAttribute("url", req.getContextPath());
         int count = getMyDAOImpl().getObjektiLiikCount();
         if(count == 0){
           provideDemoData();
@@ -127,19 +128,20 @@ public class MyController {
     }
 
     @RequestMapping(value = "/piiririkkuja", method = RequestMethod.GET)
-    public String createPiiririkkuja(ModelMap modelMap) {
+    public String createPiiririkkuja(HttpServletRequest req, ModelMap modelMap) {
 
         List<Kodakondsus> kodakondsusList = myDAOImpl.getAllKodakondsus();
-
+        modelMap.addAttribute("url", req.getContextPath());
         modelMap.addAttribute("kodakondsus", kodakondsusList) ;
         return "createPiiririkkuja";
     }
     @RequestMapping(value = "/piiririkkuja/{id}", method = RequestMethod.GET)
-    public String viewPiiririkkuja(ModelMap modelMap, @PathVariable int id) {
+    public String viewPiiririkkuja(HttpServletRequest req, ModelMap modelMap, @PathVariable int id) {
 
         List<Kodakondsus> kodakondsusList = myDAOImpl.getAllKodakondsus();
         Piiririkkuja piiririkkuja = myDAOImpl.getPiiririkkujaById(id);
 
+        modelMap.addAttribute("url", req.getContextPath());
         modelMap.addAttribute("kodakondsus", kodakondsusList);
         modelMap.addAttribute("piiririkkuja", piiririkkuja);
         return "createPiiririkkuja";
