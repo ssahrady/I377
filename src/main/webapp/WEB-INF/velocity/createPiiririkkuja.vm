@@ -1,4 +1,4 @@
-#htmlheaderStart()
+#htmlheaderStart($url)
 <script type="text/javascript">
     $(document).ready(function(){
 
@@ -17,7 +17,7 @@
 
 </script>
 #htmlheaderEnd()
-#navigation(true)
+#navigation(true $url)
         <div style="float:left;">
              #if($piiririkkuja.piiririkkuja_ID && $piiririkkuja.piiririkkuja_ID!=0)
                  #set($action = "/piiririkkuja/"+$piiririkkuja.piiririkkuja_ID+".html")
