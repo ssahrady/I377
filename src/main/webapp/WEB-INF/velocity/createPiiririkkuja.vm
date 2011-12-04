@@ -7,9 +7,9 @@
           var rel = $(this).attr("rel");
          $.ajax({
              type: 'DELETE',
-             url: "/piiririkkuja/"+rel+".html",
+             url: "piiririkkuja/"+rel+".html",
              success: function() {
-                 window.location.replace("/piiririkkuja.html");
+                 window.location.replace("piiririkkuja.html");
              }
          });
      });
@@ -20,9 +20,9 @@
 #navigation(true $url)
         <div style="float:left;">
              #if($piiririkkuja.piiririkkuja_ID && $piiririkkuja.piiririkkuja_ID!=0)
-                 #set($action = "/piiririkkuja/"+$piiririkkuja.piiririkkuja_ID+".html")
+                 #set($action = "piiririkkuja/"+$piiririkkuja.piiririkkuja_ID+".html")
              #else
-                 #set($action = "/piiririkkuja.html")
+                 #set($action = "piiririkkuja.html")
             #end
             <form action=$action method="POST" id="userdata">
                 <div class="form_item">
@@ -87,7 +87,7 @@
                         <td class="right">
                             <div class="left">$k.isikukood</div>
                             <div class="right">
-                                #set($href = "/piiririkkuja/"+$k.piiririkkuja_ID.piiririkkuja_ID+".html")
+                                #set($href = "piiririkkuja/"+$k.piiririkkuja_ID.piiririkkuja_ID+".html")
                                 <div class="left link"><a href=$href>#lang("edit")</a></div>
                                 <div class="left link"><a class="delete" rel=$k.piiririkkuja_ID.piiririkkuja_ID href=$href>#lang("delete")</a></div>
                                 <div class="clear"></div>

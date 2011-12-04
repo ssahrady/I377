@@ -2,10 +2,7 @@ package ee.project;
 
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class FirstLaunch implements ServletContextListener {
 
@@ -18,7 +15,9 @@ public class FirstLaunch implements ServletContextListener {
     public void contextInitialized(ServletContextEvent arg0) {
         System.out.println("ServletContextListener started");
 
-
+       java.util.Map<java.lang.String,java.lang.String> map = System.getenv();
+        System.out.print("asd");
+        String userHome = System.getProperty("user.home");
          try {
             Class.forName("org.hsqldb.jdbcDriver");
         } catch (ClassNotFoundException e) {
@@ -29,13 +28,16 @@ public class FirstLaunch implements ServletContextListener {
 
         try{
         c = DriverManager.getConnection(
-                 "jdbc:hsqldb:file:${user.home}/Team17/db;shutdown=true", "SA", "");
+                 "jdbc:hsqldb:file:"+userHome+"/Team17/db;shutdown=true", "SA", "");
 
-            c.setAutoCommit(false);
-            PreparedStatement statement = c.prepareStatement(Piir.SQL);
-
-            statement.executeUpdate();
-            c.commit();
+            //c.setAutoCommit(false);
+//            PreparedStatement statement = c.prepareStatement(Piir.SQL);
+//
+//            statement.executeUpdate();
+//            c.commit();
+            Statement statement  = c.createStatement();
+            statement.execute(Piir.SQL);
+            c.close();
 
 
 
