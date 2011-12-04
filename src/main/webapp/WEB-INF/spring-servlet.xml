@@ -23,7 +23,6 @@ http://www.springframework.org/schema/security/spring-security-3.0.3.xsd
 
         <security:form-login login-page="/login.html" always-use-default-target="false" default-target-url="/index.html"
 			authentication-failure-url="/login.html?login=fail" />
-		<security:logout logout-success-url="/logout.html" />
     </security:http>
 
     <security:authentication-manager>

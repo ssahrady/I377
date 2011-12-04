@@ -1,13 +1,23 @@
+#htmlheaderStart($url)
+#htmlheaderEnd()
+#navigation(false $url true)
 
 #if($fail == 1)
-    FAIL!
+    <div class="fail">#lang("wrong_user_pass")</div>
 #end
 
 <form action="j_spring_security_check" method="post">
-
-    <input type="text" name="j_username">
-<input type="text" name="j_password">
-
-    <input type="submit" value="Sub">
-
+    <div class="form_item">
+        <div class="form_title">#lang("username")</div>
+        <div class="left"><input type="text" name ="j_username"></div>
+        <div class="clear"></div>
+    </div>
+    <div class="form_item">
+        <div class="form_title">#lang("password")</div>
+        <div class="left"><input type="password" name ="j_password"></div>
+        <div class="clear"></div>
+    </div>
+    <input type="submit" value="#lang("login")">
 </form>
+
+#htmlfooter()
