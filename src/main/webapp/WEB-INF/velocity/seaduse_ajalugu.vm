@@ -1,6 +1,6 @@
-#htmlheaderStart()
+#htmlheaderStart($url)
 #htmlheaderEnd()
-#navigation(true)
+#navigation(true $url)
 <div>
     <form>
         <div class="ajaloo_filter">
@@ -24,7 +24,7 @@
         </div>
         <div class="ajaloo_filter">
             <div>&nbsp;</div>
-            <div><input type="submit" value="Värskenda" /></div>
+            <div><input type="submit" value="#lang("refresh")" /></div>
         </div>
         <div class="clear"></div>
     </form>
@@ -42,7 +42,7 @@
             <td class="left">$seadus.nimetus</td>
             <td class="mid_ajalugu">$seadus.kehtiv_alates</td>
             <td class="mid_ajalugu">$seadus.kehtiv_kuni</td>
-            <td class="right_ajalugu"><div class="link"><a href="../seaduse_ajalugu.html">#lang("view")</a></div></td>
+            <td class="right_ajalugu"><div class="link"><a href="$url/../seaduse_ajalugu.html">#lang("view")</a></div></td>
         </tr>
         #end
     </table>

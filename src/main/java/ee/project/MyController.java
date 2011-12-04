@@ -94,17 +94,19 @@ public class MyController {
 
 
     @RequestMapping(value = "/seaduse_redaktor", method = RequestMethod.GET)
-    public String seaduseRedaktor(ModelMap modelMap) {
+    public String seaduseRedaktor(HttpServletRequest req, ModelMap modelMap) {
 
         List<Seadus> seadused = myDAOImpl.getAllSeaduse_ajalugu();
+        modelMap.addAttribute("url", req.getContextPath());
         modelMap.addAttribute("seadused", seadused);
 
         return "seaduse_redaktor";
     }
 
     @RequestMapping(value = "/seaduse_ajalugu", method = RequestMethod.GET)
-    public String seaduseAjalugu(ModelMap modelMap) {
+    public String seaduseAjalugu(HttpServletRequest req, ModelMap modelMap) {
         List<Seadus> seadusList = myDAOImpl.getAllSeaduse_ajalugu();
+        modelMap.addAttribute("url", req.getContextPath());
         modelMap.addAttribute("seadused", seadusList);
         return "seaduse_ajalugu";
     }
@@ -226,10 +228,10 @@ public class MyController {
 
 
     @RequestMapping(value = "/seaduse_punkti_redaktor", method = RequestMethod.GET)
-    public String seadusePunktiRedaktor(ModelMap modelMap) {
+    public String seadusePunktiRedaktor(HttpServletRequest req, ModelMap modelMap) {
 
-         modelMap.addAttribute("seaduse_punktid",myDAOImpl.getAllSeaduse_punktid());
-
+        modelMap.addAttribute("seaduse_punktid",myDAOImpl.getAllSeaduse_punktid());
+        modelMap.addAttribute("url", req.getContextPath());
         return "seaduse_punkti_redaktor";
     }
 
@@ -269,8 +271,9 @@ public class MyController {
 
 
     @RequestMapping(value = "/seaduse_punkti_redaktor/{id}", method = RequestMethod.GET)
-    public String saveSeadusePunktiRedaktor(ModelMap modelMap, @PathVariable("id") int id) {
+    public String saveSeadusePunktiRedaktor(HttpServletRequest req, ModelMap modelMap, @PathVariable("id") int id) {
         Seaduse_punkt seaduse_punkt = myDAOImpl.getSeaduse_punktById(id);
+        modelMap.addAttribute("url", req.getContextPath());
         modelMap.addAttribute("seaduse_punkt", seaduse_punkt);
         modelMap.addAttribute("seaduse_punktid",myDAOImpl.getAllSeaduse_punktid());
         return "seaduse_punkti_redaktor";
