@@ -17,7 +17,7 @@ http://www.springframework.org/schema/security/spring-security-3.0.3.xsd
     <mvc:annotation-driven/>
 
     <security:http auto-config="true">
-        <security:intercept-url pattern="/**" access="ROLE_USER"/>
+        <security:intercept-url pattern="**" access="ROLE_USER"/>
     </security:http>
 
     <security:authentication-manager>
@@ -31,6 +31,9 @@ http://www.springframework.org/schema/security/spring-security-3.0.3.xsd
             </security:user-service>
         </security:authentication-provider>
     </security:authentication-manager>
+
+
+    <context:property-placeholder location="/META-INF/main.properties"/>
 
     <context:component-scan
             base-package="ee.project"/>
@@ -96,7 +99,7 @@ http://www.springframework.org/schema/security/spring-security-3.0.3.xsd
           class="org.springframework.jdbc.datasource.DriverManagerDataSource">
         <property name="driverClassName" value="org.hsqldb.jdbcDriver"/>
         <!--<property name="url" value="jdbc:hsqldb:file:/home/taivo/db/testdb;shutdown=true"/>-->
-        <property name="url" value="jdbc:hsqldb:file:${user.home}/Team17/database;shutdown=true"/>
+        <property name="url" value="${database.url}"/>
 
         <property name="username" value="sa"/>
         <property name="password" value=""/>
@@ -141,5 +144,6 @@ http://www.springframework.org/schema/security/spring-security-3.0.3.xsd
     <bean id="myDAO" class="ee.project.dao.MainDAOImpl">
         <property name="sessionFactory" ref="mySessionFactory"/>
     </bean>
+
 
 </beans>
