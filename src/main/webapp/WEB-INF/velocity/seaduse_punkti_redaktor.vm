@@ -73,7 +73,7 @@
                 </div>
 
                 <input name ="seaduse_ID" type="hidden" value="160">
-                <input name ="seaduse_punkt_ID" type="hidden" value=$!seaduse_punkt.seaduse_punkt_ID>
+                <input name ="seaduse_punkt_ID" type="hidden" #if($!seaduse_punkt.seaduse_punkt_ID) value='$!seaduse_punkt.seaduse_punkt_ID' #else value="-1" #end  >
 
             </form>
         </div>

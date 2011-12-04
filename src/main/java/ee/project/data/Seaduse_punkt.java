@@ -17,7 +17,8 @@ public class Seaduse_punkt extends OpenableCloseable{
     private String kehtiv_alates;
     private String kehtiv_kuni;
     private int ylemus_seaduse_punkt_id;
-    private int seaduse_ID;
+    private Seadus seaduse_ID;
+    //private int seaduse_ID;
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
@@ -92,13 +93,22 @@ public class Seaduse_punkt extends OpenableCloseable{
     public void setYlemus_seaduse_punkt_id(int ylemus_seaduse_punkt_id) {
         this.ylemus_seaduse_punkt_id = ylemus_seaduse_punkt_id;
     }
-    @Column(name = "SEADUSE_ID")
-    public int getSeaduse_ID() {
+//    @ManyToOne(/*cascade={CascadeType.ALL}*/)
+//    @JoinColumn(name = "SEADUSE_ID",nullable=false)
+//    public Seadus getSeaduse_IDObj() {
+//        return seaduse_IDObj;
+//    }
+//
+//    public void setSeaduse_IDObj(Seadus seaduse_IDObj) {
+//        this.seaduse_IDObj = seaduse_IDObj;
+//    }
+     @ManyToOne(/*cascade={CascadeType.ALL}*/)
+    @JoinColumn(name = "SEADUSE_ID",nullable=false)
+    public Seadus getSeaduse_ID() {
         return seaduse_ID;
     }
 
-    public void setSeaduse_ID(int seaduse_ID) {
+    public void setSeaduse_ID(Seadus seaduse_ID) {
         this.seaduse_ID = seaduse_ID;
     }
-
 }

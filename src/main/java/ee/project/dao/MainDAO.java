@@ -23,6 +23,7 @@ public interface MainDAO {
     public List<Kodakondsus> getAllKodakondsus();
     public Piiririkkuja getPiiririkkujaById(int id);
     public void saveSeadus(Seadus seadus);
+    public Seadus getSeadusById(int id);
     public void saveSeaduse_punkt(Seaduse_punkt seaduse_punkt);
     public List<Seaduse_punkt> getAllSeaduse_punktid();
     public List<Seadus> getAllSeaduse_ajalugu();
@@ -30,5 +31,6 @@ public interface MainDAO {
     public Seaduse_punkt getSeaduse_punktById(int id);
     public void deletePiiririkkuja(Piiririkkuja piiririkkuja);
     public void deleteSeadusePunkt(Seaduse_punkt seaduse_punkt);
+    public List<Seaduse_punkt> getSeaduse_punktBySeadusId(int id);
 
 }

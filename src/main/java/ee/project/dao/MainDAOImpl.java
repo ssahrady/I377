@@ -3,6 +3,7 @@ package ee.project.dao;
 import ee.project.Piir;
 import ee.project.ValueHelper;
 import ee.project.data.*;
+import org.hibernate.FetchMode;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.DetachedCriteria;
 import org.hibernate.criterion.Restrictions;
@@ -101,7 +102,7 @@ public class MainDAOImpl extends HibernateDaoSupport implements MainDAO {
         getHibernateTemplate().save(seadus);
     }
     @Transactional
-    private Seadus getSeadusById(int id){
+    public Seadus getSeadusById(int id){
         DetachedCriteria dc = DetachedCriteria.forClass(Seadus.class);
         dc.add(Restrictions.eq("seaduse_ID", id));
 
@@ -111,7 +112,7 @@ public class MainDAOImpl extends HibernateDaoSupport implements MainDAO {
     }
     @Transactional
     public void saveSeaduse_punkt(Seaduse_punkt seaduse_punkt){
-      //  seaduse_punkt.setYlemus_seaduse_punkt_id(230);
+        seaduse_punkt.setYlemus_seaduse_punkt_id(230);
         getHibernateTemplate().saveOrUpdate(seaduse_punkt);
 
     }
@@ -147,6 +148,7 @@ public class MainDAOImpl extends HibernateDaoSupport implements MainDAO {
     public List<Seadus> getAllSeaduse_ajalugu(){
 
         DetachedCriteria dc = DetachedCriteria.forClass(Seadus.class);
+       // dc.createCriteria("seaduse_punkts");
         List<Seadus> seadusList = getHibernateTemplate().findByCriteria(dc);
 
         return seadusList;
@@ -170,5 +172,18 @@ public class MainDAOImpl extends HibernateDaoSupport implements MainDAO {
 
 
      }
+
+    @Transactional
+    public List<Seaduse_punkt> getSeaduse_punktBySeadusId(int id){
+
+        DetachedCriteria dc = DetachedCriteria.forClass(Seadus.class);
+        dc.add(Restrictions.eq("seaduse_ID", id));
+        List<Seadus> seadusList = getHibernateTemplate().findByCriteria(dc);
+
+        List<Seaduse_punkt> seaduse_punktList= seadusList.iterator().next().getSeaduse_punkts();
+
+        return seaduse_punktList;
+
+    }
 
 }

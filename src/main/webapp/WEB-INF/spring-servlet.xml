@@ -84,7 +84,7 @@ http://www.springframework.org/schema/security/spring-security-3.0.3.xsd
         <property name="cache" value="true"/>
         <property name="prefix" value=""/>
         <property name="suffix" value=".vm"/>
-        <property name="contentType" value="text/html;charset=UTF-8"  />
+        <!--<property name="contentType" value="text/html;charset=UTF-8"  />-->
         <!--<property name="attributes">-->
         <!--<props>-->
             <!--<prop key="converter">ee.project.ValueHelper</prop>-->

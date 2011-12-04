@@ -2,6 +2,7 @@ package ee.project.data;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "SEADUS")
@@ -12,6 +13,7 @@ public class Seadus extends OpenableCloseable {
     private  String kood;
     private Date kehtiv_alates;
     private Date kehtiv_kuni;
+    private List<Seaduse_punkt> seaduse_punkts;
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
@@ -56,5 +58,15 @@ public class Seadus extends OpenableCloseable {
 
     public void setKehtiv_kuni(Date kehtiv_kuni) {
         this.kehtiv_kuni = kehtiv_kuni;
+    }
+
+    @OneToMany(fetch = FetchType.LAZY, targetEntity = Seaduse_punkt.class /*cascade=CascadeType.ALL*/)
+    @JoinColumn(name = "SEADUSE_ID", referencedColumnName = "SEADUSE_ID")
+    public List<Seaduse_punkt> getSeaduse_punkts() {
+        return seaduse_punkts;
+    }
+
+    public void setSeaduse_punkts(List<Seaduse_punkt> seaduses) {
+        this.seaduse_punkts = seaduses;
     }
 }

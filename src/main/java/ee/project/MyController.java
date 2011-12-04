@@ -1,5 +1,6 @@
 package ee.project;
 
+import com.sun.org.apache.xpath.internal.operations.Mod;
 import ee.project.dao.MainDAO;
 import ee.project.data.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -243,10 +244,8 @@ public class MyController {
     public String saveSeadusePunktiRedaktor(@ModelAttribute("seaduse_punkt")Seaduse_punkt seaduse_punkt, HttpServletResponse response) {
 
         List<Seadus> seadusList = myDAOImpl.getAllSeaduse_ajalugu();
-        if(seadusList.size() == 0){
-
-        }
-        seaduse_punkt.setSeaduse_ID(seadusList.iterator().next().getSeaduse_ID());
+        seaduse_punkt.setSeaduse_ID(seadusList.iterator().next());
+        seaduse_punkt.setSeaduse_punkt_ID(0);
         myDAOImpl.saveSeaduse_punkt(seaduse_punkt);
         return "redirect:/seaduse_punkti_redaktor.html";
     }
@@ -267,7 +266,7 @@ public class MyController {
         if(seadusList.size() == 0){
 
         }
-        seaduse_punkt.setSeaduse_ID(seadusList.iterator().next().getSeaduse_ID());
+        seaduse_punkt.setSeaduse_ID(seadusList.iterator().next());
         myDAOImpl.saveSeaduse_punkt(punkt);
         return "redirect:/seaduse_punkti_redaktor.html";
     }
@@ -282,6 +281,37 @@ public class MyController {
         modelMap.addAttribute("seaduse_punktid",myDAOImpl.getAllSeaduse_punktid());
         return "seaduse_punkti_redaktor";
     }
+
+    @RequestMapping(value="/seaduse_ajalugu/{id}", method=RequestMethod.GET)
+    public @ResponseBody ModelMap getAjaluguPunktidById(@RequestParam String name) {
+        ModelMap modelMap = new ModelMap();
+        int id = Integer.parseInt(name);
+
+        List<Seaduse_punkt> seaduse_punktList= myDAOImpl.getSeaduse_punktBySeadusId(id);
+
+
+
+//        modelMap.addAttribute("seadusePunktid", seaduse_punktList);
+        List<Seaduse_punktSimplified> simplifieds = new ArrayList<Seaduse_punktSimplified>();
+        int i=1;
+        for(Seaduse_punkt punkt: seaduse_punktList){
+            Seaduse_punktSimplified simplified =
+                    new Seaduse_punktSimplified
+                            (punkt.getSeaduse_punkt_ID(),
+                            punkt.getPais(),
+                                    punkt.getKehtiv_alates(), punkt.getKehtiv_kuni());
+           // modelMap.addAttribute(""+i, simplified);
+           simplifieds.add(simplified);
+            i++;
+
+        }
+        modelMap.addAttribute("seadused",simplifieds);
+        modelMap.addAttribute("asd", 123);
+        return modelMap;
+    }
+
+
+
     public MainDAO getMyDAOImpl() {
         return myDAOImpl;
     }

@@ -1,4 +1,43 @@
 #htmlheaderStart($url)
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("#refreshBtn").click(function(e) {
+            e.preventDefault();
+            var seaduseID = $("#lawSelect").val();
+            console.log(seaduseID);
+
+                 $.ajax({
+                     type: 'GET',
+                     dataType:'json',
+                     data:{
+                         name:seaduseID
+                     },
+             url: "$url/seaduse_ajalugu/"+seaduseID+".html",
+             success: function(data) {
+                 console.log("success");
+                 console.log(data);
+             },
+              error: function(jqXHR, textStatus, errorThrown) {
+                 console.log("errpr");
+                 console.log(textStatus);
+             }
+         });
+
+
+##
+##            $.getJSON("$url/seaduse_ajalugu/" + seaduseID + ".html",
+##                    { name: seaduseID
+##                    }, function(data) {
+##                        console.log("success");
+##                        console.log(data);
+##
+##            });
+
+
+        });
+    });
+
+</script>
 #htmlheaderEnd()
 #navigation(true $url)
 <div>
@@ -14,17 +53,17 @@
         <div class="ajaloo_filter">
             <div>#lang("law")</div>
             <div>
-                <select name="seadus" class="form_itm">
+                <select id="lawSelect" name="seadus" class="form_itm">
                     <option>Relvaseadus</option>
                     #foreach($s in $seadused)
-                    <option id="$s.seaduse_ID">$s.nimetus</option>
+                    <option value="$s.seaduse_ID">$s.nimetus</option>
                     #end
                 </select>
             </div>
         </div>
         <div class="ajaloo_filter">
             <div>&nbsp;</div>
-            <div><input type="submit" value="#lang("refresh")" /></div>
+            <div><input id="refreshBtn" type="submit" value="#lang("refresh")" /></div>
         </div>
         <div class="clear"></div>
     </form>
