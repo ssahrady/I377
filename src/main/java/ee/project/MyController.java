@@ -23,8 +23,12 @@ public class MyController {
     @Autowired
     private MainDAO myDAOImpl;
 
-    @RequestMapping(value = "/login", method = RequestMethod.GET)
-    public String login(){
+    @RequestMapping(value = "/login*", method = RequestMethod.GET)
+    public String login(HttpServletRequest request, ModelMap modelMap){
+        System.out.print("asd");
+        if("fail".equals(request.getParameter("login"))){
+          modelMap.addAttribute("fail", 1);
+        }
      return "login";
     }
 

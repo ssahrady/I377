@@ -1,4 +1,8 @@
 
+#if($fail == 1)
+    FAIL!
+#end
+
 <form action="j_spring_security_check" method="post">
 
     <input type="text" name="j_username">
